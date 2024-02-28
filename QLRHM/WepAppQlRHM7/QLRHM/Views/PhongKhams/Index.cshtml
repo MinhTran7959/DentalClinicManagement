@@ -1,0 +1,319 @@
+﻿@using QLRHM.Models;
+@model QLRHM.Models.BenhNhan
+
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+    var now = DateTime.Now.ToString("dd/MM/yyyy");
+    var Tongbn = 0 ;
+    if (ViewBag.bn.Count != 0 || ViewBag.PKLH.Count != 0)
+    {
+        Tongbn = ViewBag.bn.Count + ViewBag.PKLH.Count;
+
+    }
+    else
+    {
+         Tongbn = 0;
+    }
+
+}
+<style>
+    td {
+        vertical-align: middle;
+    }
+</style>
+
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+            <li class="active"><a data-toggle="tab" href="#home"><i class="fa-solid fa-people-robbery"></i>&nbsp; Danh sách bệnh nhân</a></li>
+            <li><a data-toggle="tab" href="#home1"><i class="fa-solid fa-envelope-open-text"></i>&nbsp; Danh sách bệnh nhân có lịch hẹn</a></li>
+        </ul>
+
+        <div class="tab-content">
+                <div class="row" style="padding-top:5px ;padding-bottom:5px">
+
+                <div class="col-md-9">
+                    <form asp-action="Index" method="post" id="abc">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+
+                                    <div class="input-group">
+                                        <label style="margin-top: 7px;padding-right: 10px;" class="control-label">Từ</label>
+                                        <input name="fromDate" class="form-control Ngay2" value="@ViewBag.fromDate" placeholder="Từ ngày" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <label style="margin-top: 7px;padding-right: 10px;" class="control-label">Đến</label>
+                                        <input name="toDate" class="form-control Ngay2" value="@ViewBag.toDate" placeholder="Đến ngày" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+
+                                    <input style="color:black" type="submit" value="Tìm" class="btn btn-primary form-control" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div class="d-flex align-items-center">
+                            <div class='input-group'>
+                                <select id="Phong2" name="Phong2" class="form-select" asp-items="ViewBag.Phong">
+                                    <option value="">Tất cả phòng (Tổng: @Tongbn) </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="home" class="tab-pane fade in active">
+              
+
+
+                <div style="overflow-x: auto;">
+                    <table class="table" id="example2">
+                        <thead>
+                            <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                                <th>
+                                    Stt
+                                </th>
+                                <th>
+                                    Ảnh
+                                </th>
+
+                                <th style="width:11%">
+                                    Mã bệnh nhân
+                                </th>
+
+                                <th style="width:20%">
+                                    Tên bệnh nhân và năm sinh
+                                </th>
+                               
+                                <th style="width:7%">
+                                    Giới tính
+                                </th>
+                                <th style="width:8%">
+                                    Sđt
+                                </th>
+                                <th>
+                                  Giờ tiếp nhận
+                                </th>
+                                <th style="width:9%">
+                                    Phòng khám
+                                </th>
+                                <th style="width:9%">
+                                    Kết thúc 
+
+                                </th>
+                                <th style="width:9%">
+                                    Thao tác
+
+                                </th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+
+                                int stt = 1;
+                                foreach (BenhNhan bn in ViewBag.bn)
+                                {
+                                   
+                                    <tr class="Phong2">
+                                        <td style="width:2%">
+                                            @stt
+                                        </td>
+                                        <td style="width:2%">
+                                            <div class="rounded-image">
+                                                <img src="~/image/BN/@bn.AnhBn" alt="Ảnh" />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => bn.MaBenhNhan)
+                                        </td>
+                                        <td id="myText_@bn.Idbn">
+                                            @Html.DisplayFor(modelItem => bn.TenBn) - @Html.DisplayFor(modelItem => bn.NgaySinh)
+                                        </td>
+                                       
+                                        <td>
+                                            @Html.DisplayFor(modelItem => bn.GioiTinh)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => bn.Sdt)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem =>bn.GioTiepNhan)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => bn.PhongNavigation.TenPhong)
+                                        </td>
+                                        <td>
+                                            <div class="checkbox-container">
+                                                <form id="abc" asp-action="ChonPhong" asp-controller="PhongKhams" asp-route-id="@bn.Idbn">
+                                                    <input type="hidden" name="Idbn" value="@bn.Idbn" />  <input name="NgaySua" type="hidden" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")">
+                                                    <input class="checkbox-icon" name="Phong" value="1" checkbox-icon" type="checkbox" id="myButton" data-name="@bn.TenBn" onclick="return KetThucKham(this);" onchange="this.form.submit();" />
+                                                </form>
+                                            </div>
+                                        </td>
+                                        <td  style="width:10%">
+                                          @*  <a asp-action="Edit" asp-controller="BenhNhans" asp-route-id="@bn.Idbn">
+
+                                                <i class="fa-regular fa-pen-to-square fa-lg btn" style="color: #5895fe;"></i>
+                                            </a>*@
+                                            <a asp-action="KHDT" asp-controller="BenhNhans" asp-route-id="@bn.Idbn">
+                                                <i class="fa-solid fa-user-doctor fa-lg btn" style="color: #005eff;margin-left: 16%;"></i>
+                                            </a>
+                                            <a onclick="speakText('@bn.Idbn')"><i class="fa-solid fa-volume-high fa-lg  btn"></i></a>
+                                        </td>
+
+                                       
+
+                                    </tr>
+                                    stt++; // Tăng số thứ tự sau mỗi lần lặp
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div id="home1" class="tab-pane fade in ">
+
+
+
+                <div style="overflow-x: auto;">
+                    <table class="table" id="example3">
+                        <thead>
+                            <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                                <th>
+                                    Stt
+                                </th>
+                                <th>
+                                    Ảnh
+                                </th>
+
+                                <th >
+                                    Mã BN
+                                </th>
+
+                                <th >
+                                    Tên bệnh nhân
+                                </th>
+                               
+                                <th >
+                                    Gt
+                                </th>
+                                <th >
+                                    Sđt
+                                </th>
+                                 <th >
+                                    Tên BS
+                                </th>
+                                <th>
+                                   Lịch hẹn
+                                </th>
+                                 <th>
+                                    Giờ tiếp nhận
+                                </th>
+                                <th >
+                                    Phòng khám
+                                </th>
+                                <th style="width:10%">Kết thúc</th>
+                                <th style="width:7%">Thao tác</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+
+                                int stt2 = 1;
+                                foreach (LichHen bn in ViewBag.PKLH)
+                                {
+
+                                    <tr class="Phong2">
+                                        <td style="width:2%">
+                                            @stt2
+                                        </td>
+                                        <td style="width:2%">
+                                            <div class="rounded-image">
+                                                <img src="~/image/BN/@bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.AnhBn" alt="Ảnh" />
+                                            </div>
+                                        </td>
+                                        <td style="width:8%">
+                                            @Html.DisplayFor(modelItem => bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.MaBenhNhan)
+                                        </td>
+
+                                        <td style="width:14%" id="myText2_@bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Idbn">
+                                            @Html.DisplayFor(modelItem => bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.TenBn) - @Html.DisplayFor(modelItem => bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.NgaySinh)
+                                        </td>
+                                      
+                                        <td style="width:3%">
+                                            @Html.DisplayFor(modelItem => bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.GioiTinh)
+                                        </td>
+                                        <td style="width:8%">
+                                            @Html.DisplayFor(modelItem => bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Sdt)
+                                        </td>
+                                         <td style="width:12%">
+                                            @Html.DisplayFor(modelItem => bn.IdndkhNavigation.IdbsdtNavigation.TenBs)
+                                        </td>
+
+                                        <td style="width:7%">
+                                            @Html.DisplayFor(modelItem =>bn.FormatNgayHen)
+                                        </td>
+                                        <td style="width:11%">
+                                            @Html.DisplayFor(modelItem =>bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.GioTiepNhan)
+                                        </td>
+
+                                        <td style="width:8%">
+                                            @Html.DisplayFor(modelItem => bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.PhongNavigation.TenPhong)
+                                        </td>
+                                        <td>
+                                            <div class="checkbox-container">
+                                                <form id="abc" asp-action="ChonPhong" asp-controller="PhongKhams" asp-route-id="@bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Idbn">
+                                                    <input type="hidden" name="Idbn" value="@bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Idbn" />  <input name="NgaySua" type="hidden" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")">
+                                                    <input class="checkbox-icon" name="Phong" value="1" checkbox-icon" type="checkbox" id="myButton" data-name="@bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.TenBn" onclick="return KetThucKham(this);" onchange="this.form.submit();" />
+                                                </form>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @*  <a asp-action="Edit" asp-controller="BenhNhans" asp-route-id="@bn.Idbn">
+
+                                    <i class="fa-regular fa-pen-to-square fa-lg btn" style="color: #5895fe;"></i>
+                                    </a>*@
+                                            <a asp-action="KHDT" asp-controller="BenhNhans" asp-route-id="@bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Idbn">
+                                                <i class="fa-solid fa-user-doctor fa-lg btn" style="color: #005eff;margin-left: 16%;"></i>
+                                            </a>
+                                            <a onclick="speakText2('@bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Idbn')"><i class="fa-solid fa-volume-high fa-lg  btn"></i></a>
+                                        </td>
+
+
+
+                                    </tr>
+                                    stt2++; // Tăng số thứ tự sau mỗi lần lặp
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="~/js/phongkham.js" asp-append-version="true"></script>
+
+

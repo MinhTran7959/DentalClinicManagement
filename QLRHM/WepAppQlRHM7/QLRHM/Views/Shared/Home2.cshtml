@@ -1,0 +1,689 @@
+﻿@using System.Security.Claims;
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Phòng khám nha khoa</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+@*        <link href="img/favicon.ico" rel="icon"> *@
+
+
+
+    <!--sweetalert-->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet" />
+
+    <!--sweetalert-->
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/template/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="~/template/css/style.css" rel="stylesheet" />
+
+    <!-- nav tap  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+ @*    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> *@
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <!--   font icon   -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!--virtual select -->
+    <link rel="stylesheet" href="~/template/css/selectize.default.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/vn.js"></script>
+
+    <style>
+        /* CSS */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 3px solid #ececec;
+        }
+
+        tr:hover {
+            background-color: #e9effa; /* Màu nền khi hover trên dòng */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Thêm shadow khi hover */
+        }
+
+        tr:hover td {
+                background-color: transparent; /* Làm cho màu nền của ô trong dòng trở lại màu trong suốt */
+            }
+
+        td.column1 {
+            padding: 15px; /* Thiết lập khoảng cách đều nhau 15px cho các ô của cột có lớp .column1 */
+        }
+
+        tr:hover td {
+            background-color: transparent; /* Làm cho màu nền của ô trong dòng trở lại màu trong suốt */
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .pagination li {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .page-item.active .page-link {
+            background-color: #05cdf6;
+            border-color: #05cdf6;
+        }
+
+            .page-item.active .page-link:hover {
+                background-color: #05cdf6;
+                border-color: #05cdf6;
+            }
+
+            .page-item.active .page-link:focus {
+                box-shadow: 0 0 0 0.2rem #05cdf6;
+            }
+
+        div.dataTables_wrapper div.dataTables_length select {
+            width: 75px;
+            display: inline-block
+        }
+
+        div.dataTables_wrapper div.dataTables_filter {
+            text-align: right
+        }
+
+            div.dataTables_wrapper div.dataTables_filter label {
+                font-weight: normal;
+                white-space: nowrap;
+                text-align: left
+            }
+
+        .rounded-image {
+            width: 60px; /* Đặt kích thước ảnh */
+            height: 60px;
+            border-radius: 50%; /* Tạo hình ảnh tròn */
+          
+            overflow: hidden; /* Ẩn phần ngoài của hình ảnh tròn */
+
+        }
+
+            .rounded-image img {
+                width: 100%;
+                height: auto;
+            }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            height: 30px;
+            width: 30px;
+        }
+        /* CSS để hiển thị form tìm kiếm */
+        .abc {
+            display: block !important;
+        }
+
+
+    </style>
+
+    @await RenderSectionAsync("Scripts", required: false)
+    
+
+</head>
+
+<body>
+
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+                <a href="#" class="navbar-brand">
+                    <h4 class="m-0 text-uppercase text-primary"><i class="fa-regular fa-hospital"></i>  Phòng khám nha khoa</h4>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ">
+                        <a asp-action="Index" asp-controller="Home" class="nav-item nav-link"><i class="fa-solid fa-house-laptop"></i> Trang chủ</a>
+                        <div class="nav-item dropdown">
+                            @if (User.IsInRole("Admin") || User.IsInRole("QuanLy"))
+                            {
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-solid fa-list"></i> Danh mục</a>
+                                <div class="dropdown-menu m-0">
+                                    <a asp-controller="NhomBacSis" asp-action="Index" class="dropdown-item"><i class="fa-solid fa-highlighter fa-xs"></i> Nhóm nhân viên</a>
+                                    <a asp-controller="BacSis" asp-action="Index" class="dropdown-item"><i class="fa-solid fa-highlighter fa-xs"></i> Nhân viên</a>
+                                    <a asp-controller="NhomCongViecs" asp-action="Index" class="dropdown-item"><i class="fa-solid fa-highlighter fa-xs"></i> Nhóm công việc</a>
+                                    <a asp-controller="CongViecs" asp-action="Index" class="dropdown-item"><i class="fa-solid fa-highlighter fa-xs"></i> Công việc</a>
+                                    <a asp-controller="BaoHanhs" asp-action="Index" class="dropdown-item"><i class="fa-solid fa-highlighter fa-xs"></i> Bảo hành</a>
+                                    <a asp-controller="NganHangs" asp-action="Index" class="dropdown-item"><i class="fa-solid fa-highlighter fa-xs"></i> Ngân hàng</a>
+                                    <a asp-controller="HinhThucThanhToans" asp-action="Index" class="dropdown-item"><i class="fa-solid fa-highlighter fa-xs"></i> Hình thức thanh toán</a>
+                                    <a asp-controller="PhongKhams" asp-action="DanhSachPhong" class="dropdown-item"><i class="fa-solid fa-highlighter fa-xs"></i> Phòng khám</a>
+                                    <a asp-controller="Thuocs" asp-action="Index" class="dropdown-item"><i class="fa-solid fa-highlighter fa-xs"></i> Thuốc</a>
+                                    <a asp-controller="TaiKhoans" asp-action="Index" class="dropdown-item"><i class="fa-solid fa-highlighter fa-xs"></i> Tài khoản</a>
+
+
+                                </div>
+                            }
+                            else
+                            {
+                                <a href="#" class="nav-link dropdown-toggle disabled" data-bs-toggle="dropdown">
+                                    <i class="fa-solid fa-list"></i> Danh mục
+                                </a>
+                            }
+
+
+
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-regular fa-pen-to-square"></i> Quản lý</a>
+                            <div class="dropdown-menu m-0">
+                                <a asp-controller="BenhNhans" asp-action="Index" class="dropdown-item"><i class="fa-solid fa-user-injured fa-xs"></i> Tiếp nhận bệnh nhân</a>
+                                <a asp-controller="PhongKhams" asp-action="Index" class="dropdown-item"><i class="fa-regular fa-pen-to-square fa-xs"></i> Khám bệnh và lên lịch thanh toán </a>
+                                <a asp-controller="ThanhToans" asp-action="Index" asp-route-toDate="@ViewBag.toDate" asp-route-fromDate="@ViewBag.fromDate" class="dropdown-item"><i class="fa-solid fa-file-invoice-dollar fa-xs"></i> Hoá đơn thanh toán </a>
+                                <a asp-controller="LichHens" asp-action="ThongKeLichHen" asp-route-to="@ViewBag.toDate" asp-route-fo="@ViewBag.fromDate" class="dropdown-item"><i class="fa-regular fa-calendar-plus fa-xs"></i> Lịch hẹn</a>
+
+                            </div>
+                        </div>
+
+                        @if (User.IsInRole("Admin") || User.IsInRole("QuanLy"))
+                        {
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-solid fa-chart-column"></i> Báo cáo</a>
+                                <div class="dropdown-menu m-0">
+                                    <a asp-controller="ThongKe" asp-action="ThongKeBN" asp-route-to="@ViewBag.toDate" asp-route-fo="@ViewBag.fromDate" class="dropdown-item">Thống kê bệnh nhân</a>
+                                    <a asp-controller="ThongKe" asp-action="ThongKeCV" asp-route-to="@ViewBag.toDate" asp-route-fo="@ViewBag.fromDate" class="dropdown-item">Thống kê công việc điều trị</a>
+                                    <a asp-controller="ThongKe" asp-action="ThongKeKHDT" asp-route-to="@ViewBag.toDate" asp-route-fo="@ViewBag.fromDate" class="dropdown-item">Thống kê kế hoạch điều trị</a>
+                                    <a asp-controller="ThongKe" asp-action="ThongKeHoaDon" asp-route-to="@ViewBag.toDate" asp-route-fo="@ViewBag.fromDate" class="dropdown-item">Thống kê hoá đơn thanh toán</a>
+
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="nav-item dropdown disabled">
+                                <a href="#" class="nav-link dropdown-toggle disabled" data-bs-toggle="dropdown">
+                                    <i class="fa-solid fa-chart-column"></i> Báo cáo
+                                </a>
+                            </div>
+                        }
+                        @if (@User.Claims != null)
+                        {
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="fa-regular fa-address-card"></i>
+
+                                    Xin chào: <span style="color:#3b78ec">@User.Claims.FirstOrDefault(x=>x.Type == ClaimTypes.Name)?.ValueType</span>
+                                </a>
+
+                                <div class="dropdown-menu m-0" style="left: 20%;">
+                                    <a asp-action="CaNhan" asp-controller="TaiKhoans" asp-route-id="@User.Claims.FirstOrDefault(x=>x.Type == "BacSiID")?.Value" class="dropdown-item">Quản lý hồ sơ</a>
+                                    <a asp-action="Logout" asp-controller="Login" style="color: #ff0000;" class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ff0000;"></i>Đăng xuất</a>
+                                </div>
+                            </div>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link ">
+                                     <span style="color:#3b78ec">@User.Claims.FirstOrDefault(x=>x.Type == "BacSiID")?.ValueType</span>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                   
+                </div>
+
+            </nav>
+        </div>
+    </div>
+
+            @RenderBody()
+
+
+    <!-- Appointment End -->
+    <!-- Footer start -->
+    <!-- <div class="container-fluid bg-dark text-light border-top border-secondary py-4">
+        <div class="container">
+            <div class="row g-5">
+
+            </div>
+        </div>
+    </div> -->
+    <!-- Footer End -->
+    <!-- Back to Top -->
+  @*   <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a> *@
+
+
+    <!-- JavaScript Libraries -->
+@*     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> *@
+  @*   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> *@
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  @*   test *@
+
+  @*   test *@
+
+    <!-- Template Javascript -->
+    <script src="~/template/js/main.js"></script>
+
+@*     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/locale/vi.js"></script>
+
+    @* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"> *@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+
+    @*  font icon *@
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+
+    @*  font icon *@
+    <script src="~/template/js/selectize.min.js"></script>
+
+    <script>
+        $(function () {
+            var href = window.location.href;
+            $('.nav-item.dropdown').each(function () {
+                var dropdownToggle = $(this).find('.nav-link.dropdown-toggle');
+                var dropdownLinks = $(this).find('.dropdown-item');
+                var isActive = false;
+
+                dropdownLinks.each(function () {
+                    if (href.indexOf($(this).attr('href')) >= 0) {
+                        isActive = true;
+                    }
+                });
+
+                if (isActive) {
+                    $('.nav-link.dropdown-toggle').removeClass('active');
+                    dropdownToggle.addClass('active');
+                }
+            });
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            flatpickr(".Ngay", {
+                altInput: true,
+                dateFormat: "DD/MM/YYYY",
+                altFormat: "DD/MM/YYYY",
+                allowInput: true,
+                "locale": "vn",
+                parseDate: (datestr, format) => {
+                    return moment(datestr, format, true).toDate();
+                },
+                formatDate: (date, format, locale) => {
+                    return moment(date).format(format);
+                },
+            });
+
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+
+            flatpickr(".Ngay2", {
+                altInput: true,
+                dateFormat: "DD/MM/YYYY",
+                altFormat: "DD/MM/YYYY",
+                // allowInput: true,
+                "locale": "vn",
+                parseDate: (datestr, format) => {
+                    return moment(datestr, format, true).toDate();
+                },
+                formatDate: (date, format, locale) => {
+                    return moment(date).format(format);
+                },
+            });
+
+        });
+
+    </script>
+
+    <script>
+        // $(function () {
+        //     $.fn.datetimepicker.defaults.locale = 'vi';
+        //     $('#datepicker').datetimepicker({
+        //         // format: 'DD/MM/YYYY HH:mm',
+        //         sideBySide: true,
+        //     });
+        // }); $(function () {
+        //     $.fn.datetimepicker.defaults.locale = 'vi';
+        //     $('#datepicker1').datetimepicker({
+        //         format: 'DD/MM/YYYY',
+        //         sideBySide: true,
+        //     });
+        // });
+        $(document).ready(function () {
+            $(".inputmask").inputmask({
+                alias: "datetime",
+                inputFormat: "dd/mm/yyyy HH:MM"
+            });
+        }); $(document).ready(function () {
+            $(".inputmask1").inputmask({
+                alias: "datetime",
+                inputFormat: "dd/mm/yyyy",
+            });
+        });
+    </script>
+
+    <script>  
+            $(document).ready(function () {
+                // Kiểm tra xem đã lưu trạng thái trước đó trong localStorage chưa
+                var isFormVisible = localStorage.getItem("formVisible");
+
+                // Nếu đã lưu trạng thái và trạng thái là 'hidden', ẩn form ban đầu
+                if (isFormVisible === 'hidden') {
+                $("form").not("#abc").hide();
+                }
+
+                // Xử lý khi nút button được nhấn
+                $("#toggleFormButton").click(function () {
+                    // Sử dụng toggle để ẩn/hiện form
+                $("form").not("#abc").toggle();
+
+                    // Lưu trạng thái mới vào localStorage
+                if ($("form").not("#abc").is(":visible")) {
+                        localStorage.setItem("formVisible", "visible");
+                    } else {
+                        localStorage.setItem("formVisible", "hidden");
+                    }
+                });
+            });
+    </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tables = document.querySelectorAll("table");
+
+            // Lưu trạng thái sắp xếp cho từng bảng
+            const sortStates = new Array(tables.length).fill({ currentSortColumn: null, isSortAscending: true });
+
+            tables.forEach((table, tableIndex) => {
+                const tbody = table.querySelector("tbody");
+                const thList = table.querySelectorAll("thead th");
+
+                // Hàm so sánh dữ liệu trong các ô
+                function compare(a, b) {
+                    const numA = parseInt(a.replace(/\./g, ''), 10);
+                    const numB = parseInt(b.replace(/\./g, ''), 10);
+
+                    if (!isNaN(numA) && !isNaN(numB)) {
+                        return numA - numB;
+                    }
+
+                    if (a < b) return -1;
+                    if (a > b) return 1;
+                    return 0;
+                }
+
+                // Hàm sắp xếp lại dữ liệu trong tbody
+                function sortTable(columnIndex) {
+                    const rows = Array.from(tbody.querySelectorAll("tr"));
+                    rows.sort((rowA, rowB) => {
+                        const cellA = rowA.cells[columnIndex].textContent.trim();
+                        const cellB = rowB.cells[columnIndex].textContent.trim();
+                        return compare(cellA, cellB) * (sortStates[tableIndex].isSortAscending ? 1 : -1);
+                    });
+
+                    while (tbody.firstChild) {
+                        tbody.removeChild(tbody.firstChild);
+                    }
+
+                    rows.forEach(row => {
+                        tbody.appendChild(row);
+                    });
+                }
+
+                // Bắt sự kiện nhấp vào tiêu đề để sắp xếp
+                thList.forEach((th, index) => {
+                    th.addEventListener("click", () => {
+                        if (sortStates[tableIndex].currentSortColumn === index) {
+                            sortStates[tableIndex].isSortAscending = !sortStates[tableIndex].isSortAscending;
+                        } else {
+                            sortStates[tableIndex].isSortAscending = true;
+                        }
+
+                        sortStates[tableIndex].currentSortColumn = index;
+                        sortTable(index);
+                    });
+                });
+            });
+        });
+    </script>
+        @if (@TempData["AlertMessaget_cr"] != null)
+        {
+                <script>
+                swal({
+                    type: 'success',
+                    title: 'Thêm Thành Công',
+                    text: '@TempData["AlertMessagetk"]',
+                    showCloseButton: true,
+                    confirmButtonText: 'Close'
+                });
+        </script>
+        }
+        @if (@TempData["AlertMessaget_edit"] != null)
+        {
+        <script>
+            swal({
+                type: 'success',
+                title: 'Sửa Thành Công',
+                text: '@TempData["AlertMessagetk"]',
+                showCloseButton: true,
+                confirmButtonText: 'Close'
+            });
+        </script>
+
+        }
+
+    <script>
+        var object = { stat: false, ele: null };
+
+        function ConfirmDelete(ev) {
+            if (object.stat) {
+                return true;
+            }
+            swal({
+                title: "Bạn muốn ẩn dữ liệu này?",
+                text: "Dữ liệu này sẽ mất khỏi bảng!",
+
+                type: "warning",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn btn-danger",
+                confirmButtonText: "Xóa!",
+                closeOnConfirm: true
+            }, function () {
+                swal("Xóa!", "Đã ẩn thành công.", "success");
+                object.stat = true;
+                object.ele = ev;
+                object.ele.click();
+            });
+            return false;
+        }
+    </script>
+
+    <script>
+        function validatePhoneNumber(input) {
+            const phoneNumber = input.value.replace(/\D/g, ''); // Loại bỏ tất cả các ký tự không phải chữ số
+            if (phoneNumber.length > 11) {
+                input.value = phoneNumber.slice(0, 11); // Cắt bớt độ dài số điện thoại nếu vượt quá 11 chữ số
+            } else if (phoneNumber.length < 10) {
+                input.setCustomValidity('Số điện thoại cần ít nhất 10 chữ số'); // Đặt thông báo lỗi nếu số điện thoại có ít hơn 10 chữ số
+            } else {
+                input.setCustomValidity(''); // Xóa thông báo lỗi nếu số điện thoại hợp lệ
+            }
+        }
+    </script>
+    <script>
+        function validateCccd(input) {
+            const cccdNumber = input.value.replace(/\D/g, ''); // Loại bỏ tất cả các ký tự không phải chữ số
+            if (cccdNumber.length > 13) {
+                input.value = cccdNumber.slice(0, 13); // Cắt bớt độ dài số CCCD nếu vượt quá 13 chữ số
+            } else if (cccdNumber.length < 13) {
+                input.setCustomValidity('Số CCCD cần có đúng 13 chữ số'); // Đặt thông báo lỗi nếu số CCCD có ít hơn 13 chữ số
+            } else {
+                input.setCustomValidity(''); // Xóa thông báo lỗi nếu số CCCD hợp lệ
+            }
+        }
+    </script>
+   
+    <script>
+        $(document).ready(function () {
+            $("#Search").on("keyup", function () {
+                var searchText = $(this).val().toLowerCase();
+                $(".Search").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#Search1").on("keyup", function () {
+                var searchText = $(this).val().toLowerCase();
+                $(".Search1").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+                });
+            });
+        });
+    </script>
+
+    <script>
+
+    $(document).ready(function () {
+
+        // Chỉ hiển thị dữ liệu đầu tiên của dropdown list trong thanh tìm kiếm.
+        var initialTenLoaiXe = $("#productDropdown").data("Idnh");
+
+        $("#searchInput");
+        if (initialTenLoaiXe == null || initialTenLoaiXe.trim() === "") {
+            $("#tenLoaiXe").val("Trống");
+        } else {
+            $("#tenLoaiXe").val(initialTenLoaiXe);
+        }
+
+
+        $('#productDropdown').on('click', 'option', function (event) {
+            event.stopPropagation();
+            var selectedOption = $(this);
+            $('#searchInput').val(selectedOption.text()); // Cập nhật giá trị của input khi chọn sản phẩm
+            $('#tenLoaiXe').val(selectedOption.data("tenlx")); // Cập nhật tên loại xe
+            $('#productList').hide(); // Ẩn danh sách sau khi chọn sản phẩm
+        });
+
+        $('#searchInput').on('input', function () {
+            var inputText = $(this).val().toLowerCase();
+            $('#productDropdown option').each(function () {
+                var optionText = $(this).text().toLowerCase();
+                var isVisible = optionText.includes(inputText);
+                $(this).toggle(isVisible);
+            });
+        });
+
+        $("#searchInput").on("keydown", function (e) {
+            var currentOption = $('#productDropdown option:selected');
+
+            if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+                if (e.key === "ArrowDown") {
+                    currentOption.nextAll("option:visible:first").prop("selected", true);
+                } else if (e.key === "ArrowUp") {
+                    currentOption.prevAll("option:visible:first").prop("selected", true);
+                }
+                $('#searchInput').val($('#productDropdown option:selected').text());
+                $('#tenLoaiXe').val($('#productDropdown option:selected').data("tenlx"));
+            }
+        });
+
+        // Khi người dùng nhấp vào thanh tìm kiếm, hãy hiển thị danh sách dropdown list.
+        $("#searchInput").on("focus", function () {
+            $("#productList").show();
+        });
+
+        // Khi người dùng thoát khỏi thanh tìm kiếm, hãy ẩn danh sách dropdown list.
+        $("#productList").on("blur", function () {
+            setTimeout(function () {
+                $("#productList").hide();
+            }, 200);
+        });
+
+    });
+</script>
+
+    <script>
+        function formatCurrency(input) {
+            // Lấy giá trị nhập vào
+            let value = input.value;
+
+            // Loại bỏ tất cả các dấu chấm và dấu phân cách khác
+            value = value.replace(/[^0-9]/g, '');
+
+            // Định dạng lại giá trị thành số tiền có dấu chấm phân cách hàng nghìn
+            if (value.length > 3) {
+                value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            }
+
+            // Gán giá trị đã định dạng lại vào trường input
+            input.value = value;
+        }
+    </script>
+
+    <script>
+
+        // Khi trang đã tải hoàn toàn
+        $(document).ready(function () {
+            // Kích hoạt Selectize cho tất cả các phần tử có lớp .selectize
+            $('.selectize').selectize({
+
+            });
+
+        });
+    </script>
+
+    <script>
+        const myInput = document.getElementById('myInput');
+        myInput.addEventListener('focus', () => {
+            myInput.value = 'Focused!';
+        });
+    </script>
+</body>
+
+</html>

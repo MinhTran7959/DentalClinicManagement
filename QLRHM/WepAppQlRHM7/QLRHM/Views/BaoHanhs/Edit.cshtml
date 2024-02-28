@@ -1,0 +1,277 @@
+﻿@using QLRHM.Models;
+@model QLRHM.Models.BaoHanh
+
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+
+}
+<style>
+    .justify-content-center {
+        justify-content: flex-end !important;
+    }
+</style>
+
+
+
+
+@*   <input type="text" id="Search"> *@
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+            <li class="active"><a data-toggle="tab" href="#home"><i class='bx bx-list-ul'></i> Danh sách bảo hành</a></li>
+            <li><a data-toggle="tab" href="#menu1"><i class='bx bx-folder-plus'></i>Danh sách bảo hành đã ẩn</a></li>
+        </ul>
+        <hr>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+
+                <button id="toggleFormButton" class="btn btn-primary">Bật/tắt phiếu thêm</button>
+                <a asp-action="ExportExcel" asp-controller="BaoHanhs" type="submit" class="btn btn-success">Xuất excel</a>
+                @using (Html.BeginForm("Edit", "BaoHanhs", FormMethod.Post, new { id = "myForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <center><b style="font-weight:900 ; color:red">Sửa bảo hành</b></center>
+                    <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+                        <div class="row">
+                         
+                            <div class="col-md-3" style="display:none">
+                             
+                                        <input style="background-color:white;color:blue" asp-for="Idbh" type="text"  class="form-control" readonly />
+                                   
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Mã bảo hành</label>
+                                    <div class='input-group'>
+                                        <input style="background-color:white;color:blue" asp-for="MaBaoHanh" type="text" class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Tên bảo hành</label>
+                                    <div class='input-group'>
+                                        <input asp-for="TenBaoHanh" id="TenNbs" type="text" maxlength="50" class="form-control" required oninvalid="this.setCustomValidity('Không được bỏ trống tên nhóm');" oninput="setCustomValidity('')" />
+                                    </div>
+                                    <span id="TenNCVError" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Số Ngày</label>
+                                    <div class='input-group'>
+                                        <input asp-for="SoNgay" id="TenNbs" type="number" class="form-control" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" />
+                                    </div>
+                                    <span id="TenNCVError" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Ngày Sửa</label>
+                                    <div class='input-group'>
+                                        <input asp-for="NgaySua" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3" style="display:none">
+
+                                <input asp-for="Active" type="text" value="1" class="form-control" readonly />
+
+                            </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label class="control-label">&nbsp;</label>
+                                        <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                }
+                <div class="row" style="padding-top:5px;padding-bottom:5px">
+
+                    <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group">
+                                <input type="text" id="Search" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <table class="table" id="example">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã nhóm bảo hành
+                            </th>
+                            <th>
+                                Tên nhóm bảo hành
+                            </th>
+                            <th>
+                                Số Ngày
+                            </th>
+                            <th>
+                                Ngày thêm
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            int stt = 1; // Khởi tạo số thứ tự ban đầu
+
+                            foreach (BaoHanh bh in ViewBag.bh)
+                            {
+                                <tr class="Search">
+                                    <td style="width:2%">
+                                        @stt
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bh.MaBaoHanh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bh.TenBaoHanh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bh.SoNgay)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bh.NgayTao)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@bh.Idbh">
+
+                                            <box-icon name='edit' animation='tada-hover' color='#3b78ec'></box-icon>
+                                        </a>
+                                        @*    <a asp-action="Details" asp-route-id="@nbs.Idnbs">
+                                <box-icon type='solid' name='info-circle' animation='tada-hover' color='#05cdf6'></box-icon>
+                                </a>*@
+                                        <a asp-action="Hide" onclick="return ConfirmDelete(this);" asp-route-id="@bh.Idbh">
+                                            <box-icon type='solid' name='hide' animation='tada-hover' color='red'></box-icon>
+                                        </a>
+                                    </td>
+                                </tr>
+                                stt++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+                    </tbody>
+                </table>
+                
+
+
+            </div>
+            <div id="menu1" class="tab-pane fade" style="color:#000">
+                <div class="row" style="padding-top:5px;padding-bottom:20px">
+                    @*   <div class="col-md-6">
+                    <a asp-action="CreateMaster" asp-controller="NhomCongViecs"><i class='bx bx-folder-plus bx-md'></i></a>
+                    </div> *@
+                   @*  <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group" style="height: 20px;">
+                                <input type="text" id="Search" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+
+                            </div>
+                        </div>
+                    </div> *@
+                    <div class="col-md-3">
+                    </div>
+                </div>
+                <table class="table" id="example2">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã nhóm bảo hành
+                            </th>
+                            <th>
+                                Tên nhóm bảo hành
+                            </th>
+                            <th>
+                                Ngày thêm
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            int sttt = 1; // Khởi tạo số thứ tự ban đầu
+
+                            foreach (BaoHanh bhhide in ViewBag.bhhide)
+                            {
+                                <tr class="Search">
+                                    <td style="width:2%">
+                                        @sttt
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bhhide.MaBaoHanh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bhhide.TenBaoHanh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bhhide.NgayTao)
+                                    </td>
+                                    <td>
+                                      
+                                        <a asp-action="Details" asp-route-id="@bhhide.Idbh">
+                                            <box-icon type='solid' name='info-circle' animation='tada-hover' color='#05cdf6'></box-icon>
+                                        </a>
+                                        <a asp-action="Active" onclick="return ConfirmActive(this);" asp-route-id="@bhhide.Idbh">
+
+                                            <box-icon name='rotate-right' flip='horizontal' color='#04b245'></box-icon>
+                                        </a>
+                                    </td>
+                                </tr>
+                                sttt++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+          
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#Search").on("keyup", function () {
+            var searchText = $(this).val().toLowerCase();
+            $(".Search").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#Search1").on("keyup", function () {
+            var searchText = $(this).val().toLowerCase();
+            $(".Search").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+    });
+</script>
+
+>

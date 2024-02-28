@@ -1,0 +1,394 @@
+﻿
+@using QLRHM.Models;
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+    
+}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+    .selectize-input  {       
+        font-size: 16px;
+        font-weight: 700
+    }
+
+    .selectize-dropdown [data-selectable].option{
+        font-size: 16px;
+        font-weight: 700
+    }
+
+
+</style>
+    <form id="abc" asp-controller="ThongKe" asp-action="ThongKeChung" method="get">
+        <div class="row" style="padding-top:5px; padding-bottom:5px ;justify-content: center;">
+            <div class="col-md-5" >
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+
+                        <div class="input-group">
+                            <select class="demo-consoles selectize" style="width:80%" id="thongkeOption" name="thongkeOption">
+                                <option value="ngay">Theo Ngày (@ViewBag.NgayHienTai)</option>
+                                <option value="tuan">Theo Tuần (@ViewBag.TuanHienTai)</option>
+                                <option value="thang">Theo Tháng (@ViewBag.ThangHienTai)</option>
+                                <option value="quy1">Theo quý đầu (@ViewBag.Quy1HienTai) </option>
+                                <option value="quy2">Theo quý giữa (@ViewBag.Quy2HienTai)</option>
+                                <option value="quy3">Theo quý cuối (@ViewBag.Quy3HienTai)</option>
+                                <option value="quy4">Theo quý cuối cùng (@ViewBag.Quy4HienTai)</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Xem kết quả</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row" >
+        <div class="container bg-primary p-3" style="border-radius:20px ; background-color:#f8f9fe!important">
+            <div class="row" style="justify-content: space-evenly;">
+                <div class="col-lg-4 col-md-7">
+
+                    <div class="card bg-white rounded-4 p-2 mb-lg-0 mb-3" data-tor="inview:bg(primary), hover:bg(danger)">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-paste fa-lg" style="color:#3b78ec ; width:65px ;height:65px"></i>
+                            <div class="hstack gap-3">
+                                <div class="p-2" >
+                                    <h4 class="fs-5">Tổng Kế hoạch điều trị mới: <a style="color:#3b78ec ">@ViewBag.KHNgay</a></h4>                               
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-7">
+                    <div class="card bg-white rounded-4 p-2 mb-lg-0 mb-3" data-tor="inview:bg(primary), hover:bg(danger)">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-coins" style="color: #3b78ec ; width:65px ;height:65px"></i>
+                            <div class="hstack gap-3">
+                                <div class="p-2">
+                                        <h4 class="fs-5">Tổng hoá thu nhập <a style="color:#3b78ec ">@ViewBag.TienNgay</a></h4>                             
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-7">
+                    <div class="card bg-white rounded-4 p-2 mb-lg-0 mb-3" data-tor="inview:bg(primary), hover:bg(danger)">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-user-injured"  style="color: #3b78ec ; width:65px ;height:65px"></i>                      
+                            <div class="hstack gap-3">
+                                <div class="p-2">
+                                        <h4 class="fs-5">Tổng bệnh nhân mới: <a style="color: #3b78ec ;">@ViewBag.BNNgay</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>                          
+        </div>                      
+    </div>
+
+
+
+<div class="row">
+    <div class="col-md-12" style="text-align: center; color:#3b78ec;font-weight:700">Số công việc điều trị trong khoản thời gian chọn</div>
+
+        <div class="col-md-12">
+                                    <table id="bieudo1" class="table">
+                        <thead>
+                            <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                                <th>
+                                    Stt
+                                </th>
+                                <th>
+                                    Mã công việc
+                                </th>
+                                <th>
+                                    Tên công việc
+                                </th>
+                                <th>
+                                    Số lần
+                                </th>
+                                <th>
+                                    Tiền gốc
+                                </th>
+                                               
+                                <th>
+                                    Tiền ước tính thu
+                                </th>
+                                <th>
+                                    Tiền chưa thanh toán
+                                </th>
+                                <th>
+                                    Thực thu
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.TopCongViec.Count == 0)
+                            {
+                                <tr>
+                                         
+                                           <td colspan="8" style="color:red;text-align: center">Không có công việc điều trị nào</td>
+                                         
+                                </tr>
+                            }
+                            else
+                            {
+                                var stt = 1;
+                                foreach (TongTienNDTT tongTien in ViewBag.TopCongViec)
+                                {
+
+                                        @*  decimal TienUocTinh = 0; *@
+                                    <tr class="Search">
+                                        <td style="width:2%">
+                                            @stt
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => tongTien.MaCV)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => tongTien.TenCV)
+                                        </td>
+                                          <td style="text-align:center;width:5%">
+                                            @Html.DisplayFor(modelItem => tongTien.TotalSoCV)
+                                        </td>
+                                         <td style="text-align:right">
+                                            @{
+                                                // Chuyển đổi TotalSoCV từ chuỗi (string) thành số thực (double)
+                                                double TotalSoCV = double.Parse(tongTien.TotalSoCV);
+
+                                                // Tính toán tiecgoc
+                                                decimal tiecgoc = (decimal)(TotalSoCV * tongTien.TotalSoGoc);
+                                            }
+
+                                            @string.Format("{0:#,0}", tiecgoc)
+
+                                        </td>
+                                        <td style="text-align:right">
+                                          @{
+                                                decimal TienUocTinh = (decimal)(tongTien.TotalSoUocTinh + tongTien.TotalSoTienThanhToan);
+                                                decimal TiLe = 0; 
+                                                if (tiecgoc != 0)
+                                                {
+                                                    TiLe = (((TienUocTinh - tiecgoc) / tiecgoc) * 100);
+                                                     
+                                                }
+                                               string textColor = TiLe >= 0 ? "green" : "red";
+                                             }
+    
+                                                @string.Format("{0:#,0}", TienUocTinh) <span style="color: @textColor">(@string.Format("{0:#,0}%", TiLe)) </span>
+                                        </td>
+
+                                        <td style="text-align:right">
+                                             @*  tienchuathanhtoan *@
+                                            @Html.DisplayFor(modelItem => tongTien.FormattedTotalSoUocTinh)
+                                        </td>
+
+                                         <td style="text-align:right">
+                                            @Html.DisplayFor(modelItem => tongTien.FormattedTotalSoTienThanhToan)
+                                        </td>
+
+                                    </tr>
+                                    stt++; // Tăng số thứ tự sau mỗi lần lặp
+                                }
+                            }
+                        </tbody>
+                    </table>
+        </div>
+    <div class="col-md-12" style="text-align: center;color:#3b78ec;font-weight:700">Số bác sĩ điều trị trong khoản thời gian chọn</div>
+        <center>
+            <div class="col-md-9">
+                    <table id="bieudo2" class="table">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                                          
+                            <th>
+                                Mã bác sĩ
+                            </th>
+                            <th>
+                                Tên bác sĩ
+                            </th>
+                            <th>
+                                Công việc đã điều trị
+                            </th>
+                            <th>
+                                Tổng số tiền thu được
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            @if (ViewBag.TopBacSi.Count == 0)
+                        {
+                            <tr>
+                                           <td colspan="5" style="color:red;text-align: center">Không có bác sĩ nào </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            var stt = 1;
+                            foreach (TongTienNDTT tongTien in ViewBag.TopBacSi)
+                            {
+                                <tr class="Search">
+                                    <td style="width:2%">
+                                        @stt
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => tongTien.MaBS)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => tongTien.TenBS)
+                                    </td>
+                                                   
+                                    <td style="text-align:center">
+                                        @Html.DisplayFor(modelItem => tongTien.TotalSoCV)
+                                    </td>
+                                                   
+                                    <td style="text-align:right">
+                                        @Html.DisplayFor(modelItem => tongTien.FormattedTotalTienBs)
+                                    </td>
+
+                                </tr>
+                                stt++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+                    </tbody>
+                </table>
+
+        </div>
+    </center>
+</div>
+
+
+
+
+<script>
+    // Function to get the selected option from a cookie
+    function getSelectedOption() {
+        var option = localStorage.getItem('selectedOption'); // Sử dụng localStorage để lưu trữ lựa chọn
+        if (option) {
+            document.getElementById("thongkeOption").value = option;
+        }
+    }
+
+    // Event listener for the form submission
+    document.getElementById("abc").addEventListener("submit", function () {
+        var select = document.getElementById("thongkeOption");
+        var selectedOption = select.options[select.selectedIndex].value;
+        localStorage.setItem('selectedOption', selectedOption); // Lưu lựa chọn vào localStorage
+    });
+
+    // Call the function to set the selected option when the page loads
+    getSelectedOption();
+</script>
+
+<script>
+    // Lấy dữ liệu từ bảng công việc
+    var labelsCongViec = [];
+    var dataCongViec = [];
+
+    $('#bieudo1 tbody tr').each(function () {
+        var $row = $(this);
+        labelsCongViec.push($row.find('td:eq(1)').text());
+        dataCongViec.push(parseFloat($row.find('td:eq(2)').text().replace(',', ''))); // Chuyển đổi số thập phân
+    });
+
+    // Vẽ biểu đồ tròn cho công việc
+    var ctxCongViec = document.getElementById('chartCongViec').getContext('2d');
+    var chartCongViec = new Chart(ctxCongViec, {
+        type: 'pie', // Đặt kiểu biểu đồ thành 'pie' (tròn)
+        data: {
+            labels: labelsCongViec,
+            datasets: [{
+                data: dataCongViec,
+                backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: true, // Hiển thị chú thích
+                },
+                tooltip: {
+                    callbacks: {
+                        title: function (context) {
+                            return 'Tổng số tiền thu được'; // Tiêu đề của tooltip
+                        },
+                        label: function (context) {
+                            var label = context.label || ''; // Nhãn của cột
+                            var value = context.formattedValue || ''; // Giá trị của cột
+                            return label + ': ' + value;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+</script>
+<script>
+
+    // Lấy dữ liệu từ bảng bác sĩ
+    var labelsBacSi = [];
+    var dataBacSi = [];
+
+    $('#bieudo2 tbody tr').each(function () {
+        var $row = $(this);
+        labelsBacSi.push($row.find('td:eq(1)').text());
+        dataBacSi.push($row.find('td:eq(2)').text());
+    });
+
+    // Vẽ biểu đồ cột cho bác sĩ
+    var ctxBacSi = document.getElementById('chartBacSi').getContext('2d');
+    var chartBacSi = new Chart(ctxBacSi, {
+        type: 'line',
+        data: {
+            labels: labelsBacSi,
+            datasets: [{
+                label: 'Tổng số công việc đã điều trị',
+                data: dataBacSi,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function (value, index, values) {
+                            return value.toLocaleString() + ' Lần điều trị';
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false // Ẩn chú thích
+                },
+                tooltip: {
+                    callbacks: {
+                        title: function (context) {
+                            return 'Tổng công việc'; // Tiêu đề của tooltip
+                        },
+                        label: function (context) {
+                            var label = context.label || ''; // Nhãn của cột
+                            var value = context.formattedValue || ''; // Giá trị của cột
+                            return label + ': ' + value;
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>

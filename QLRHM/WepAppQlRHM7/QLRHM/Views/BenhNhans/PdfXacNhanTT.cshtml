@@ -1,0 +1,326 @@
+﻿@model QLRHM.Models.PdfThanhToan
+@using QLRHM.Models
+
+@{
+    Layout = null;
+    decimal tongTien = 0;
+    decimal tongtiendathu = 0; // Khởi tạo biến tổng số tiền còn nợ
+}
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+@* <title> Order confirmation </title> *@
+<meta name="robots" content="noindex,nofollow" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+<link href="~/css/text.css" rel="stylesheet" />
+<body style="    font-family: 'Roboto', sans-serif;">
+
+@using (Html.BeginForm("PdfXacNhanTT", "BenhNhans", FormMethod.Post, new { enctype = "multipart/form-data", id = "ApplicantForm" }))
+{
+    <input style="background-color:white;color:blue" asp-for="KeHoachDieuTri.Idkhdt" type="hidden" class="form-control" readonly />
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+        <tr>
+            <td height="20"></td>
+        </tr>
+        <tr>
+            <td>
+                <table width="850" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff" style="border-radius: 10px 10px 0 0;">
+                    <tr class="hiddenMobile">
+                        <td height="40"></td>
+                    </tr>
+                    <tr class="visibleMobile">
+                        <td height="30"></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <table width="670" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table width="220" border="0" cellpadding="0" cellspacing="0" align="left" class="col">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="color:#3b78ec">Phòng khám nha khoa</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <tr class="hiddenMobile">
+                                                        <td height="10"></td>
+                                                    </tr>
+                                                    <tr class="visibleMobile">
+                                                        <td height="10"></td>
+                                                    <tr>
+                                                    <tr>
+                                                        <td style="font-size: 12px; color: #5b5b5b;  line-height: 18px; vertical-align: top; text-align: left;">
+                                                            <p>ĐC: 6/69 Lê Văn Sỹ , TP.HCM</p>
+                                                            <p> ĐT: 037483677</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table width="220" border="0" cellpadding="0" cellspacing="0" align="right" class="col">
+                                                <tbody>
+
+                                                    <tr>
+                                                        <td style="font-size: 15px; color: #3b78ec; letter-spacing: -1px;  line-height: 1; vertical-align: top; text-align: right;">
+                                                            Số phiếu: @Model.noiDungThanhToan1.IdttNavigation.MaThanhToan
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                    <tr class="hiddenMobile">
+                                                        <td height="10"></td>
+                                                    </tr>
+                                                    <tr class="visibleMobile">
+                                                        <td height="10"></td>
+                                                    <tr>
+                                                        <td style="font-size: 12px; color: #5b5b5b;  line-height: 18px; vertical-align: top; text-align: right;">
+                                                            <p>Số hồ sơ: @Model.benhNhan.MaBenhNhan</p>
+                                                            <p>Ngày: @Model.noiDungThanhToan1.IdttNavigation.NgayThanhToan</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <!-- /Header -->
+    <!-- Order Details -->
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+        <tbody>
+            <tr>
+                <td>
+                    <table width="850" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff">
+                        <tbody>
+                            <tr>
+
+                            <tr class="hiddenMobile" style="display: contents;  text-align: center; ">
+                                <td style="padding-top: 30px;padding-bottom:10px ;"><h2>HOÁ ĐƠN THANH TOÁN</h2></td>
+                            </tr>
+                            <tr>
+
+                                <td style="width: 100%; text-align: center; font-weight:700;font-size:14px">
+                                    <span style="display: inline-block; width: 200px;"> Họ tên:<a style="font-weight:500"> @Model.benhNhan.TenBn </a></span>
+                                    <span style="display: inline-block; width: 160px;">Năm Sinh: <a style="font-weight:500"> @Model.benhNhan.FormatNgaySinh </a></span>
+                                    <span style="display: inline-block; width: 110px;">Giới tính: <a style="font-weight:500"> @Model.benhNhan.GioiTinh </a></span>
+                                    <span style="display: inline-block; width: 150px;">Sđt:<a style="font-weight:500"> @Model.benhNhan.Sdt </a></span>
+                                </td>
+
+
+                            </tr>
+                            <tr>
+
+                                <td style="width: 100%; padding-left: 135px; font-weight:700;font-size:14px">
+                                    <span style="display: inline-block; width: 350px;">Địa chỉ: <a style="font-weight:500"> @Model.benhNhan.DiaChi </a></span>
+
+                                    <span style="display: inline-block; width: 320px;">Email:<a style="font-weight:500"> @Model.benhNhan.Email </a></span>
+                                </td>
+
+
+                            </tr>
+
+
+
+                            <tr>
+                                <td>
+                                    <table width="670" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding" style="padding-top:30px ;">
+                                        <tbody>
+                                            <tr>
+                                                <th style="font-size: 13px;  font-weight: 700; line-height: 1; vertical-align: top; padding: 0 0 7px" align="left">
+                                                    Công việc điều trị
+                                                </th>
+                                                <th style="font-size: 13px; font-weight: 700; line-height: 1; vertical-align: top; padding: 0 0 7px;" align="left">
+                                                    Hình thức
+                                                </th>
+                                                <th style="font-size: 13px; font-weight: 700; line-height: 1; vertical-align: top; padding: 0 0 7px;" align="left">
+                                                    Nơi nhận
+                                                </th>
+                                                <th style="font-size: 13px; font-weight: 700; line-height: 1; vertical-align: top; padding: 0 0 7px;" align="left">
+                                                    Tên TK
+                                                </th>
+                                                <th style="font-size: 13px; font-weight: 700; line-height: 1; vertical-align: top; padding: 0 0 7px;" align="left">
+                                                    Ngày thanh toán
+                                                </th>
+                                                    <th style="font-size: 13px; font-weight: 700; line-height: 1; vertical-align: top; padding: 0 0 7px;" align="center">
+                                                        Đơn giá
+                                                    </th>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" style="background: #bebebe;" colspan="7"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="10" colspan="7"></td>
+                                            </tr>
+                                             
+                                                <tr style="font-size:13.5px;line-height: 1.5;">
+                                                    <td>
+                                                                @Model.noiDungThanhToan1.IdndkhNavigation.IdcvdtNavigation.TenCongViec
+                                                    </td>
+                                                    <td>
+                                                                @Model.noiDungThanhToan1.IdhtttNavigation.TenHttt
+                                                    </td>
+                                                    <td>
+                                                                @Model.noiDungThanhToan1.IdhtttNavigation.IdnhNavigation.TenNganHang
+                                                    </td>
+
+                                                    <td>
+                                                                @Model.noiDungThanhToan1.IdhtttNavigation.IdnhNavigation.TenNganHang
+                                                    </td>
+
+                                                   
+                                                    <td>
+
+                                                                    @if (Model.noiDungThanhToan1.ThanhToan == "1")
+                                                                {
+                                                                    @Model.noiDungThanhToan1.FormatNgayTao
+                                                                }
+                                                                else
+                                                                {
+                                                          
+
+                                                                }
+                                                    </td>
+                                                    <td style="text-align:right">
+                                                            @Model.noiDungThanhToan1.FormattedSoTienThanhToan
+                                                    </td>
+                                                </tr>
+                                                    @{
+                                                        tongTien += Convert.ToDecimal(Model.noiDungThanhToan1.FormattedSoTienThanhToan);
+                                                        tongtiendathu += Convert.ToDecimal(Model.noiDungThanhToan1.FormattedSoTienThanhToan);
+                                                     }
+
+                                            <tr>
+                                                <td height="1" colspan="7" style="border-bottom:1px solid #e4e4e4"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="20"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- /Order Details -->
+    <!-- Total -->
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+        <tbody>
+            <tr>
+                <td>
+                    <table width="850" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff">
+                        <tbody>
+                            <tr>
+                                <td>
+
+                                    <!-- Table Total -->
+                                    <table width="670" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
+                                        <tbody>
+
+                                            <tr>
+                                                <td style="font-size: 12px; width:550px; color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
+                                                    Tổng chi phí:
+                                                </td>
+                                                <td style="font-size: 12px;  color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
+                                                    <strong>@string.Format("{0:#,0}", tongTien)</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; width:550px; color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
+                                                    Số tiền đã thu:
+                                                </td>
+                                                <td style="font-size: 12px;  color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
+                                                    <strong>@string.Format("{0:#,0}", tongtiendathu)</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; width:550px; color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
+                                                    Số tiền còn thiếu:
+                                                </td>
+                                                <td style="font-size: 12px;  color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
+                                                    <strong>@string.Format("{0:#,0}", tongTien-tongtiendathu)</strong>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- /Table Total -->
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- /Total -->
+
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+
+        <tr>
+            <td>
+                <table width="850" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff">
+                    <tr>
+                        <td>
+                            <table width="670" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
+                                <tbody>
+                                    <tr>
+                                        <td style="font-size: 12px;   line-height: 18px; vertical-align: top; text-align: left; font-weight: 700; padding-left: 10%;">
+                                            Khách hàng
+
+                                        </td>
+
+                                        <td style="font-size: 12px;   line-height: 18px; vertical-align: top; text-align: left; font-weight: 700; padding-left: 20%;">
+                                            Thu ngân
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 12px;   line-height: 18px; vertical-align: top; text-align: left;padding-left: 10%;">
+                                            (Ký, họ tên)
+
+                                        </td>
+
+                                        <td style="font-size: 12px;   line-height: 18px; vertical-align: top; text-align: left;  padding-left: 20%;">
+                                            (Ký, họ tên)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class="spacer">
+                        <td height="50"></td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="20"></td>
+        </tr>
+    </table>
+}
+</body>
+

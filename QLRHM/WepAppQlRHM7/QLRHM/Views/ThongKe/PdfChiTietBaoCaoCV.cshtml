@@ -1,0 +1,130 @@
+﻿
+@model IEnumerable<QLRHM.Models.NoiDungThanhToan>
+@using QLRHM.Models;
+@{
+    Layout = "~/Views/Shared/Home_Modal.cshtml";
+    var ngay = Model.FirstOrDefault(); // Lấy đối tượng đầu tiên từ danh sách Model
+    var fromDate = ViewData["FromDate"] as string;
+    var toDate = ViewData["ToDate"] as string;
+    var TongTien = 0;
+
+<!-- Bây giờ bạn có thể sử dụng fromDate và toDate bình thường trong tệp Razor này -->
+
+}
+
+
+    <div class ="table" style="min-width:900px ; max-width:700px;color:black ">
+        <div>
+             <span style="font-weight:900;padding-left:8px">
+                PHÒNG KHÁM NHA KHOA RĂNG HÀM MẶT
+            </span>
+         
+        </div>
+    <div>
+        <a style="font-size: 14px; font-weight: normal;">
+            <span>  Địa chỉ : 69/96 tổ 3 , ấp 6 , đường Nguyễn Văn Bữa , Hóc Môn , Thành phố Hồ Chí Minh <br></span>
+            <span style="margin-top: 5px; display: block;">Sđt: 03827847566</span>
+            <span>Gmail: PhongKhamNhaKhoaRHM@gmail.com</span>
+        </a>
+    </div>
+
+    <div style="text-align:center;padding-top:30px; margin-bottom:20px ;text-transform:uppercase;"  >
+        @if (ngay != null)
+        {
+            <a>Báo cáo danh sách công việc @ngay.IdndkhNavigation.IdcvdtNavigation.TenCongViec  NGÀY @ViewBag.fromDate - @ViewBag.toDate</a>
+        }
+            
+        </div>
+
+    </div>
+<center>
+    <table id="bieudo1" class="table" style="min-width:900px ; max-width:700px; font-size:13px">
+
+        <thead>
+            <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center">
+
+                <th>
+                    Stt
+                </th>
+                <th>
+                    Mã bệnh nhân
+                </th>
+                <th>
+                    Tên bệnh nhân
+                </th>
+                <th>
+                    Ngày sinh
+                </th>
+                <th>
+                    Sđt
+                </th>
+                <th>
+                    Mã công việc
+                </th>
+                <th>
+                    Tên công việc
+                </th>
+                <th>
+                    Số tiền thanh toán
+                </th>
+                <th>
+                    Ngày thanh toán
+                </th>
+
+            </tr>
+        </thead>
+
+        @{
+            int stt = 1;
+        }
+        @foreach (var ChiTietBCCV in Model)
+        {
+
+            <tr>
+
+                <td>
+                    @stt
+                </td>
+                <td>
+                    @ChiTietBCCV.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.MaBenhNhan
+                </td>
+                <td>
+                    @ChiTietBCCV.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.TenBn
+                </td>
+                <td>
+                    @ChiTietBCCV.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.FormatNgaySinh
+                </td>
+                <td>
+                    @ChiTietBCCV.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Sdt
+                </td>
+
+                <td>
+                    @ChiTietBCCV.IdndkhNavigation.IdcvdtNavigation.MaCongViec
+                </td>
+                <td>
+                    @ChiTietBCCV.IdndkhNavigation.IdcvdtNavigation.TenCongViec
+                </td>
+                <td style="text-align:right">
+                    @ChiTietBCCV.FormattedSoTienThanhToan
+                </td>
+                <td>
+                    @ChiTietBCCV.FormatNgayTao
+                </td>
+
+            </tr>
+            stt++;
+            TongTien += Convert.ToInt32(ChiTietBCCV.SoTienThanhToan);
+        }
+        <tr class="Tong">
+
+            <td colspan="7" style="text-align: center;color: #3b78ec">Tổng cộng</td>
+
+            <td colspan="2" style="text-align:center;color: #3b78ec">@string.Format("{0:#,0}", TongTien)</td>
+
+
+
+
+        </tr>
+    </table>
+
+</center>

@@ -1,0 +1,112 @@
+﻿@model QLRHM.Models.TaiKhoan
+
+@{
+    Layout =null;
+
+}
+
+
+@using (Html.BeginForm("DoiMatKhau", "TaiKhoans", FormMethod.Post, new { id = "abc", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <center><b style="font-weight:900 ; color:red">Sửa tài khoản</b></center>
+    <div class="container-fluid" style="border: 2px solid #b8ceff;padding-top:10px;padding-bottom:10px;color:black">
+        <div class="row">
+           
+                <input asp-for="Idtk" type="hidden">
+                <input asp-for="Idbs" type="hidden">
+                <input name="id" value="@ViewBag.id " type="hidden" >
+
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Tên tài khoản </label>
+                    <input style="color:black" asp-for="TenTaiKhoan" oninput="validateTenTK(this)" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Mật khẩu</label>
+                    <input style="color:black" asp-for="MatKhau" id="password" type="password" value="" placeholder="Nhập mật khẩu mới" oninput="validateMK(this)" required class="form-control" />
+                </div>
+            </div>  <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Xác thực mật khẩu</label>
+                    <input style="color:black" type="password" id="confirmPassword" value="" placeholder="Nhập lại mật khẩu mới" oninput="validateMK(this)" required class="form-control" />
+                </div>
+            </div>
+             <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">Cập nhật lần cuối</label>
+                    <input style="color:black" asp-for="NgaySua" type="text" value="@DateTime.Now" readonly class="form-control" />
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label">&nbsp;</label>
+                    <input style="color:black" onclick="validatePassword()" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+
+<script>
+    function validatePassword() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password != confirmPassword) {
+            // Sử dụng alert cho thông báo
+            alert("Mật khẩu và xác nhận mật khẩu không khớp nhau!");
+        } else {
+            // Sử dụng confirm để xác nhận thành công
+            var confirmed = confirm("Mật khẩu xác nhận thành công! Tiếp tục?");
+            if (confirmed) {
+                // Thực hiện hành động tiếp theo
+            }
+        }
+    }
+
+    function validateMK(input) {
+        var sanitizedValue = input.value;
+
+        // Giới hạn độ dài tối đa là 14 ký tự
+        if (sanitizedValue.length > 14) {
+            sanitizedValue = sanitizedValue.slice(0, 14);
+        }
+
+        // Kiểm tra độ dài của giá trị
+        if (sanitizedValue.length < 8 || sanitizedValue.length > 14) {
+            input.setCustomValidity('Nhập it nhất từ 8 đến 50  .');
+        } else {
+            input.setCustomValidity('');
+        }
+
+        // Gán giá trị đã xử lý vào input
+        input.value = sanitizedValue;
+    }
+    function validateTenTK(input) {
+        var sanitizedValue = input.value;
+
+        // Giới hạn độ dài tối đa là 14 ký tự
+        if (sanitizedValue.length > 14) {
+            sanitizedValue = sanitizedValue.slice(0, 14);
+        }
+
+        // Kiểm tra độ dài của giá trị
+        if (sanitizedValue.length < 8 || sanitizedValue.length > 14) {
+            input.setCustomValidity('Nhập it nhất từ 6 đến 20  .');
+        } else {
+            input.setCustomValidity('');
+        }
+
+        // Gán giá trị đã xử lý vào input
+        input.value = sanitizedValue;
+    }
+
+
+</script>

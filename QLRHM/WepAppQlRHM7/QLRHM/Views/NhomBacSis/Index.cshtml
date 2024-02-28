@@ -1,0 +1,319 @@
+﻿@using QLRHM.Models;
+@model QLRHM.Models.NhomBacSi
+
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+  
+}
+<style>
+    .justify-content-center {
+        justify-content: flex-end !important;
+    }
+</style>
+
+@*   <input type="text" id="Search"> *@
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+            <li class="active"><a data-toggle="tab" href="#home"><i class='bx bx-list-ul'></i> Danh sách nhóm nhân viên</a></li>
+            <li><a data-toggle="tab" href="#menu1"><i class='bx bx-folder-plus'></i>Nhóm nhân viên đã ẩn</a></li>
+    @*         <li><a data-toggle="tab" href="#menu2">Sửa nhóm bác sĩ</a></li> *@
+        </ul>
+        
+     
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+
+                <button id="toggleFormButton" class="btn btn-primary">Bật/tắt phiếu thêm</button>
+                <a asp-action="ExportExcel" asp-controller="NhomBacSis" type="submit" class="btn btn-success">Xuất excel</a>
+                @using (Html.BeginForm("Create", "NhomBacSis", FormMethod.Post, new { id = "myForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <center><b style="font-weight:900 ; color:red">Thêm nhóm nhân viên</b></center>
+                    <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+                        <div class="row">
+                            @*   <b>Thêm nhóm công việc</b> *@
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Mã nhóm nhân viên</label>
+                                    <div class='input-group'>
+                                        <input style="background-color:white;color:blue" name="MaNbs" type="text" value="@ViewBag.GeneratedMaNbs" class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Tên nhóm nhân viên</label>
+                                    <div class='input-group'>
+                                        <input name="TenNbs" id="TenNbs" type="text" class="form-control" required oninvalid="this.setCustomValidity('Không được bỏ trống tên nhóm');" oninput="setCustomValidity('')" />
+                                    </div>
+                                    <span id="TenNCVError" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Ngày thêm</label>
+                                    <div class='input-group'>
+                                        <input name="NgayTao" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">&nbsp;</label>
+                                    <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                <div class="row" style="padding-top:5px;padding-bottom:5px">
+                   @*  <div class="col-md-6">
+                        <button style="display:none" id="toggleFormButton" class="btn btn-primary">Thêm nhóm công việc</button>
+                    </div> *@
+                    <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group">
+                                <input type="text" id="Search" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <table class="table" id="example">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã nhóm nhân viên
+                            </th>
+                            <th>
+                                Tên nhóm nhân viên
+                            </th>
+                            <th>
+                                Ngày thêm
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            int stt = 1; // Khởi tạo số thứ tự ban đầu
+
+                            foreach (NhomBacSi nbs in ViewBag.nbs)
+                            {
+                                    <tr class="Search">
+                                        <td style="width:2%">
+                                            @stt
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => nbs.MaNbs)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => nbs.TenNbs)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => nbs.NgayTao)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@nbs.Idnbs">
+                                         
+                                                <box-icon name='edit' animation='tada-hover' color='#3b78ec'></box-icon>
+                                            </a>
+                                       
+                                            <a asp-action="Hide" onclick="return ConfirmDelete(this)" asp-route-id="@nbs.Idnbs">
+                                                <box-icon type='solid' name='hide' animation='tada-hover' color='red'></box-icon>
+                                            </a>
+                                      
+                                        </td>
+                                    </tr>
+                                stt++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+                    </tbody>
+                </table>
+               
+               
+              
+
+
+            </div>
+            <div id="menu1" class="tab-pane fade" style="color:#000">
+                <div class="row" style="padding-top:5px;padding-bottom:20px">
+                    @*   <div class="col-md-6">
+                    <a asp-action="CreateMaster" asp-controller="NhomCongViecs"><i class='bx bx-folder-plus bx-md'></i></a>
+                    </div> *@
+                    <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group" style="height: 20px;">
+                                <input type="text" id="Search1" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                       
+                    </div>
+                </div>
+            <div clas="row">
+                <table class="table" id="example2">
+                    <thead>
+                        <tr style="background-color:white;border: 5px solid #ececec;">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã nhóm nhân viên
+                            </th>
+                            <th>
+                                Tên nhóm nhân viên
+                            </th>
+                            <th>
+                                Ngày thêm
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            int sttt = 1; // Khởi tạo số thứ tự ban đầu
+
+                            foreach (NhomBacSi nbshide in ViewBag.nbshide)
+                            {
+                                    <tr class="Search1">
+                                        <td style="width:2%">
+                                            @sttt
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => nbshide.MaNbs)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => nbshide.TenNbs)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => nbshide.NgayTao)
+                                        </td>
+                                        <td>
+                                            @* <a asp-action="EditMaster" asp-route-id="@ncv.Idncv">
+                                            <a asp-action="Details" asp-route-id="@nbshide.Idnbs">
+                                                <box-icon type='solid' name='info-circle' animation='tada-hover' color='#05cdf6'></box-icon>
+                                    </a>*@
+                                            <a asp-action="Active" onclick="return ConfirmActive(this)" asp-route-id="@nbshide.Idnbs">
+                                              
+                                                <box-icon name='rotate-right'  flip='horizontal' color='#04b245'></box-icon>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                sttt++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+                    </tbody>
+                </table>
+             </div>
+           
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#Search").on("keyup", function () {
+            var searchText = $(this).val().toLowerCase();
+            $(".Search").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#Search1").on("keyup", function () {
+            var searchText = $(this).val().toLowerCase();
+            $(".Search1").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+    });
+</script>
+
+
+<script>
+    function showAlert() {
+        var alertContainer = document.getElementById("alert-container");
+        alertContainer.style.display = "block";
+        setTimeout(function () {
+            alertContainer.style.display = "none";
+        }, 3000); // Đóng thông báo sau 3 giây
+    }
+
+    function closeAlert() {
+        var alertContainer = document.getElementById("alert-container");
+        alertContainer.style.display = "none";
+    }
+</script>
+
+<script>
+    var object = { stat: false, ele: null };
+
+    function ConfirmDelete(ev) {
+        if (object.stat) {
+            return true;
+        }
+        swal({
+            title: "Bạn muốn ẩn dữ liệu này?",
+            text: @TempData["AlertMessage"]"Dữ liệu này sẽ mất khỏi bảng!",
+
+            type: "warning",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn btn-danger",
+            confirmButtonText: "Xóa!",
+            closeOnConfirm: true
+        }, function () {
+            swal("Xóa!", "Đã ẩn thành công.", "success");
+            object.stat = true;
+            object.ele = ev;
+            object.ele.click();
+        });
+        return false;
+    }
+    function ConfirmActive(ev) {
+        if (object.stat) {
+            return true;
+        }
+        swal({
+            title: "Bạn muốn kích hoạt lại dữ liệu này?",
+            text: "Dữ liệu này sẽ mất khỏi bảng!",
+
+            type: "warning",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn btn-danger",
+            confirmButtonText: "Xóa!",
+            closeOnConfirm: true
+        },
+            function () {
+                swal("Xóa!", "Đã Hiện thành công.", "success");
+                object.stat = true;
+                object.ele = ev;
+                object.ele.click();
+
+            }, 1000);
+        return false;
+    }
+</script>

@@ -1,0 +1,1061 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\QLRHM7.bundle.scp.css",
+      "PackagePath": "staticwebassets\\QLRHM7.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\css\\text.css",
+      "PackagePath": "staticwebassets\\css\\text.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\datetimepicker\\bootstrap-datetimepicker.min.css",
+      "PackagePath": "staticwebassets\\datetimepicker\\bootstrap-datetimepicker.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\datetimepicker\\bootstrap-datetimepicker.min.js",
+      "PackagePath": "staticwebassets\\datetimepicker\\bootstrap-datetimepicker.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\datetimepicker\\moment-with-locales.min.js",
+      "PackagePath": "staticwebassets\\datetimepicker\\moment-with-locales.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\datetimepicker\\moment.min.js",
+      "PackagePath": "staticwebassets\\datetimepicker\\moment.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\datetimepicker\\popper.min.js",
+      "PackagePath": "staticwebassets\\datetimepicker\\popper.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\Avatar.png",
+      "PackagePath": "staticwebassets\\image\\Avatar.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\00848f2a-8ad1-4059-9742-334b9d0503a0-10.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\00848f2a-8ad1-4059-9742-334b9d0503a0-10.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\0296a20f-310b-4e06-becd-a3e1cfa6ee50-15.jpg.png",
+      "PackagePath": "staticwebassets\\image\\BN\\0296a20f-310b-4e06-becd-a3e1cfa6ee50-15.jpg.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\037669a5-2aae-4a8c-a202-088740dd6aa0-13.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\037669a5-2aae-4a8c-a202-088740dd6aa0-13.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\0debf3d0-5688-470c-bf2b-e9a2289dbe29-14.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\0debf3d0-5688-470c-bf2b-e9a2289dbe29-14.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\0efbd891-da78-46e8-a9f1-a90d20119424-13.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\0efbd891-da78-46e8-a9f1-a90d20119424-13.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\0f756c73-7c19-41d4-820b-212aa279b7d8-8.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\0f756c73-7c19-41d4-820b-212aa279b7d8-8.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\1820db35-789b-42d8-a52b-118186999b07-10.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\1820db35-789b-42d8-a52b-118186999b07-10.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\28d18c39-06f6-4669-bbbf-225e7c8ac020-8.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\28d18c39-06f6-4669-bbbf-225e7c8ac020-8.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\31baf0f2-cdbe-428e-acf1-2bd69acabaeb-10.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\31baf0f2-cdbe-428e-acf1-2bd69acabaeb-10.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\33f9d828-b28d-4742-87a7-d4527ee71842-15.jpg.png",
+      "PackagePath": "staticwebassets\\image\\BN\\33f9d828-b28d-4742-87a7-d4527ee71842-15.jpg.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\340babe9-38c8-43e5-ac29-0f86b443d30b-12.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\340babe9-38c8-43e5-ac29-0f86b443d30b-12.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\343aae8a-894c-4757-b6f5-5f5b8f9f990d-10.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\343aae8a-894c-4757-b6f5-5f5b8f9f990d-10.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\3b84a83e-65b9-499c-b48e-80af563227a1-9.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\3b84a83e-65b9-499c-b48e-80af563227a1-9.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\3de09307-caad-4cc2-8e40-4ace3827d877-16.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\3de09307-caad-4cc2-8e40-4ace3827d877-16.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\549f5dcb-9202-4617-bf7c-5c024cbaa65a-14.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\549f5dcb-9202-4617-bf7c-5c024cbaa65a-14.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\6867696f-d9c1-4ed7-8b75-40bb4197320e-11.png",
+      "PackagePath": "staticwebassets\\image\\BN\\6867696f-d9c1-4ed7-8b75-40bb4197320e-11.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\68804f1f-e471-4954-8a51-93da27f558f8-6.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\68804f1f-e471-4954-8a51-93da27f558f8-6.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\6bd86e0c-ee93-4eba-a04f-7960b90cb39f-14.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\6bd86e0c-ee93-4eba-a04f-7960b90cb39f-14.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\6cdcc26d-95c1-4eb6-88e1-6d9baf74568a-13.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\6cdcc26d-95c1-4eb6-88e1-6d9baf74568a-13.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\779e1ee9-601a-4b34-9743-4d339578412c-13.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\779e1ee9-601a-4b34-9743-4d339578412c-13.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\82023cb0-ae8d-4d80-a2ab-a7bc7683c1bc-10.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\82023cb0-ae8d-4d80-a2ab-a7bc7683c1bc-10.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\898b7470-9cdd-49e9-9d8a-1b3da1441da4-6.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\898b7470-9cdd-49e9-9d8a-1b3da1441da4-6.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\964beada-4a35-4645-a582-cdd560959860-9.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\964beada-4a35-4645-a582-cdd560959860-9.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\983492b8-8cf7-421c-9651-24c8e4644816-8.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\983492b8-8cf7-421c-9651-24c8e4644816-8.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\a4a19dc5-d497-48cd-9169-305a4b64ca2d-7.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\a4a19dc5-d497-48cd-9169-305a4b64ca2d-7.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\a9521c21-f2a4-42d5-9016-f136baa3a95f-11.png",
+      "PackagePath": "staticwebassets\\image\\BN\\a9521c21-f2a4-42d5-9016-f136baa3a95f-11.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\acfa06f1-221b-47d3-b0ed-8a458abee6fb-12.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\acfa06f1-221b-47d3-b0ed-8a458abee6fb-12.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\c0810e87-c728-4ed5-8a54-c3785d55ee8a-11.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\c0810e87-c728-4ed5-8a54-c3785d55ee8a-11.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\c67af401-ef30-4f3c-a411-1e44483fb699-11.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\c67af401-ef30-4f3c-a411-1e44483fb699-11.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\d711267f-5d1b-456e-96fc-7a9ebd9429db-14.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\d711267f-5d1b-456e-96fc-7a9ebd9429db-14.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\db5878e8-d69c-4b08-8bc9-585b50ad9ae6-10.png",
+      "PackagePath": "staticwebassets\\image\\BN\\db5878e8-d69c-4b08-8bc9-585b50ad9ae6-10.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\dea104bf-70db-4be2-80bd-a74a5a2744b2-12.png",
+      "PackagePath": "staticwebassets\\image\\BN\\dea104bf-70db-4be2-80bd-a74a5a2744b2-12.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\e47d730b-8a91-424c-95ae-000756353f8a-10.png",
+      "PackagePath": "staticwebassets\\image\\BN\\e47d730b-8a91-424c-95ae-000756353f8a-10.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\e7bc6d02-de30-410a-94bb-65fe9a2af913-3.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\e7bc6d02-de30-410a-94bb-65fe9a2af913-3.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\ee3732d5-7be8-4603-807e-4a46c697dcdc-13.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\ee3732d5-7be8-4603-807e-4a46c697dcdc-13.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\f83f5c4d-176d-40a1-9782-48d7a577fb2f-16.jpg",
+      "PackagePath": "staticwebassets\\image\\BN\\f83f5c4d-176d-40a1-9782-48d7a577fb2f-16.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\fb0cc0d8-09f6-41af-ab38-b0526670a8cd-10.png",
+      "PackagePath": "staticwebassets\\image\\BN\\fb0cc0d8-09f6-41af-ab38-b0526670a8cd-10.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\BN\\profile.png",
+      "PackagePath": "staticwebassets\\image\\BN\\profile.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\NV\\14.jpg",
+      "PackagePath": "staticwebassets\\image\\NV\\14.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\NV\\2f8d0b10-c60b-4e18-9350-8a07da5c5cdd-10.jpg",
+      "PackagePath": "staticwebassets\\image\\NV\\2f8d0b10-c60b-4e18-9350-8a07da5c5cdd-10.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\NV\\302d633c-a8b6-478b-b999-4ae72d8730ab-9.jpg",
+      "PackagePath": "staticwebassets\\image\\NV\\302d633c-a8b6-478b-b999-4ae72d8730ab-9.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\NV\\42988363-870f-4cb8-a909-bce79df64918-10.png",
+      "PackagePath": "staticwebassets\\image\\NV\\42988363-870f-4cb8-a909-bce79df64918-10.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\NV\\514ce38f-2b85-45be-b02b-96bec9671ece-13.jpg",
+      "PackagePath": "staticwebassets\\image\\NV\\514ce38f-2b85-45be-b02b-96bec9671ece-13.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\NV\\66842759-efd2-4c2a-b9fc-e9ce21869a30-7.jpg",
+      "PackagePath": "staticwebassets\\image\\NV\\66842759-efd2-4c2a-b9fc-e9ce21869a30-7.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\NV\\92cf4168-7d05-4dd2-837b-fea9f3439a06-15.jpg.png",
+      "PackagePath": "staticwebassets\\image\\NV\\92cf4168-7d05-4dd2-837b-fea9f3439a06-15.jpg.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\NV\\99472d4e-fa01-4716-b8a5-3f5770739a91-14.jpg",
+      "PackagePath": "staticwebassets\\image\\NV\\99472d4e-fa01-4716-b8a5-3f5770739a91-14.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\NV\\aad59f7a-a17c-4c9b-88a3-e0f9cc98bdab-8.jpg",
+      "PackagePath": "staticwebassets\\image\\NV\\aad59f7a-a17c-4c9b-88a3-e0f9cc98bdab-8.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\NV\\e479f3f2-3f48-4e64-bc6f-7873643721ab-14.jpg",
+      "PackagePath": "staticwebassets\\image\\NV\\e479f3f2-3f48-4e64-bc6f-7873643721ab-14.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\NV\\fd1d1ee6-c8df-49c0-ad1d-1540d34e4499-6.jpg",
+      "PackagePath": "staticwebassets\\image\\NV\\fd1d1ee6-c8df-49c0-ad1d-1540d34e4499-6.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\NV\\profile.png",
+      "PackagePath": "staticwebassets\\image\\NV\\profile.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\image\\profile.png",
+      "PackagePath": "staticwebassets\\image\\profile.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\js\\BenhNhan.js",
+      "PackagePath": "staticwebassets\\js\\BenhNhan.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\js\\Chart.js",
+      "PackagePath": "staticwebassets\\js\\Chart.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\js\\Khdt.js",
+      "PackagePath": "staticwebassets\\js\\Khdt.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\js\\Modal_ChiTiet.js",
+      "PackagePath": "staticwebassets\\js\\Modal_ChiTiet.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\js\\PTT.js",
+      "PackagePath": "staticwebassets\\js\\PTT.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\js\\PhongKham.js",
+      "PackagePath": "staticwebassets\\js\\PhongKham.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\js\\TaoKhdt.js",
+      "PackagePath": "staticwebassets\\js\\TaoKhdt.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\css\\AccessDenied.css",
+      "PackagePath": "staticwebassets\\template\\css\\AccessDenied.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\css\\Bug.css",
+      "PackagePath": "staticwebassets\\template\\css\\Bug.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\template\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\css\\login.css",
+      "PackagePath": "staticwebassets\\template\\css\\login.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\css\\selectize.default.min.css",
+      "PackagePath": "staticwebassets\\template\\css\\selectize.default.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\css\\style.css",
+      "PackagePath": "staticwebassets\\template\\css\\style.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\css\\tooltip.min.css",
+      "PackagePath": "staticwebassets\\template\\css\\tooltip.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\css\\virtual-select.min.css",
+      "PackagePath": "staticwebassets\\template\\css\\virtual-select.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\about.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\about.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\blog-1.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\blog-1.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\blog-2.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\blog-2.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\blog-3.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\blog-3.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\hero.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\hero.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\img3.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\img3.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\price-1.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\price-1.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\price-2.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\price-2.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\price-3.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\price-3.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\price-4.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\price-4.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\team-1.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\team-1.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\team-2.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\team-2.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\team-3.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\team-3.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\testimonial-1.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\testimonial-1.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\testimonial-2.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\testimonial-2.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\testimonial-3.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\testimonial-3.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\img\\user.jpg",
+      "PackagePath": "staticwebassets\\template\\img\\user.jpg"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\index.html",
+      "PackagePath": "staticwebassets\\template\\index.html"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\js\\AccessDenied.js",
+      "PackagePath": "staticwebassets\\template\\js\\AccessDenied.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\js\\dataTables.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\template\\js\\dataTables.bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\js\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\template\\js\\jquery.dataTables.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\js\\main.js",
+      "PackagePath": "staticwebassets\\template\\js\\main.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\js\\selectize.min.js",
+      "PackagePath": "staticwebassets\\template\\js\\selectize.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\easing\\easing.js",
+      "PackagePath": "staticwebassets\\template\\lib\\easing\\easing.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\easing\\easing.min.js",
+      "PackagePath": "staticwebassets\\template\\lib\\easing\\easing.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\owlcarousel\\LICENSE",
+      "PackagePath": "staticwebassets\\template\\lib\\owlcarousel"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\owlcarousel\\assets\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\template\\lib\\owlcarousel\\assets\\ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\owlcarousel\\assets\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\template\\lib\\owlcarousel\\assets\\owl.carousel.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\template\\lib\\owlcarousel\\assets\\owl.carousel.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\owlcarousel\\assets\\owl.theme.default.css",
+      "PackagePath": "staticwebassets\\template\\lib\\owlcarousel\\assets\\owl.theme.default.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\template\\lib\\owlcarousel\\assets\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\owlcarousel\\assets\\owl.theme.green.css",
+      "PackagePath": "staticwebassets\\template\\lib\\owlcarousel\\assets\\owl.theme.green.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
+      "PackagePath": "staticwebassets\\template\\lib\\owlcarousel\\assets\\owl.theme.green.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\owlcarousel\\assets\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\template\\lib\\owlcarousel\\assets\\owl.video.play.png"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\owlcarousel\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\template\\lib\\owlcarousel\\owl.carousel.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\owlcarousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\template\\lib\\owlcarousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.css",
+      "PackagePath": "staticwebassets\\template\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.min.css",
+      "PackagePath": "staticwebassets\\template\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.min.css"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\tempusdominus\\js\\moment-timezone.min.js",
+      "PackagePath": "staticwebassets\\template\\lib\\tempusdominus\\js\\moment-timezone.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\tempusdominus\\js\\moment.min.js",
+      "PackagePath": "staticwebassets\\template\\lib\\tempusdominus\\js\\moment.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.js",
+      "PackagePath": "staticwebassets\\template\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.min.js",
+      "PackagePath": "staticwebassets\\template\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\waypoints\\links.php",
+      "PackagePath": "staticwebassets\\template\\lib\\waypoints\\links.php"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\lib\\waypoints\\waypoints.min.js",
+      "PackagePath": "staticwebassets\\template\\lib\\waypoints\\waypoints.min.js"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_accordion.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_accordion.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_alert.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_alert.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_badge.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_badge.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_breadcrumb.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_breadcrumb.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_button-group.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_button-group.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_buttons.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_buttons.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_card.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_card.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_carousel.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_carousel.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_close.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_close.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_containers.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_containers.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_dropdown.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_dropdown.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_forms.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_forms.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_functions.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_functions.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_grid.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_grid.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_helpers.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_helpers.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_images.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_images.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_list-group.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_list-group.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_mixins.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_mixins.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_modal.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_modal.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_nav.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_nav.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_navbar.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_navbar.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_offcanvas.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_offcanvas.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_pagination.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_pagination.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_popover.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_popover.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_progress.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_progress.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_reboot.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_reboot.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_root.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_root.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_spinners.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_spinners.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_tables.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_tables.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_toasts.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_toasts.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_tooltip.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_tooltip.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_transitions.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_transitions.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_type.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_type.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_utilities.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_utilities.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\_variables.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\_variables.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\bootstrap-grid.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\bootstrap-grid.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\bootstrap-reboot.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\bootstrap-reboot.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\bootstrap-utilities.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\bootstrap-utilities.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\bootstrap.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\bootstrap.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\forms\\_floating-labels.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\forms\\_floating-labels.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\forms\\_form-check.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\forms\\_form-check.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\forms\\_form-control.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\forms\\_form-control.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\forms\\_form-range.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\forms\\_form-range.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\forms\\_form-select.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\forms\\_form-select.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\forms\\_form-text.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\forms\\_form-text.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\forms\\_input-group.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\forms\\_input-group.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\forms\\_labels.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\forms\\_labels.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\forms\\_validation.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\forms\\_validation.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\helpers\\_clearfix.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\helpers\\_clearfix.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\helpers\\_colored-links.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\helpers\\_colored-links.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\helpers\\_position.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\helpers\\_position.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\helpers\\_ratio.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\helpers\\_ratio.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\helpers\\_stretched-link.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\helpers\\_stretched-link.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\helpers\\_text-truncation.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\helpers\\_text-truncation.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\helpers\\_visually-hidden.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\helpers\\_visually-hidden.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_alert.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_alert.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_border-radius.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_border-radius.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_box-shadow.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_box-shadow.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_breakpoints.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_breakpoints.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_buttons.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_buttons.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_caret.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_caret.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_clearfix.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_clearfix.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_color-scheme.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_color-scheme.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_container.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_container.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_deprecate.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_deprecate.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_forms.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_forms.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_gradients.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_gradients.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_grid.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_grid.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_image.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_image.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_list-group.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_list-group.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_lists.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_lists.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_pagination.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_pagination.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_reset-text.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_reset-text.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_resize.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_resize.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_table-variants.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_table-variants.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_text-truncate.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_text-truncate.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_transition.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_transition.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_utilities.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_utilities.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\mixins\\_visually-hidden.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\mixins\\_visually-hidden.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\utilities\\_api.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\utilities\\_api.scss"
+    },
+    {
+      "Id": "D:\\08_CNPM\\DoAnTotNghiep\\QLRHM\\QLRHM\\WepAppQlRHM7\\QLRHM\\wwwroot\\template\\scss\\bootstrap\\scss\\vendor\\_rfs.scss",
+      "PackagePath": "staticwebassets\\template\\scss\\bootstrap\\scss\\vendor\\_rfs.scss"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.QLRHM7.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.QLRHM7.props",
+      "PackagePath": "build\\QLRHM7.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.QLRHM7.props",
+      "PackagePath": "buildMultiTargeting\\QLRHM7.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.QLRHM7.props",
+      "PackagePath": "buildTransitive\\QLRHM7.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,498 @@
+﻿@using QLRHM.Models;
+@model IEnumerable<QLRHM.Models.NoiDungKeHoach>
+
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+   
+}
+
+@*   <input type="text" id="Search"> *@
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+            <li class="active"><a data-toggle="tab" href="#home"><i class='bx bx-list-ul'></i> Danh sách kế hoạch điều trị</a></li>
+            <li><a data-toggle="tab" href="#menu1"><i class='bx bx-folder-plus'></i>Báo cáo</a></li>
+            @* <li><a data-toggle="tab" href="#menu2">Menu 2</a></li> *@
+        </ul>
+
+        @*  <button  class="btn btn-primary">Thêm nhóm công việc</button> *@
+
+
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+             
+              
+                <div class="row" style="padding-top:5px;padding-bottom:5px">
+                    <div class="row" style="padding-bottom:5px">
+                        <div class="col-md-2" style="width:11%">
+                            <a asp-action="CreateMaster" asp-controller="KeHoachDieuTris" class="btn btn-primary">Thêm chi tiết</a>
+                        </div>
+                  
+                  
+                        <div class="col-md-3">
+                            <form action="#" id="abc">
+                          
+                                    <div class="input-group" >
+                                        <input type="text" name="searchString" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+                                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
+                                    </div>
+                          
+                            </form>
+                        </div>
+                        <button class="col-md-1 btn btn-primary" id="toggleFormButton">Chi tiết  <i class="fa-solid fa-filter" style="color: #ffffff;"></i></button>
+                    </div>
+                 
+                    <form class="col-md-12" style="padding-bottom:10px;border:2px solid  rgba(135,206,250,0.5) " action="#">
+                        <center><b style="font-weight:900 ; color:red">Tìm Kiếm nâng cao</b></center>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Mã kế hoạch điều trị</label>
+                                    <div class='input-group'>
+                                        <input name="searchString" id="TenNbs" type="text" class="form-control" maxlength="50"  />
+                                    </div>
+
+                                </div>
+                            </div> 
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Mã bác sĩ tư vấn </label>
+                                    <div class='input-group'>
+                                        <input name="searchString" id="TenNbs" type="text" class="form-control" maxlength="50"   />
+                                    </div>
+
+                                </div>
+                            </div>   
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Bác Sĩ tư vấn</label>
+                                    <div class='input-group'>
+                                        <input name="searchString" id="TenNbs" type="text" class="form-control" maxlength="50"  />
+                                    </div>
+
+                                </div>
+                            </div>   
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Mã bác Sĩ điều trị</label>
+                                    <div class='input-group'>
+                                        <input name="searchString" id="TenNbs" type="text" class="form-control" maxlength="50"   />
+                                    </div>
+
+                                </div>
+                            </div>  
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Bác Sĩ điều trị</label>
+                                    <div class='input-group'>
+                                        <input name="searchString" id="TenNbs" type="text" class="form-control" maxlength="50"   />
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Bệnh nhân</label>
+                                    <div class='input-group'>
+                                        <input name="searchString" id="TenNbs" type="text" class="form-control" maxlength="50"   />
+                                    </div>
+
+                                </div>
+                            </div>   
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Sđt</label>
+                                    <div class='input-group'>
+                                        <input name="searchString" id="TenNbs" type="text" class="form-control" maxlength="50"   />
+                                    </div>
+
+                                </div>
+                            </div>    
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Mã công việc điều trj</label>
+                                    <div class='input-group'>
+                                        <input name="searchString" id="TenNbs" type="text" class="form-control" maxlength="50"  />
+                                    </div>
+
+                                </div>
+                            </div>   
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Tên công việc điều trị</label>
+                                    <div class='input-group'>
+                                        <input name="searchString" id="TenNbs" type="text" class="form-control" maxlength="50"   />
+                                    </div>
+
+                                </div>
+                            </div>
+                          @*   <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Đơn giá</label>
+                                    <div class='input-group'>
+                                        <input name="searchString" id="TenNbs" type="text" class="form-control" maxlength="50"  oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" />
+                                    </div>
+
+                                </div>
+                            </div>  *@
+                            <div class="col-md-1">
+                                <div class="form-group">
+
+                                    <label class="control-label"></label>
+                                    <div class='input-group'>
+                                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass-plus" style="color: #ffffff;"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            @* <div class="input-group">
+                                <input type="text" name="searchString" class="form-control">
+                                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
+                            </div> *@
+                        </div>
+                      
+
+                    </form>
+                </div>
+                @*  <div class="row" > *@
+                <table class="table" >
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã kế hoạch
+                            </th>
+                            <th>
+                                Bác sĩ tư vấn
+                            </th>
+                            <th>
+                                Bệnh nhân
+                            </th>  <th>
+                                Sđt
+                            </th>
+                            <th>
+                               Bác sĩ điều trị
+                            </th>
+                            <th>
+                               Công việc 
+                            </th>
+                            <th>
+                              Số lần
+                            </th>
+                            <th>
+                              Ghi chú
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            int stt = (ViewBag.Page - 1) * ViewBag.NoOfRecordsPerPage + 1; // Tính toán số thứ tự bắt đầu
+
+                            foreach (NoiDungKeHoach khdt in ViewBag.khdt)
+                            {
+                                <tr class="Search">
+                                    <td style="width:2%">
+                                        @stt
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => khdt.IdkhdtNavigation.MaKeHoacDieuTri)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => khdt.IdkhdtNavigation.IdbsNavigation.TenBs)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => khdt.IdkhdtNavigation.IdbnNavigation.TenBn)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => khdt.IdkhdtNavigation.IdbnNavigation.Sdt)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => khdt.IdbsdtNavigation.TenBs)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => khdt.IdcvdtNavigation.TenCongViec)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => khdt.SoLan)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => khdt.GhiChu)
+                                    </td>
+                                    <td>
+                                      
+                                        <a href="@Url.Action("EditMaster", "KeHoachDieuTris", new { id = khdt.Idkhdt })">
+                                            <box-icon name='edit' animation='tada-hover' color='#3b78ec'></box-icon>
+                                        </a>
+                                      @*  <a asp-action="DetailsMaster" asp-route-id="@khdt.Idkhdt">
+                                            <box-icon type='solid' name='info-circle' animation='tada-hover' color='#05cdf6'></box-icon>
+                                        </a>
+                                        <a asp-action="HideMaster" onclick="return ConfirmDelete(this);" asp-route-id="@khdt.Idkhdt">
+                                            <box-icon type='solid' name='hide' animation='tada-hover' color='red'></box-icon>
+                                        </a>*@
+                                    </td>
+                                </tr>
+                                stt++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+                    </tbody>
+                </table>
+                <Paging>
+
+                    <div class="row">
+                        <div class="col-md-8" style="margin-left:350px">
+                            @{
+                                int PrevPage = ViewBag.Page - 1;
+                                if (PrevPage <= 0)
+                                {
+                                    PrevPage = 1;
+                                }
+                                int NextPage = ViewBag.Page + 1;
+                                if (NextPage > ViewBag.NoOfPages)
+                                {
+                                    NextPage = ViewBag.NoOfPages;
+                                }
+                            }
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item @(ViewBag.Page == 1 ? "disabled" : "")">
+                                    <a class="page-link page-number" href="/KeHoachDieuTris/Index?page=@PrevPage">
+                                        <<<
+                                    </a>
+                                </li>
+                                @for (int i = 0; i < ViewBag.NoOfPages; i++)
+                                {
+                                    <li class="page-item @(i + 1 == ViewBag.Page ? "active" : "")">
+                                        <a class="page-link page-number" href="/KeHoachDieuTris/Index?page=@(i+1)">
+                                            @(i + 1)
+                                        </a>
+                                    </li>
+                                }
+                                <li class="page-item @(ViewBag.Page == ViewBag.NoOfPages ? "disabled" : "")">
+                                    <a class="page-link page-number" href="/KeHoachDieuTris/Index?page=@NextPage">
+                                        >>>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </Paging>
+
+            </div>
+            <div id="menu1" class="tab-pane fade" style="color:#000">
+               @*  <div class="row" style="padding-top:5px;padding-bottom:20px">
+
+                    <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group" style="height: 20px;">
+                                <input type="text" id="Search" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+                <table class="table" id="example2">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã nhóm công việc
+                            </th>
+                            <th>
+                                Tên nhóm công việc
+                            </th>
+                            <th>
+                                Ngày thêm
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            int sttt = 1; // Khởi tạo số thứ tự ban đầu
+
+                            foreach (NhomCongViec nvchide in ViewBag.nvchide)
+                            {
+                                <tr class="Search">
+                                    <td style="width:2%">
+                                        @sttt
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => nvchide.Makhdt)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => nvchide.Tenkhdt)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => nvchide.NgayTao)
+                                    </td>
+                                    <td>
+                                       
+                                        <a asp-action="DetailsMaster" asp-route-id="@nvchide.Idkhdt">
+                                            <box-icon type='solid' name='info-circle' animation='tada-hover' color='#05cdf6'></box-icon>
+                                        </a>
+                                        <a asp-action="ActiveMaster" onclick="return ConfirmActive(this);" asp-route-id="@nvchide.Idkhdt">
+                                            <box-icon type='solid' name='hide' animation='tada-hover' color='red'></box-icon>
+                                        </a>
+                                    </td>
+                                </tr>
+                                sttt++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+                    </tbody>
+                </table> *@
+            </div>
+            @*  <div id="menu2" class="tab-pane fade">
+            <form style="margin-left:3px" asp-action="ExportPdf" asp-controller="Dates">
+            <button class="btn btn-primary" type="submit">Pdf theo bảng </button>
+            </form>
+            </div> *@
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#Search").on("keyup", function () {
+            var searchText = $(this).val().toLowerCase();
+            $(".Search").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#Search1").on("keyup", function () {
+            var searchText = $(this).val().toLowerCase();
+            $(".Search").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(".form-control").on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        // $(this).siblings(".control-label").addClass("selected").html(fileName);
+    });
+
+    function DeleteItem(btn) {
+        $(btn).closest('tr').remove();
+    }
+
+
+    function AddItem(btn) {
+
+        var table = document.getElementById('ExpTable');
+        var rows = table.getElementsByTagName('tr');
+
+        var rowOuterHtml = rows[rows.length - 1].outerHTML;
+
+        var lastrowIdx = document.getElementById('hdnLastIndex').value;
+
+        var nextrowIdx = eval(lastrowIdx) + 1;
+
+        document.getElementById('hdnLastIndex').value = nextrowIdx;
+
+        rowOuterHtml = rowOuterHtml.replaceAll('_' + lastrowIdx + '_', '_' + nextrowIdx + '_');
+        rowOuterHtml = rowOuterHtml.replaceAll('[' + lastrowIdx + ']', '[' + nextrowIdx + ']');
+        rowOuterHtml = rowOuterHtml.replaceAll('-' + lastrowIdx, '-' + nextrowIdx);
+
+
+        var newRow = table.insertRow();
+        newRow.innerHTML = rowOuterHtml;
+
+
+
+        var btnAddID = btn.id;
+        var btnDeleteid = btnAddID.replaceAll('btnadd', 'btnremove');
+
+        var delbtn = document.getElementById(btnDeleteid);
+        delbtn.classList.add("visible");
+        delbtn.classList.remove("invisible");
+
+
+        var addbtn = document.getElementById(btnAddID);
+        addbtn.classList.remove("visible");
+        addbtn.classList.add("invisible");
+
+        rebindvalidators();
+    }
+
+    function rebindvalidators() {
+        var $form = $("#ApplicantForm");
+
+        $form.unbind();
+
+        $form.data("validator", null);
+
+        $.validator.unobtrusive.parse($form);
+
+        $form.validate($form.data("unobtrusiveValidation").options);
+    }
+
+</script>
+
+<script>
+    var object = { stat: false, ele: null };
+
+    function ConfirmDelete(ev) {
+        if (object.stat) {
+            return true;
+        }
+        swal({
+            title: "Bạn muốn ẩn dữ liệu này?",
+            text: "Dữ liệu này sẽ mất khỏi bảng!",
+
+            type: "warning",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn btn-danger",
+            confirmButtonText: "Xóa!",
+            closeOnConfirm: true
+        }, function () {
+            swal("Xóa!", "Đã ẩn thành công.", "success");
+            object.stat = true;
+            object.ele = ev;
+            object.ele.click();
+        }, 1000);
+        return false;
+    } var object = { stat: false, ele: null };
+
+    function ConfirmActive(ev) {
+        if (object.stat) {
+            return true;
+        }
+        swal({
+            title: "Bạn muốn ẩn dữ liệu này?",
+            text: "Dữ liệu này sẽ mất khỏi bảng!",
+
+            type: "warning",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn btn-danger",
+            confirmButtonText: "Xóa!",
+            closeOnConfirm: true
+        },
+            function () {
+                swal("Xóa!", "Đã Hiện thành công.", "success");
+                object.stat = true;
+                object.ele = ev;
+                object.ele.click();
+
+            }, 1000);
+        return false;
+    }
+</script>

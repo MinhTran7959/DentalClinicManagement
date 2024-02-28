@@ -1,0 +1,309 @@
+﻿@model QLRHM.Models.NhomCongViec
+@using QLRHM.Models
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+
+}
+<style>
+    td, tr {
+        border: 5px solid #ececec;
+    }
+
+    select.form-control option {
+        color: black; /* Đặt màu chữ là màu đen */
+    }
+
+    tr:hover {
+        background-color: #ececec; /* Màu nền khi hover trên dòng */
+    }
+
+        tr:hover td {
+            background-color: transparent; /* Làm cho màu nền của ô trong dòng trở lại màu trong suốt */
+        }
+
+    .col-md-4 {
+        flex: 0 0 auto;
+        width: 33.33333%;
+        border: 5px solid #e5e5e5;
+        padding-bottom: 10px;
+    }
+
+    .sticky-header {
+        position: sticky;
+        top: 100px;
+        background-color: #fff; /* Thay đổi màu nền theo ý muốn */
+        z-index: 999; /* Số này xác định vị trí ưu tiên trên màn hình, tùy chỉnh nếu cần */
+        /* Thêm các thuộc tính khác cho phần tử này nếu cần */
+    }
+</style>
+@* <h4>NhomCongViec</h4> *@
+<div class="container-fluid py-5 ">
+    <div class="container" style="border: 2px solid #b8ceff;padding-bottom:10px">
+        <center>   <a style="text-align:center;font-weight:600;padding-top:10px;padding-bottom:10px ;color:red">Chi tiết nhóm công việc</a></center>
+        <hr>
+        @using (Html.BeginForm("DeleteMaster", "NhomCongViecs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div id="ApplicantForm" class="container-fluid" style="color:black">
+                <div class="row">
+                    <div class="row" style="border: 0px solid red;padding-bottom:10px">
+                        @*        <form  enctype="multipart/form-data" asp-action="CreateMaster">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+
+                        <div style="display:none" class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">ID</label>
+                                <div class='input-group'>
+                                    <input style="background-color:white;color:blue" asp-for="Idncv" type="text" class="form-control" readonly />
+                                </div>
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Mã nhóm công việc</label>
+                                <div class='input-group'>
+                                    <input style="background-color:white;color:blue" asp-for="MaNcv" type="text" class="form-control" readonly />
+                                </div>
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Tên nhóm công việc</label>
+                                <div class='input-group'>
+                                    <input asp-for="TenNcv" id="TenNCV" type="text" class="form-control" readonly oninvalid="this.setCustomValidity('Không được bỏ trống tên nhóm');" oninput="setCustomValidity('')" />
+                                </div>
+                                <span id="TenNCVError" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Ngày thêm</label>
+                                <div class='input-group'>
+                                    <input asp-for="NgaySua" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" class="form-control" readonly />
+                                </div>
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <a style="text-align:center;font-weight:600;padding-bottom:10px ;color:red">Chi tiết công việc</a>
+                    <div class="row" style="padding-bottom:10px ">
+                        <table id="ExpTable" class="table table-striped ">
+                            <thead class="sticky-header">
+                                <tr>
+
+
+                                    <th>
+                                        Mã công việc
+                                    </th>
+                                    <th>
+                                        Tên công việc
+                                    </th>
+                                    <th>
+                                        Mô tả
+                                    </th>
+                                    <th>
+                                        BH(Ngày)
+                                    </th>
+                                    <th>
+                                        Đơn giá
+                                    </th>
+                                    <th>
+                                        Ngày tạo
+                                    </th>
+                                    <th>
+                                        Ngày sửa
+                                    </th>
+                                  
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                @for (int i = 0; i < Model.MasterCV.Count; i++)
+                                {
+                                    <tr>
+                                        @*   <td style="width: 12%;display:none">
+                                <input style="color:blue" asp-for="@Model.MasterCV[i].Idcvdt" class="form-control" />
+                                </td> *@
+                                        <td style="width: 11.8%">
+                                            <input style="color:blue" asp-for="@Model.MasterCV[i].MaCongViec" class="form-control" readonly />
+                                        </td>
+
+                                        <td>
+                                            <input asp-for="@Model.MasterCV[i].TenCongViec" class="form-control" readonly oninvalid="this.setCustomValidity('Không được bỏ trống tên Công việc');" oninput="setCustomValidity('')" />
+                                        </td>
+
+                                        <td>
+                                            <textarea asp-for="@Model.MasterCV[i].MoTa" id="MoTaInput" class="form-control" readonly oninvalid="this.setCustomValidity('Không được bỏ trống mô tả');" oninput="setCustomValidity('')"></textarea>
+                                        </td>
+                                        <td style="width: 6%">
+                                            <select asp-for="@Model.MasterCV[i].Idbh" asp-items="@ViewBag.idbh" readonly class="form-control">
+                                            </select>
+                                        </td>
+                                        <td style="width: 11%">
+                                            <input asp-for="@Model.MasterCV[i].FormattedDonGiaSuDung)" oninput="formatCurrency(this)" type="text" class="form-control" oninput="formatCurrency(this);updateInputValue(this);" readonly />
+                                        </td>
+                                        <td style="width: 13.8% ">
+                                            <input asp-for="@Model.MasterCV[i].NgayTao" type="text" class="form-control" readonly />
+                                        </td>
+                                        <td style="width: 13.8%">
+                                            <input asp-for="@Model.MasterCV[i].NgaySua" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" class="form-control" readonly />
+                                        </td>
+
+                                       
+                                    </tr>
+
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <input type="hidden" id="hdnLastIndex" value="0" />
+
+                    <div class="col-15  p-2 btn-group" style=" justify-content: flex-end">
+                        <div class="col-2 form-group text-right p-2">
+                            <a asp-action="Index" class="btn btn-primary" style="float: right;">&nbsp;Quay lại&nbsp;</a>
+                        </div>
+                        <div  class="col-1 form-group text-left p-2">
+                            <input type="submit" value="Xoá" class="btn btn-danger" />
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+    $(".form-control").on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        // $(this).siblings(".control-label").addClass("selected").html(fileName);
+    });
+    function DeleteItem(btn) {
+        var rows = $('#ExpTable tbody tr');
+        if (rows.length > 1) { // Kiểm tra xem có nhiều hơn một dòng trong bảng
+            $(btn).closest('tr').remove();
+        } else {
+            alert("Bạn không thể xoá dòng cuối cùng.");
+        }
+    }
+    function AddItem(btn) {
+
+        var table = document.getElementById('ExpTable');
+        var rows = table.getElementsByTagName('tr');
+
+        var rowOuterHtml = rows[rows.length - 1].outerHTML;
+
+        var lastrowIdx = document.getElementById('hdnLastIndex').value;
+
+        var nextrowIdx = eval(lastrowIdx) + 1;
+
+        document.getElementById('hdnLastIndex').value = nextrowIdx;
+
+        rowOuterHtml = rowOuterHtml.replaceAll('_' + lastrowIdx + '_', '_' + nextrowIdx + '_');
+        rowOuterHtml = rowOuterHtml.replaceAll('[' + lastrowIdx + ']', '[' + nextrowIdx + ']');
+        rowOuterHtml = rowOuterHtml.replaceAll('-' + lastrowIdx, '-' + nextrowIdx);
+
+
+        var newRow = table.insertRow();
+        newRow.innerHTML = rowOuterHtml;
+
+
+
+        // var btnAddID = btn.id;
+        // var btnDeleteid = btnAddID.replaceAll('btnadd', 'btnremove');
+        var btnAddID = btn.id;
+        var btnDeleteid = btnAddID.replaceAll('btnadd', 'btnremove');
+
+        var delbtn = document.getElementById(btnDeleteid);
+        delbtn.style.display = "inline"; // hoặc "block" nếu cần
+
+        // Ẩn nút "Thêm" cho dòng mới
+        var addbtn = document.getElementById(btnAddID);
+        addbtn.style.display = "none"; // hoặc bạn có thể sử dụng "hidden" nếu muốn
+        var delbtn = document.getElementById(btnDeleteid);
+        delbtn.classList.add("visible");
+        delbtn.classList.remove("invisible");
+
+
+        var addbtn = document.getElementById(btnAddID);
+        addbtn.classList.remove("visible");
+        addbtn.classList.add("invisible");
+
+        rebindvalidators();
+    }
+    function rebindvalidators() {
+        var $form = $("#ApplicantForm");
+
+        $form.unbind();
+
+        $form.data("validator", null);
+
+        $.validator.unobtrusive.parse($form);
+
+        $form.validate($form.data("unobtrusiveValidation").options);
+    }
+
+</script>
+<script>
+    function formatCurrency(input) {
+        // Xóa các ký tự không phải là số khỏi chuỗi nhập vào
+        var value = input.value.replace(/\D/g, '');
+
+        // Chia chuỗi thành các phần ngàn (3 chữ số) bằng dấu "."
+        var parts = [];
+        while (value.length > 3) {
+            parts.unshift(value.slice(-3));
+            value = value.slice(0, value.length - 3);
+        }
+        parts.unshift(value);
+        var formattedValue = parts.join(',');
+        input.value = formattedValue;
+
+        // Kiểm tra giá trị và đặt CustomValidity dựa trên giá trị
+        if (value === '') {
+            input.setCustomValidity('Không được bỏ trống đơn giá');
+        } else {
+            input.setCustomValidity('');
+        }
+    }
+
+    function updateInputValue(input) {
+        // Cập nhật lại giá trị trong trường input
+        var value = input.value.replace(/\D/g, '');
+        input.value = value;
+    }
+</script>
+
+<script>
+    const textareaElement = document.getElementById("MoTaInput");
+
+    textareaElement.addEventListener("input", function () {
+        // Tính toán chiều cao mới dựa trên số dòng của nội dung
+        // const lineHeight = parseFloat(getComputedStyle(this).lineHeight);
+        // const lines = this.value.split("\n").length;
+        // const newHeight = lineHeight * lines;
+
+        // Giới hạn chiều cao tối đa (nếu muốn)
+        const maxHeight = lineHeight * 5; // Giới hạn chiều cao tối đa là 5 dòng
+
+        // Áp dụng chiều cao mới và giới hạn tối đa (nếu cần)
+        this.style.height = newHeight <= maxHeight ? newHeight + "px" : maxHeight + "px";
+    });
+
+
+</script>

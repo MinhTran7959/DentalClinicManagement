@@ -1,0 +1,254 @@
+﻿@using QLRHM.Models
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+    int stt = (ViewBag.Page - 1) * ViewBag.NoOfRecordsPerPage + 1; // Tính toán số thứ tự bắt đầu
+    var stt2 = 1;
+    
+
+}
+<body style="padding-left: 2%;padding-right: 2%;">
+    <div class="container-fluid py-5 ">
+        <div class="container">
+            <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+                <li class="active"><a data-toggle="tab" href="#home"><i class='bx bx-list-ul'></i> Danh sách bệnh nhân mới</a></li>
+             
+            </ul>
+            <div class="row" style="padding-top:10px ">
+              
+                        <form asp-action="ThongKeBn" method="post" id="abc">
+                            <div class="row">
+                                <!-- ... (các trường khác) ... -->
+
+                                <div class="col-md-3" style="width:210px">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <label style="margin-top: 7px;padding-right: 10px;" class="control-label">Từ ngày:</label>
+                                            <input name="fo" class="form-control Ngay2" value="@ViewBag.fromDate" placeholder="Từ ngày" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                 <div class="col-md-3" style="width:220px">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <label style="margin-top: 7px;padding-right: 10px;" class="control-label">Đến ngày:</label>
+                                            <input name="to" class="form-control Ngay2" value="@ViewBag.toDate" placeholder="Đến ngày" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-1" style="width:120px;">
+                                    <div class="form-group">
+                                        <input style="color:black" type="submit" value="Tìm kiếm" class="btn btn-primary form-control" />
+                                    </div>
+                                </div>
+
+
+                                 <div class="col-md-3" style="margin-left: 17%;">
+                                    <div class="form-group" style="padding-top: 10px;">
+                                <h4 class="fs-5"> <i class="fa-solid fa-bed-pulse" style="color:#3b78ec"></i> Tổng bệnh nhân mới: <a style="color:#3b78ec">@ViewBag.TongBn</a></h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @if (ViewBag.dataBn.Count != 0)
+                                        {
+                                                <a href="@Url.Action("PdfThongKeBn", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" class="btn btn-danger">Xuất pdf</a>
+                                                <a href="@Url.Action("ExcelThongKeBn", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" class="btn btn-success">Xuất excel</a>                                         
+                                        }
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                   
+            </div>
+            <hr>
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
+
+                       
+
+                        <table  class="table">
+                            <thead>
+                                <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center">
+                                    <th>
+                                        Stt
+                                    </th>
+                                  
+                                    <th>
+                                        Mã bệnh nhân
+                                    </th>
+                                    <th>
+                                        Tên bệnh nhân
+                                    </th>
+                                    <th>
+                                        Giới tính
+                                    </th>
+                                    <th>
+                                        Ngày sinh
+                                    </th>
+
+                                    <th>
+                                        Địa chỉ
+                                    </th>
+                                     <th>
+                                        Sđt
+                                    </th>
+
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        Ngay tạo
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                             
+                                    @foreach (BenhNhan bn in ViewBag.dataBn)
+                                    {
+
+
+                                        <tr class="Search table">
+                                            <td style="width:2%">
+                                                @stt
+                                            </td>
+                                           
+                                            <td>
+                                                @Html.DisplayFor(modelItem => bn.MaBenhNhan)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => bn.TenBn)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => bn.GioiTinh)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => bn.FormatNgaySinh)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => bn.DiaChi)
+                                            </td>
+                                             <td>
+                                                @Html.DisplayFor(modelItem => bn.Sdt)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => bn.Email)
+                                            </td>
+                                             <td>
+                                                @Html.DisplayFor(modelItem => bn.NgayTao)
+                                            </td>
+
+
+                                        </tr>
+                                        stt++;
+                                }
+
+                            </tbody>
+                        </table>
+
+                        <div class="row" style="margin-top: 1%">
+                            <div>
+                                @{
+                                    int PrevPage = ViewBag.Page - 1;
+                                    if (PrevPage <= 0)
+                                    {
+                                        PrevPage = 1;
+                                    }
+                                    int NextPage = ViewBag.Page + 1;
+                                    if (NextPage > ViewBag.NoOfPages)
+                                    {
+                                        NextPage = ViewBag.NoOfPages;
+                                    }
+
+                                    int numPagesToShow = 7;
+                                    int startPage = Math.Max(1, ViewBag.Page - (numPagesToShow / 2));
+                                    int endPage = Math.Min(ViewBag.NoOfPages, startPage + numPagesToShow - 1);
+                                    if (endPage - startPage < numPagesToShow - 1)
+                                    {
+                                        startPage = Math.Max(1, endPage - numPagesToShow + 1);
+                                    }
+                                }
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item @(ViewBag.Page == 1 ? "disabled" : "")">
+                                        <a class="page-link page-number" href="@Url.Action("ThongKeBn", new { page = 1 ,to =@ViewBag.toDate , fo =@ViewBag.fromDate })">
+                                            <<<
+                                        </a>
+                                    </li>
+                                    <li class="page-item @(ViewBag.Page == 1 ? "disabled" : "")">
+                                        <a class="page-link page-number" href="@Url.Action("ThongKeBn", new { page = PrevPage ,to =@ViewBag.toDate , fo =@ViewBag.fromDate })">
+                                            &lt;
+                                        </a>
+                                    </li>
+                                    @if (startPage > 1)
+                                    {
+                                        <li class="page-item">
+                                            <span class="page-link page-number">...</span>
+                                        </li>
+                                    }
+                                    @for (int i = startPage; i <= endPage; i++)
+                                    {
+                                        <li class="page-item @(i == ViewBag.Page ? "active" : "")">
+                                            <a class="page-link page-number" href="@Url.Action("ThongKeBn", new { page = i ,to =@ViewBag.toDate , fo =@ViewBag.fromDate})">
+                                                @i
+                                            </a>
+                                        </li>
+                                    }
+                                    @if (endPage < ViewBag.NoOfPages)
+                                    {
+                                        <li class="page-item">
+                                            <span class="page-link page-number">...</span>
+                                        </li>
+                                    }
+                                    <li class="page-item @(ViewBag.Page == ViewBag.NoOfPages ? "disabled" : "")">
+                                        <a class="page-link page-number" href="@Url.Action("ThongKeBn", new { page = NextPage ,to =@ViewBag.toDate , fo =@ViewBag.fromDate})">
+                                            &gt;
+                                        </a>
+                                    </li>
+                                    <li class="page-item @(ViewBag.Page == ViewBag.NoOfPages ? "disabled" : "")">
+                                        <a class="page-link page-number" href="@Url.Action("ThongKeBn", new { page = ViewBag.NoOfPages ,to =@ViewBag.toDate , fo =@ViewBag.fromDate })">
+                                            >>>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class="modal" id="myModal2" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div id="partial-view-container2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+
+           
+              
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="modal" id="myModal2" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="partial-view-container2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

@@ -1,0 +1,282 @@
+﻿@model QLRHM.Models.BacSi
+
+@{
+    // Layout = "~/Views/Shared/Home_Modal.cshtml";
+    Layout = null;
+  
+}
+
+<style>
+    .status{
+        width:7%;
+    }
+
+    img {
+        max-width: 100%; /* Giới hạn chiều rộng tối đa của ảnh */
+        max-height: 100%; /* Giới hạn chiều cao tối đa của ảnh */
+        border-radius:10px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .hidden-form {
+        display: none;
+    }
+</style>
+@using (Html.BeginForm("EditCaNhan", "TaiKhoans", FormMethod.Post, new { id = "abc", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <center><b style="font-weight:900 ; color:red">Sửa nhân viên</b></center>
+    <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+        <div class="row">
+            <div class="row" style="justify-content:center">
+                <input asp-for="Active" type="hidden" value="1" class="form-control" readonly />
+                <div class="col-md-3" style="width:11%">
+                    <div class="form-group">
+                        <label asp-for="FrontImage">
+                            <img id="FrontImagePrv1" src="~/image/NV/@Model.AnhBs" alt="Image" width="120"
+                                 height="120" style="border:1px; border-radius:50%; object-fit:cover">
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3" style="display:none">
+                <div class="form-group">
+                    <label class="control-label">Mã nhân viên</label>
+                    <div class='input-group'>
+                        <input style="background-color:white;color:blue" asp-for="Idbs" type="text" class="form-control" readonly />
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Mã nhân viên</label>
+                    <div class='input-group'>
+                        <input style="background-color:white;color:blue" asp-for="MaBacSi" type="text" class="form-control" readonly />
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Nhóm nhân viên</label>
+                    <div class='input-group'>
+
+                        <select asp-for="Idnbs" class="form-select" asp-items="ViewBag.Idnbs" disabled></select>
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Tên nhân viên</label>
+                    <div class='input-group'>
+                        <input asp-for="TenBs" id="Tenbs" type="text" maxlength="50" class="form-control" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" />
+                    </div>
+                    <span id="TenNCVError" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Ngày sinh</label>
+                    <div class='input-group date' id='inputmask1'>
+                        <input asp-for="NgaySinh" type="text" class="form-control inputmask1"
+                               placeholder="dd/mm/yyyy" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" />
+
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Giới Tinh</label>
+                    <div class='input-group'>
+                        <select class="form-select" asp-for="GioiTinh">
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                            <option value="Không xác định">Không xác định</option>
+                        </select>
+
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">CCCD</label>
+                    <div class='input-group'>
+                        <input asp-for="Cccd" type="number" oninput="validateCccd(this)" class="form-control" required />
+
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Quê quán</label>
+                    <div class='input-group'>
+                        <input asp-for="QueQuan" type="text" maxlength="50" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" class="form-control" />
+
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Địa chỉ</label>
+                    <div class='input-group'>
+                        <input asp-for="DiaChi" type="text" required maxlength="50" oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" class="form-control" />
+
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Sđt</label>
+                    <div class='input-group'>
+                        <input asp-for="Sdt" type="number" oninput="validatePhoneNumber(this)" class="form-control" required />
+
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <div class='input-group'>
+                        <input asp-for="Email" type="email" maxlength="50" class="form-control" required oninvalid="this.setCustomValidity('Email không hợp lệ hoặc bỏ trống. Vui lòng nhập email hợp lệ.');" oninput="setCustomValidity('')" />
+
+                    </div>
+                    <span id="TenNCVError" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Zalo</label>
+                    <div class='input-group'>
+                        <input asp-for="Zalo" type="text" maxlength="50" class="form-control" />
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Facebook</label>
+                    <div class='input-group'>
+                        <input asp-for="Facebook" type="text" maxlength="50" class="form-control" />
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="control-label">Ghi chú</label>
+                    <div class='input-group'>
+                        <input asp-for="GhiChu" type="text" maxlength="100" class="form-control" />
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Hình ảnh</label>
+                    <div class='input-group'>
+                        <input title="Upload a employee image" asp-for="FrontImage" maxlength="50" class="form-control" maxlength="50"
+                               onchange="document.getElementById('FrontImagePrv1').src= window.URL.createObjectURL(this.files[0])">
+                    </div>
+                    <span asp-validation-for="FrontImage" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">Ngày Sửa</label>
+                    <div class='input-group'>
+                        <input asp-for="NgaySua" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" class="form-control" readonly />
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label"> </label>
+                    <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                </div>
+            </div>   <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label"> </label>
+                    <input style="color:black" type="button" value="Huỷ" class="btn btn-primary form-control" onclick="resetAndSubmit()" />
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+
+<script>
+    function validatePhoneNumber(input) {
+        const phoneNumber = input.value.replace(/\D/g, ''); // Loại bỏ tất cả các ký tự không phải chữ số
+        if (phoneNumber.length > 11) {
+            input.value = phoneNumber.slice(0, 11); // Cắt bớt độ dài số điện thoại nếu vượt quá 11 chữ số
+        } else if (phoneNumber.length < 10) {
+            input.setCustomValidity('Số điện thoại cần ít nhất 10 chữ số'); // Đặt thông báo lỗi nếu số điện thoại có ít hơn 10 chữ số
+        } else {
+            input.setCustomValidity(''); // Xóa thông báo lỗi nếu số điện thoại hợp lệ
+        }
+    }
+</script>
+<script>
+    function validateCccd(input) {
+        const cccdNumber = input.value.replace(/\D/g, ''); // Loại bỏ tất cả các ký tự không phải chữ số
+        if (cccdNumber.length > 13) {
+            input.value = cccdNumber.slice(0, 13); // Cắt bớt độ dài số CCCD nếu vượt quá 13 chữ số
+        } else if (cccdNumber.length < 13) {
+            input.setCustomValidity('Số CCCD cần có đúng 13 chữ số'); // Đặt thông báo lỗi nếu số CCCD có ít hơn 13 chữ số
+        } else {
+            input.setCustomValidity(''); // Xóa thông báo lỗi nếu số CCCD hợp lệ
+        }
+    }
+</script>
+<script>
+    function resetAndSubmit() {
+        // Xóa dữ liệu trong trường nhập liệu (reset)
+        document.getElementById("abc").reset();
+
+        // Gửi dữ liệu lên máy chủ (submit)
+        // document.getElementById("abc").submit();
+        location.reload();
+    }
+    $(document).ready(function () {
+        $(".inputmask").inputmask({
+            alias: "datetime",
+            inputFormat: "dd/mm/yyyy HH:MM"
+        });
+    }); $(document).ready(function () {
+        $(".inputmask1").inputmask({
+            alias: "datetime",
+            inputFormat: "dd/mm/yyyy",
+        });
+    });
+</script>

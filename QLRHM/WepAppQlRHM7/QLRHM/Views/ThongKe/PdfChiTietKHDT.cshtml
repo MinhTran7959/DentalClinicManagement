@@ -1,0 +1,191 @@
+﻿@model IEnumerable<QLRHM.Models.NoiDungThanhToan>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Home_Modal.cshtml";
+    var ChiTietBaoCaoKHDT = Model.FirstOrDefault(); // Lấy đối tượng đầu tiên từ danh sách Model
+    var TongTien = 0;
+    string currentMaKeHoach = null; int rowCount = 1; // Số dòng cần gộp cho mỗi nhóm
+}
+
+<div class="table" style="min-width:900px ; max-width:700px;color:black ">
+    <div>
+        <span style="font-weight:900;padding-left:8px">
+            PHÒNG KHÁM NHA KHOA RĂNG HÀM MẶT
+        </span>
+
+    </div>
+    <div>
+        <a style="font-size: 14px; font-weight: normal;">
+            <span>  Địa chỉ : 69/96 tổ 3 , ấp 6 , đường Nguyễn Văn Bữa , Hóc Môn , Thành phố Hồ Chí Minh <br></span>
+            <span style="margin-top: 5px; display: block;">Sđt: 03827847566</span>
+            <span>Gmail: PhongKhamNhaKhoaRHM@gmail.com</span>
+        </a>
+    </div>
+    
+</div>
+<center>
+    <div style="padding-top:30px; margin-bottom:20px;text-transform: uppercase">
+        @if (ChiTietBaoCaoKHDT != null)
+        {
+            <a style="color:red">Danh sách chi tiết kế hoạch điều trị ngày @ViewBag.fromDate - @ViewBag.toDate</a>
+
+            <br>
+            <span>BÁC SĨ LẬP KẾ HOẠCH: @ChiTietBaoCaoKHDT.IdndkhNavigation.IdkhdtNavigation.IdbsNavigation.MaBacSi -  @ChiTietBaoCaoKHDT.IdndkhNavigation.IdkhdtNavigation.IdbsNavigation.TenBs</span>
+        }
+
+    </div>
+</center>
+@using (Html.BeginForm("PdfChiTietKHDT", "ThongKe", FormMethod.Post, new { id = "abc", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <table class="table">
+        <thead>
+            <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center ; font-size:13px">
+
+                <th>
+                    Stt
+                </th>
+              
+                <th>
+                    Mã kế hoạch
+                </th>
+                <th>
+                    Ngày lập KH
+                </th>
+                <th>
+                    Mã bệnh nhân
+                </th>
+                <th>
+                    Tên bệnh nhân
+                </th>
+               <th>
+                    Mã bác sĩ điều trị
+                </th>
+                <th>
+                    Tên bác sĩ điều trị
+                </th>
+                <th>
+                   Tên công việc điều trị
+                </th>
+                <th>
+                    Số lần điều trị
+                </th>
+                <th>
+                    Đơn giá gốc
+                </th>
+                 <th>
+                   Đơn giá TT
+                </th>
+                <th>
+                  Ghi chú
+                </th>
+
+                <th>
+                    Tình trạng
+                </th>
+            </tr>
+        </thead>
+
+        @{
+            int stt = 1;
+        }
+        @foreach (var ChiTietBCKHDT in Model)
+        {
+            <tr style="font-size:12px">
+                <td>
+                   
+                        @stt
+                    
+                </td>
+
+                <td>
+                   
+                        @ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.MaKeHoacDieuTri
+                    
+                </td>
+
+                <td>
+                   
+                        @ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.NgayLap
+                    
+                </td>
+                <td>
+                   
+                         @ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.MaBenhNhan
+                   
+                    
+                </td>
+                <td>
+                   
+                        @ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.TenBn
+                    
+                </td>
+
+
+
+
+
+                <td>
+                    @ChiTietBCKHDT.IdndkhNavigation.IdbsdtNavigation.MaBacSi
+                </td>
+                 <td>
+                    @ChiTietBCKHDT.IdndkhNavigation.IdbsdtNavigation.TenBs
+                </td>
+                 
+
+                 <td>
+                    @ChiTietBCKHDT.IdndkhNavigation.IdcvdtNavigation.TenCongViec
+                </td>
+
+                <td style="text-align:center">
+                    @ChiTietBCKHDT.IdndkhNavigation.SoLan
+                </td>
+                <td style="text-align:right">
+                    @ChiTietBCKHDT.IdndkhNavigation.IdcvdtNavigation.FormattedDonGiaSuDung
+                </td>
+                <td style="text-align:right">
+                    @ChiTietBCKHDT.IdndkhNavigation.FormattedDonGia
+                </td>
+                 <td >
+                    @ChiTietBCKHDT.IdndkhNavigation.GhiChu
+                </td>
+
+                @if (ChiTietBCKHDT.ThanhToan == "1" && (ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.DieuTri == "1" || ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.DieuTri == "3"))
+                {
+
+                    <td>
+                        <a>Đã điều trị</a>
+                    </td>
+
+                }
+                else if (ChiTietBCKHDT.ThanhToan == "0" && ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.DieuTri == "3")
+                {
+                    <td>
+                        <a style="color:red">Bị huỷ</a>
+                    </td>
+                }
+                 else if (ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.DieuTri == "2")
+                {
+                    <td>
+                        <a style="color:red">Bị huỷ</a>
+                    </td>
+                }
+
+                else if (ChiTietBCKHDT.ThanhToan == "0" && ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.DieuTri == "1")
+                {
+                    <td>
+                        <a>Đang điều trị</a>
+                    </td>
+                }
+            </tr>
+
+            
+                stt++;
+             
+        }
+
+    </table>
+
+}

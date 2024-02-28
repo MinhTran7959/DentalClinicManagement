@@ -1,0 +1,308 @@
+﻿@model QLRHM.Models.PdfKeHoach
+@using QLRHM.Models
+
+@{
+    Layout = null;
+    decimal tongTien = 0; // Biến tổng tiền
+}
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+@* <title> Order confirmation </title> *@
+<meta name="robots" content="noindex,nofollow" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+<style type="text/css">
+
+</style>
+@using (Html.BeginForm("PdfKeHoachDieuTri", "BenhNhans", FormMethod.Post, new { enctype = "multipart/form-data", id = "ApplicantForm" }))
+        {
+<input style="background-color:white;color:blue" asp-for="KeHoachDieuTri.Idkhdt" type="hidden" class="form-control" readonly />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+  <tr>
+    <td height="20"></td>
+  </tr>
+  <tr>
+    <td>
+      <table width="820" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff" style="border-radius: 10px 10px 0 0;">
+        <tr class="hiddenMobile">
+          <td height="40"></td>
+        </tr>
+        <tr class="visibleMobile">
+          <td height="30"></td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="640" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
+              <tbody>
+                <tr>
+                  <td>
+                    <table width="220" border="0" cellpadding="0" cellspacing="0" align="left" class="col">
+                      <tbody>
+                            <tr>
+                                <td style="color:#3b78ec">Phòng khám nha khoa</td>
+                            </tr>
+                            <tr>
+                            <tr class="hiddenMobile">
+                                <td height="10"></td>
+                            </tr>
+                            <tr class="visibleMobile">
+                                <td height="10"></td>
+                            <tr>
+                        <tr>
+                          <td style="font-size: 12px; color: #5b5b5b;  line-height: 18px; vertical-align: top; text-align: left;">
+                                <p>ĐC: 6/69 Lê Văn Sỹ , TP.HCM</p>
+                                <p> ĐT: 037483677</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table width="220" border="0" cellpadding="0" cellspacing="0" align="right" class="col">
+                      <tbody>
+
+                        <tr>
+                          <td style="font-size: 15px; color: #3b78ec; letter-spacing: -1px;  line-height: 1; vertical-align: top; text-align: right;">
+                            Số phiếu: @Model.KeHoachDieuTri.MaKeHoacDieuTri
+                          </td>
+                        </tr>
+                        <tr>
+                            <tr class="hiddenMobile">
+                                <td height="10"></td>
+                            </tr>
+                            <tr class="visibleMobile">
+                                <td height="10"></td>
+                        <tr>
+                          <td style="font-size: 12px; color: #5b5b5b;  line-height: 18px; vertical-align: top; text-align: right;">
+                            <p>Số hồ sơ: @Model.BenhNhan.MaBenhNhan</p>
+                            <p id ="ngay-hien-tai">Ngày thêm KHĐT: @Model.KeHoachDieuTri.NgayLap.ToString("dd/MM/yyyy HH:mm")</p> 
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- /Header -->
+<!-- Order Details -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+  <tbody>
+    <tr>
+      <td>
+                    <table width="820" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff">
+          <tbody>
+            <tr>
+            
+                        <tr class="hiddenMobile" style="display: contents;  text-align: center; ">
+                           <td style="padding-top: 30px;padding-bottom:10px ;"><h2>BẢNG DỰ TRÙ CHI PHÍ VÀ KẾ HOẠCH ĐIỀU TRỊ</h2></td>
+                        </tr>
+                        <tr >
+
+                                <td style="width: 100%; text-align: center; font-weight:700;font-size:14px" >
+                                    <span style="display: inline-block; width: 200px;"> Họ tên:<a style="font-weight:500"> @Model.BenhNhan.TenBn </a></span>
+                                    <span style="display: inline-block; width: 160px;">Năm Sinh: <a style="font-weight:500"> @Model.BenhNhan.FormatNgaySinh </a></span>
+                                    <span style="display: inline-block; width: 110px;">Giới tính: <a style="font-weight:500"> @Model.BenhNhan.GioiTinh </a></span>
+                                    <span style="display: inline-block; width: 150px;">Sđt:<a style="font-weight:500"> @Model.BenhNhan.Sdt </a></span>
+                                </td>
+
+
+                        </tr>
+                         <tr >
+
+                                <td style="width: 100%; padding-left: 120px; font-weight:700;font-size:14px">
+                                    <span style="display: inline-block; width: 350px;">Địa chỉ: <a style="font-weight:500"> @Model.BenhNhan.DiaChi </a></span>
+
+                                    <span style="display: inline-block; width: 320px;">Email:<a style="font-weight:500"> @Model.BenhNhan.Email </a></span>
+                                </td>
+
+
+                        </tr>
+                        
+                       
+            
+            <tr >
+              <td>
+                <table width="640" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding" style="padding-top:30px ;">
+                  <tbody >
+                    <tr>
+                     <th style="font-size: 14px;  font-weight: 700; line-height: 1; vertical-align: top; padding: 0 0 7px" align="left">
+                        Bác sĩ điều trị
+                      </th>
+                        <th style="font-size: 14px; font-weight: 700; line-height: 1; vertical-align: top; padding: 0 0 7px;width:35%" align="left">
+                        Công việc
+                      </th>
+                         <th style="font-size: 14px; font-weight: 700; line-height: 1; vertical-align: top; padding: 0 0 7px;" align="left">
+                        <small>Ghi chú</small>
+                      </th>
+                       <th style="font-size: 14px; font-weight: 700; line-height: 1; vertical-align: top; padding: 0 0 7px;" align="center">
+                        Số lần
+                      </th>
+                      <th style="font-size: 14px; font-weight: 700; line-height: 1; vertical-align: top; padding: 0 0 7px;" align="right">
+                        Đơn giá
+                      </th>
+                    </tr>
+                    <tr>
+                      <td height="1" style="background: #bebebe;" colspan="5"></td>
+                    </tr>
+                    <tr>
+                      <td height="10" colspan="5"></td>
+                    </tr>
+                                                @{
+                                                    
+                                                }
+                                                @for (int i = 0; i < Model.KeHoachDieuTri.MasterNd.Count; i++)
+                                                {
+                                                <tr>
+                                                    <td>
+                                                            @Model.KeHoachDieuTri.MasterNd[i].IdbsdtNavigation.TenBs
+                                                    </td>
+                                                    <td>
+                                                        @Model.KeHoachDieuTri.MasterNd[i].IdcvdtNavigation.TenCongViec
+                                                    </td>
+
+                                                    <td>
+                                                            @(string.IsNullOrEmpty( Model.KeHoachDieuTri.MasterNd[i].GhiChu) ? "không" :  Model.KeHoachDieuTri.MasterNd[i].GhiChu)
+                                                    </td>
+                                                    <td style="text-align:center">
+                                                        @Model.KeHoachDieuTri.MasterNd[i].SoLan
+                                                    </td>
+                                                    <td style="text-align:right">
+                                                        @Model.KeHoachDieuTri.MasterNd[i].FormattedDonGia
+                                                           
+                                                    </td>
+                                                  
+
+                                                </tr>
+                                                    tongTien += Convert.ToDecimal(@Model.KeHoachDieuTri.MasterNd[i].FormattedDonGia);
+                                                }
+
+                    <tr>
+                      <td height="1" colspan="5" style="border-bottom:1px solid #e4e4e4"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td height="20"></td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- /Order Details -->
+<!-- Total -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+  <tbody>
+    <tr>
+      <td>
+        <table width="820" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff">
+          <tbody>
+            <tr>
+              <td>
+
+                <!-- Table Total -->
+                <table width="640" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
+                  <tbody>
+           
+                    <tr>
+                      <td style="font-size: 12px; width:550px; color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
+                        Tổng chi phí:
+                      </td>
+                      <td style="font-size: 12px;  color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
+                       <strong>@string.Format("{0:#,0}", tongTien)</strong>
+                      </td>
+                    </tr>
+                 <tr>
+                      <td style="font-size: 12px; width:550px; color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
+                      Tiền phải thu:
+                      </td>
+                      <td style="font-size: 12px;  color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
+                       <strong>@string.Format("{0:#,0}", tongTien)</strong>
+                      </td>
+                    </tr>
+                
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- /Table Total -->
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- /Total -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+
+  <tr>
+    <td>
+      <table width="820" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff" >
+        <tr>
+          <td>
+            <table width="640" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
+              <tbody>
+                <tr >
+                      <td style="font-size: 12px;   line-height: 18px; vertical-align: top; text-align: left; font-weight: 700; padding-left: 10%;">
+                      Khách hàng
+                        
+                      </td>
+                      <td style="font-size: 12px;   line-height: 18px; vertical-align: top; text-align: left; font-weight: 700; padding-left: 10%;">
+                      Bác sĩ
+                      </td>
+                      <td style="font-size: 12px;   line-height: 18px; vertical-align: top; text-align: left; font-weight: 700; padding-left: 20%;">
+                        Người lập phiếu
+                      </td>
+                </tr>
+                <tr >
+                    <td style="font-size: 12px;   line-height: 18px; vertical-align: top; text-align: left;padding-left: 10%;">
+                   (Ký, họ tên)
+                      
+                    </td>
+                    <td style="font-size: 12px;   line-height: 18px; vertical-align: top; text-align: left;padding-left: 10%;">
+                      (Ký, họ tên)
+                    </td>
+                    <td style="font-size: 12px;   line-height: 18px; vertical-align: top; text-align: left;  padding-left: 20%;">
+                      (Ký, họ tên)
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr class="spacer">
+          <td height="50"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="20"></td>
+  </tr>
+</table>
+}
+

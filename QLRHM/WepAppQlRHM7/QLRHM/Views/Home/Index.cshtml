@@ -1,0 +1,395 @@
+﻿@model IEnumerable<QLRHM.Models.ThangTongTien>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/Home.cshtml";
+}
+<script src="~/js/chart.js" asp-append-version="true"></script>
+<style>
+    .col-md-6, .col-md-4 {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Điều chỉnh giá trị để phù hợp với thiết kế của bạn */
+        padding: 20px; /* Thêm khoảng trắng để tăng độ rõ nét của hiệu ứng bóng đổ */
+        background-color: white;
+        height: 350px;
+        border-radius: 20px;
+    }
+</style>
+<body style="background-color:#EEEEEE">
+        <div class="row" style="margin-top:0.3%; height:350px; justify-content:center">
+
+            <div class="col-md-6" style=" margin-left:2%; margin-right:2% ; ">
+            <center><a style="font-size:18px; color:red;font-weight:700">
+                    <i class="fa-solid fa-money-bill-wave"></i> Biểu đồ thống kê tổng thu nhập theo từng tháng năm @DateTime.Now.Year</a></center>
+                <canvas id="TongTien" style="width:100%"></canvas>
+            </div>
+            <div class="col-md-4" style="padding-bottom:2%">
+            <center><a style="font-size:18px; color:red;font-weight:700 ;"><i class="fa-solid fa-bed-pulse"></i> Biểu đồ thống kê số bệnh nhân trong năm @DateTime.Now.Year</a></center>
+                <canvas style="margin-left:5% " id="TongBn"></canvas>
+            </div>
+        </div>
+        <div class="row" style="margin-top:0.3%; height:350px; justify-content:center">
+
+              <div class="col-md-6" style=" margin-left:2%; margin-right:2% ; ">
+            <center><a style="font-size:18px; color:red;font-weight:700"><i class="fa-solid fa-file-signature"></i> Biểu đồ thống kê các công việc trên kế hoạch theo từng tháng trong năm @DateTime.Now.Year</a></center>
+                 <canvas id="KHDT_NDKHDT" style="width:100%"></canvas>
+             </div>
+             <div class="col-md-4" style="padding-bottom:2%">
+            <center><a style="font-size:18px; color:red;font-weight:700 ;"><i class="fa-regular fa-calendar-check"></i> Biểu đồ thống kê số lịch hẹn trong năm @DateTime.Now.Year</a></center>
+                <canvas style="margin-left:5% " id="LichHen"></canvas>
+             </div>
+        </div>
+        
+
+    <table style="display:none">
+        <thead>
+            <tr>
+                <th>
+                    Tháng
+                </th>
+                 <th>
+                    tiền
+                </th>
+                 <th>
+                    kế hoạch
+                </th>
+                 <th>
+                    CV
+                </th>
+                 <th>
+                    LH
+                </th>
+                 <th>
+                    BN
+                </th>
+
+            </tr>
+        </thead>
+
+        @foreach (var product in Model)
+        {
+            <tr class="ThangTongTien">
+                <td>@product.Thang</td>
+                <td>@product.TongTien.ToString("N0")</td>
+                <td>@product.TongKeHoach</td>
+                <td>@product.TongCV</td>
+                <td>@product.TongLH</td>
+                <td>@product.TongBN</td>
+
+            </tr>
+        }
+    </table>
+</body>
+<script>
+    // Biểu đồ bar
+    const ctxBar = document.getElementById('KHDT_NDKHDT');
+    var dataCongViec = [];
+    var dataKeHoach = [];
+
+    $('.ThangTongTien').each(function () {
+        var $row = $(this);
+        var TongCVText = $row.find('td:eq(3)').text().trim();
+        var TongCV = parseFloat(TongCVText.replace(/,/g, '')); // Chuyển đổi chuỗi thành số
+        dataCongViec.push(TongCV);
+        var TongKHText = $row.find('td:eq(2)').text().trim();
+        var TongKH = parseFloat(TongKHText.replace(/,/g, '')); // Chuyển đổi chuỗi thành số
+        dataKeHoach.push(TongKH);
+
+
+    });
+
+    new Chart(ctxBar, {
+        type: 'bar',
+        responsive: true,
+        data: {
+            labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+            datasets: [
+                {
+                    label: 'Tổng kế hoạch đã thực hiện ',
+                    data: dataKeHoach,
+                    borderWidth: 2,
+                    borderRadius: Number.MAX_VALUE,
+                    borderSkipped: false,
+                    backgroundColor: 'rgb(102, 196, 255, 0.2)', 
+                    borderColor: 'rgb(102, 196, 255, 1)', 
+                },
+                 {
+                    label: 'Tổng công việc đã điệu trị ',
+                    data: dataCongViec,
+                    borderWidth: 2,
+                    borderRadius: 5,
+                    borderSkipped: false,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)', // Màu của cột thứ hai
+                    borderColor: 'rgba(255, 0, 0, 1)', // Màu của đường biên của cột thứ hai
+                 }
+            
+            ]
+        },
+        options: {
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        // text: 'Tháng'
+                    }
+                },
+                y: {
+                    beginAtZero: true
+                }
+            },
+            tooltips: {
+                enabled: true,
+            },
+        },
+    });
+
+</script>
+<script>
+    // Biểu đồ bar
+    const ctxBar2 = document.getElementById('LichHen');
+  
+    var dataLichHen = [];
+
+    $('.ThangTongTien').each(function () {
+        var $row = $(this);
+        var TongLhText = $row.find('td:eq(4)').text().trim();
+        var TongLH = parseFloat(TongLhText.replace(/,/g, ''));
+        dataLichHen.push(TongLH);
+       
+
+
+    });
+
+    new Chart(ctxBar2, {
+        type: 'doughnut',
+        responsive: true,
+        data: {
+            labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+            datasets: [
+                {
+                    label: 'Tổng lịch hẹn đã thực hiện ',
+                    data: dataLichHen,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',   // Màu cho Tháng 1
+                        'rgba(255, 159, 64, 0.5)',  // Màu cho Tháng 2
+                        'rgba(255, 205, 86, 0.5)',  // Màu cho Tháng 3
+                        'rgba(75, 192, 192, 0.5)',  // Màu cho Tháng 4
+                        'rgba(54, 162, 235, 0.5)',  // Màu cho Tháng 5
+                        'rgba(153, 102, 255, 0.5)', // Màu cho Tháng 6
+                        'rgba(255, 255, 0, 0.5)',   // Màu cho Tháng 7
+                        'rgba(0, 255, 0, 0.5)',     // Màu cho Tháng 8
+                        'rgba(128, 128, 128, 0.5)', // Màu cho Tháng 9
+                        'rgba(255, 0, 0, 0.5)',     // Màu cho Tháng 10
+                        'rgba(0, 255, 255, 0.5)',   // Màu cho Tháng 11
+                        'rgba(0, 0, 255, 0.5)',     // Màu cho Tháng 12
+                    ], borderColor: [
+                        'rgba(255, 99, 132, 1)',   // Màu cho Tháng 1
+                        'rgba(255, 159, 64, 1)',  // Màu cho Tháng 2
+                        'rgba(255, 205, 86, 1)',  // Màu cho Tháng 3
+                        'rgba(75, 192, 192, 1)',  // Màu cho Tháng 4
+                        'rgba(54, 162, 235, 1)',  // Màu cho Tháng 5
+                        'rgba(153, 102, 255, 1)', // Màu cho Tháng 6
+                        'rgba(255, 255, 0, 1)',   // Màu cho Tháng 7
+                        'rgba(0, 255, 0, 1)',     // Màu cho Tháng 8
+                        'rgba(128, 128, 128, 1)', // Màu cho Tháng 9
+                        'rgba(255, 0, 0, 1)',     // Màu cho Tháng 10
+                        'rgba(0, 255, 255, 1)',   // Màu cho Tháng 11
+                        'rgba(0, 0, 255, 1)',     // Màu cho Tháng 12
+                    ],
+                }
+                        
+            ]
+        },
+        options: {
+            scales: {
+                x: {
+                    display: false, // Ẩn lưới theo chiều ngang
+                },
+                y: {
+                    display: false, // Ẩn lưới theo chiều dọc
+                },
+            },
+            
+            cutout: '50%', // Thiết lập độ lõm (đặt giá trị từ 0 đến 100)
+            maintainAspectRatio: false, // Ngăn biểu đồ bị méo khi thay đổi kích thước
+            tooltips: {
+                enabled: true,
+            },
+        },
+    });
+
+
+</script>
+<script>
+    // Biểu đồ bar
+    const ctxBar3 = document.getElementById('TongTien').getContext('2d');
+    // Lấy dữ liệu từ bảng công việc
+
+    var dataCongViec = [];
+    $('.ThangTongTien').each(function () {
+        var $row = $(this);
+
+        dataCongViec.push(parseFloat($row.find('td:eq(1)').text().replace(/\./g, '').replace(',', '')));
+
+    });
+    // Tính trung bình cộng
+    var average = dataCongViec.reduce((acc, val) => acc + val, 0) / dataCongViec.length;
+
+    // Tính giá trị thấp nhất và cao nhất
+    var minValue = Math.min(...dataCongViec);
+    var maxValue = Math.max(...dataCongViec);
+
+    // Tạo mảng trung bình cộng
+    var averageLine = Array(dataCongViec.length).fill(average);
+
+    // Tạo mảng giá trị thấp nhất và cao nhất
+    var minValueLine = Array(dataCongViec.length).fill(minValue);
+    var maxValueLine = Array(dataCongViec.length).fill(maxValue);
+
+
+
+    var gradient = ctxBar3.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0, 'rgba(62, 177, 70, 1)'); // Điểm đầu màu đậm
+    gradient.addColorStop(1, 'rgba(62, 177, 70, 0.1)'); // Điểm cuối màu nhạt
+
+
+
+    new Chart(ctxBar3, {
+        type: 'line',
+        data: {
+            labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+            datasets: [{
+                label: 'Tổng tiền',
+                fill: true,
+                data: dataCongViec,
+                borderColor: 'rgba(62, 177, 70, 1)',
+                backgroundColor: gradient,
+                borderWidth: 1,
+                radius: 10,
+            },
+            {
+                label: 'Trung bình',
+                fill: false,
+                data: averageLine,
+                borderColor: 'orange',
+                backgroundColor: 'orange',
+                borderWidth: 1,
+                radius: 3, 
+            },
+            {
+                label: 'Thấp nhất',
+                fill: false,
+                data: minValueLine,
+                borderColor: 'green', // Màu của đường thấp nhất
+                borderWidth: 1,
+                radius: 3,
+                borderColor: 'red',
+                backgroundColor: 'red',
+            },
+            {
+                label: 'Cao nhất',
+                fill: false,
+                data: maxValueLine,
+                borderColor: 'orange', // Màu của đường cao nhất
+                borderWidth: 1,
+                radius: 3,
+                borderColor: 'blue',
+                backgroundColor: 'blue',
+            }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem, data) {
+                        if (tooltipItem.datasetIndex === 1) {
+                            return 'Trung bình: ' + average.toFixed(2); // Hiển thị giá trị trung bình
+                        } else {
+                            return 'Tổng tiền: ' + tooltipItem.yLabel.toFixed(2); // Hiển thị giá trị của đường chính
+                        }
+                    }
+                }
+            },
+        },
+    });
+
+</script>
+<script>
+    // Biểu đồ bar
+    const ctxBar4 = document.getElementById('TongBn');
+
+    var dataLichHen = [];
+
+    $('.ThangTongTien').each(function () {
+        var $row = $(this);
+        var TongLhText = $row.find('td:eq(5)').text().trim();
+        var TongLH = parseFloat(TongLhText.replace(/,/g, ''));
+        dataLichHen.push(TongLH);
+
+
+
+    });
+
+    new Chart(ctxBar4, {
+        type: 'pie',
+        responsive: true,
+        data: {
+            labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+            datasets: [
+                {
+                    label: 'Tổng bệnh nhân mới',
+                    data: dataLichHen,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',   // Màu cho Tháng 1
+                        'rgba(255, 159, 64, 0.5)',  // Màu cho Tháng 2
+                        'rgba(255, 205, 86, 0.5)',  // Màu cho Tháng 3
+                        'rgba(75, 192, 192, 0.5)',  // Màu cho Tháng 4
+                        'rgba(54, 162, 235, 0.5)',  // Màu cho Tháng 5
+                        'rgba(153, 102, 255, 0.5)', // Màu cho Tháng 6
+                        'rgba(255, 255, 0, 0.5)',   // Màu cho Tháng 7
+                        'rgba(0, 255, 0, 0.5)',     // Màu cho Tháng 8
+                        'rgba(128, 128, 128, 0.5)', // Màu cho Tháng 9
+                        'rgba(255, 0, 0, 0.5)',     // Màu cho Tháng 10
+                        'rgba(0, 255, 255, 0.5)',   // Màu cho Tháng 11
+                        'rgba(0, 0, 255, 0.5)',     // Màu cho Tháng 12
+                    ], borderColor: [
+                        'rgba(255, 99, 132, 1)',   // Màu cho Tháng 1
+                        'rgba(255, 159, 64, 1)',  // Màu cho Tháng 2
+                        'rgba(255, 205, 86, 1)',  // Màu cho Tháng 3
+                        'rgba(75, 192, 192, 1)',  // Màu cho Tháng 4
+                        'rgba(54, 162, 235, 1)',  // Màu cho Tháng 5
+                        'rgba(153, 102, 255, 1)', // Màu cho Tháng 6
+                        'rgba(255, 255, 0, 1)',   // Màu cho Tháng 7
+                        'rgba(0, 255, 0, 1)',     // Màu cho Tháng 8
+                        'rgba(128, 128, 128, 1)', // Màu cho Tháng 9
+                        'rgba(255, 0, 0, 1)',     // Màu cho Tháng 10
+                        'rgba(0, 255, 255, 1)',   // Màu cho Tháng 11
+                        'rgba(0, 0, 255, 1)',     // Màu cho Tháng 12
+                    ],
+                }
+
+            ]
+        },
+        options: {
+            scales: {
+                x: {
+                    display: false, // Ẩn lưới theo chiều ngang
+                },
+                y: {
+                    display: false, // Ẩn lưới theo chiều dọc
+                },
+            },
+
+           
+            maintainAspectRatio: false, // Ngăn biểu đồ bị méo khi thay đổi kích thước
+            tooltips: {
+                enabled: true,
+            },
+        },
+    });
+
+
+</script>

@@ -1,0 +1,272 @@
+﻿@model QLRHM.Models.BacSi
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+  
+}
+
+<style>
+    .status{
+        width:7%;
+    }
+
+    img {
+        max-width: 100%; /* Giới hạn chiều rộng tối đa của ảnh */
+        max-height: 100%; /* Giới hạn chiều cao tối đa của ảnh */
+        border-radius:10px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .hidden-form {
+        display: none;
+    }
+</style>
+
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+            <li class="active"><a data-toggle="tab" href="#home"><i class="fa-regular fa-address-card" ></i> Thông tin tài khoản</a></li>
+           
+           
+        </ul>
+    
+
+        <div class="tab-content">
+
+
+            <div id="home" class="tab-pane fade in active" style="background-color:#f8f9fe;width:100%">
+
+                <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+                    <center><h3 style="color:red">Thông tin tài khoản</h3></center>
+                    <div class="row">
+                        <div class="col-md-3 d-flex justify-content-center align-items-center">
+                            <div class="col-md-6 text-center">
+                                <div class="form-group" style="border:10px solid #cacaca4f;  border-radius: 10px;">
+                                    <label>
+                                        <img  id="FrontImagePrv" src="~/image/NV/@Model.AnhBs" alt="Image"  >
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-9">
+                            <div class="row" >
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Mã tài khoản</label>
+                                        <div class='input-group'>
+                                            <input value="@Model.MaBacSi"  maxlength="50" class="form-control" readonly />
+                                        </div>  
+                               
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Tên tài khoản</label>
+                                        <div class='input-group'>
+                                            <input value="@Model.TenBs"  maxlength="50" class="form-control" readonly />
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Ngày sinh</label>
+                                        <div class='input-group date' id='inputmask1'>
+                                            <input value="@Model.FormatNgaySinh"  maxlength="50" class="form-control" readonly />
+
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Giới Tinh</label>
+                                        <div class='input-group'>
+                                            <input value="@Model.GioiTinh"  maxlength="50" class="form-control" readonly />
+
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">CCCD</label>
+                                        <div class='input-group'>
+                                            <input value="@Model.Cccd"  maxlength="50" class="form-control" readonly />
+
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Quê quán</label>
+                                        <div class='input-group'>
+                                            <input value="@Model.QueQuan"  maxlength="50" class="form-control" readonly />
+
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Địa chỉ</label>
+                                        <div class='input-group'>
+                                            <input value="@Model.DiaChi"  maxlength="50" class="form-control" readonly />
+
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Sđt</label>
+                                        <div class='input-group'>
+                                            <input value="@Model.Sdt"  maxlength="50" class="form-control" readonly />
+
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Email</label>
+                                        <div class='input-group'>
+                                            <input value="@Model.Email"  maxlength="50" class="form-control" readonly />
+
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Zalo</label>
+                                        <div class='input-group'>
+                                            <input value="@Model.Zalo"  maxlength="50" class="form-control" readonly />
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Facebook</label>
+                                        <div class='input-group'>
+                                            <input value="@Model.Facebook"  maxlength="50" class="form-control" readonly />
+                                        </div>
+                           
+                                    </div>
+                                </div>
+                               
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Được thêm vào ngày</label>
+                                        <div class='input-group'>
+                                            <input value="@Model.NgayTao"  maxlength="50" class="form-control" readonly />
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>  <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Chỉnh sửa lần cuối vào ngày</label>
+                                        <div class='input-group'>
+                                            <input value="@Model.NgaySua"  maxlength="50" class="form-control" readonly />
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label class="control-label">Ghi chú</label>
+                                        <div class='input-group'>
+                                            <textarea value="@Model.GhiChu"  maxlength="50" class="form-control" readonly></textarea>
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                    <div class="col-md-2" >
+                                        <div class="form-group">
+                                            <label class="control-label"></label>
+                                            <div class='input-group'>
+                                            
+
+                                            <button type="button" class="btn btn-primary open-modal" data-bs-toggle="modal" data-bs-target="#myModal" data-url="@Url.Action("EditCaNhan", new { id =  Model.Idbs  })">
+                                                    Chỉnh sửa  <i class="fa-regular fa-pen-to-square" style="color: #fcfcfc;"></i>
+                                                </button>
+
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="col-md-2" >
+                                        <div class="form-group">
+                                            <label class="control-label"></label>
+                                            <div class='input-group'>
+                                            
+
+                                            <button type="button" class="btn btn-primary open-modal2" data-bs-toggle="modal" data-bs-target="#myModal2" data-url="@Url.Action("DoiMatKhau", new { id =  Model.Idbs  })">
+                                                    Đổi mật khẩu  <i class="fa-regular fa-pen-to-square" style="color: #fcfcfc;"></i>
+                                                </button>
+
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                  
+
+                </div>
+            </div>
+           
+          
+        
+             
+
+
+          </div>
+       </div>
+    </div>
+<div class="modal" id="myModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+               
+                <div id="partial-view-container"></div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="myModal2" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+           
+            <div class="modal-body">
+                <div id="partial-view-container2"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/js/khdt.js" asp-append-version="true"></script>
+

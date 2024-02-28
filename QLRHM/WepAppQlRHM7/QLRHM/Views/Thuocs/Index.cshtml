@@ -1,0 +1,281 @@
+﻿@using QLRHM.Models;
+@model QLRHM.Models.Thuoc
+
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+
+}
+
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+            <li class="active"><a data-toggle="tab" href="#home"><i class='bx bx-list-ul'></i> Danh sách thuốc</a></li>
+              <li><a data-toggle="tab" href="#menu1"><i class='bx bx-folder-plus'></i> Danh sách thuốc đã ẩn</a></li>
+
+        </ul>
+
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <button id="toggleFormButton" class="btn btn-primary">Bật/tắt phiếu thêm</button>
+               @*  <a asp-action="ExportExcel" asp-controller="HinhThucThanhToans" type="submit" class="btn btn-success">Xuất excel</a> *@
+                @using (Html.BeginForm("Create", "Thuocs", FormMethod.Post, new { id = "myForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <center><b style="font-weight:900 ; color:red">Thêm thuốc</b></center>
+                    <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+                        <div class="row">
+                           
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Mã thuốc</label>
+                                    <div class='input-group'>
+                                        <input style="background-color:white;color:blue" name="MaThuoc" type="text" value="@ViewBag.GeneratedT" class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Tên thuốc</label>
+                                    <div class='input-group'>
+                                        <input name="TenThuoc"  type="text" class="form-control" maxlength="100" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" />
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Đơn vị</label>
+                                    <div class='input-group'>
+                                        <select class="form-select" asp-for="DonViTinh">
+                                            <option value="Viên">Viên</option>
+                                            <option value="Lọ">Lọ</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label class="control-label">&nbsp;</label>
+                                    <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                }
+
+                <div class="row" style="padding-top:5px ;padding-bottom:5px">
+
+
+                    <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group">
+                                <input type="text" id="Search" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <table class="table scroll " id="example">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã thuốc
+                            </th>
+                            <th>
+                                Tên thuốc
+                            </th>
+                         
+                            <th>
+                                Đơn vị tính
+                            </th>
+                            <th>
+                                Thao tác
+                            </th>
+                        </tr>
+                    </thead>
+
+                    @{
+                        int stt = 1; // Khởi tạo số thứ tự ban đầu
+
+                        foreach (Thuoc thuoc in ViewBag.T)
+                        {
+                            <tr class="Search">
+                                <td style="width:2%">
+                                    @stt
+                                </td>
+
+                                <td style="width:11%">
+                                    @Html.DisplayFor(modelItem => thuoc.MaThuoc)
+                                </td>
+                                <td style="width:11%">
+                                    @Html.DisplayFor(modelItem => thuoc.TenThuoc)
+                                </td>
+                                <td style="width:11%">
+                                    @Html.DisplayFor(modelItem => thuoc.DonViTinh)
+                                </td>
+
+                                <td style="width:11%">
+
+
+                                   
+                                    <button type="button" class="btn btn-primary open-modal" data-bs-toggle="modal" data-bs-target="#myModal" data-url="@Url.Action("Edit", new { id = thuoc.Id  })">
+                                          <i class="fa-regular fa-pen-to-square" style="color: #fcfcfc;"></i>
+                                    </button>
+                                    <a class="btn" asp-action="hide" onclick="return ConfirmDelete(this)" asp-route-id="@thuoc.Id">
+
+                                        <box-icon name='hide' animation='tada-hover' color='red'></box-icon>
+                                    </a>
+                                    <div class="modal" id="myModal" tabindex="-1">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <div id="partial-view-container"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </td>
+                            </tr>
+                            stt++;
+                        }
+                    }
+                </table>
+
+
+            </div>
+            <div id="menu1" class="tab-pane fade in ">
+               
+
+                <div class="row" style="padding-top:5px ;padding-bottom:5px">
+
+
+                    <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group">
+                                <input type="text" id="Search1" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <table class="table scroll " id="example">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã thuốc
+                            </th>
+                            <th>
+                                Tên thuốc
+                            </th>
+
+                            <th>
+                                Đơn vị tính
+                            </th>
+                            <th>
+                                Thao tác
+                            </th>
+                        </tr>
+                    </thead>
+
+                    @{
+                        int stt2 = 1; // Khởi tạo số thứ tự ban đầu
+
+                        foreach (Thuoc thuoc in ViewBag.T2)
+                        {
+                            <tr class="Search1">
+                                <td style="width:2%">
+                                    @stt2
+                                </td>
+
+                                <td style="width:11%">
+                                    @Html.DisplayFor(modelItem => thuoc.MaThuoc)
+                                </td>
+                                <td style="width:11%">
+                                    @Html.DisplayFor(modelItem => thuoc.TenThuoc)
+                                </td>
+                                <td style="width:11%">
+                                    @Html.DisplayFor(modelItem => thuoc.DonViTinh)
+                                </td>
+
+                                <td style="width:11%">
+
+
+                                    <a asp-action="active" onclick="return ConfirmActive(this)" asp-route-id="@thuoc.Id">
+
+                                        <box-icon name='rotate-right' flip='horizontal' color='#04b245'></box-icon>
+                                    </a>
+
+
+
+                                </td>
+                            </tr>
+                            stt2++;
+                        }
+                    }
+                </table>
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#Search").on("keyup", function () {
+        var searchText = $(this).val().toLowerCase();
+        $(".Search").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+        });
+    });
+
+
+
+    $(document).ready(function () {
+        $("#Search1").on("keyup", function () {
+            var searchText = $(this).val().toLowerCase();
+            $(".Search1").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $('.open-modal').click(function () {
+            var url = $(this).data('url');
+            $.get(url, function (data) {
+                $('#partial-view-container').html(data);
+                $('#myModal').modal('show');
+            });
+        });
+    });
+</script>
+
+
+
+
+
+

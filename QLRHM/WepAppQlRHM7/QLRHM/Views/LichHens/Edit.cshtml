@@ -1,0 +1,143 @@
+﻿@model QLRHM.Models.LichHen
+
+@{
+    ViewData["Title"] = "Edit";
+    // Layout = "~/Views/Shared/Home_Modal.cshtml";
+    Layout = null;
+}
+
+    @using (Html.BeginForm("Edit", "LichHens", FormMethod.Post, new { id = "abc", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="col-md-3" style="display:none">
+            <div class="form-group">
+                <label class="control-label">ẩn</label>
+                <div class="input-group">
+                   
+                    <input class="demo-consoles selectize" name="id2" value="@ViewBag.id2">
+                    <input asp-for="Idlh">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="border: 2px solid #2acb6f;padding-bottom:10px;">
+            <center><b style="font-weight:900 ; color:red">Sửa lịch hẹn</b></center>
+            <div class="col-md-2" style="width:180px">
+                <div class="form-group">
+                    <label class="control-label">Ngày tạo </label>
+                    <div class='input-group'>
+                        <input asp-for="NgayTao" type="text" class="form-control" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" />
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2" style="width:180px">
+                <div class="form-group">
+                    <label class="control-label">Mã lịch hẹn</label>
+                    <div class='input-group'>
+                        <input style="color:blue" asp-for="MaLichHen" type="text" maxlength="50" class="form-control"  readonly />
+                    </div>
+                  
+                </div>
+            </div>
+            <div class="col-md-2" style="width:250px">
+                <div class="form-group">
+                    <label class="control-label">Công việc</label>
+                    <div class="input-group">
+
+                  @*   selectize *@
+                        <select class=" form-select" asp-for="Idndkh" style="width:100%">
+                            <option disabled> --Chọn công việc--</option>
+                            @foreach (NoiDungKeHoach Ndkh1 in ViewBag.Ndkh2)
+                            {
+                                <option value="@Ndkh1.Idndkh">@Ndkh1.IdcvdtNavigation.TenCongViec</option>
+                            }
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2" style="width:300px">
+                <div class="form-group">
+                    <label class="control-label">Lý do </label>
+                    <div class='input-group'>
+                        <textarea asp-for="LyDo" type="text" maxlength="100" class="form-control" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')"></textarea>
+                    </div>
+                  
+                </div>
+            </div>
+
+            <div class="col-md-2" style="width:180px">
+                <div class="form-group">
+                    <label class="control-label">Ngày hẹn</label>
+                    <div class='input-group date'>
+                    <input asp-for="NgayHen" type="date" min="@DateTime.Now.Date.ToString("yyyy-MM-dd")" class="form-control LichHen1" placeholder="@Model.NgayHen">
+                    </div>
+                </div>
+            </div>
+             
+
+
+@*             <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label">Giờ hẹn</label>
+                    <div class='input-group'>
+                    <input asp-for="GioHen" type="time" class="form-control GioHen1" value="08:00" step="1800" />
+
+                    </div>
+                    <span class="text-danger" asp-for="GioHen"></span>
+                </div>
+            </div> *@
+
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label"> </label>
+                    <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                </div>
+            </div>
+
+        </div>
+
+
+    }
+<script>
+
+    // Khi trang đã tải hoàn toàn
+    $(document).ready(function () {
+        // Kích hoạt Selectize cho tất cả các phần tử có lớp demo-consoles selectize
+        $('.selectize').selectize({
+
+        });
+
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+
+        flatpickr(".LichHen1", {
+            altInput: true,
+            minDate: "today",
+            dateFormat: "DD/MM/YYYY",
+            altFormat: "DD/MM/YYYY",
+            /*allowInput: true,*/
+            "locale": "vn",
+            parseDate: (datestr, format) => {
+                return moment(datestr, format, true).toDate();
+            },
+            formatDate: (date, format, locale) => {
+                return moment(date).format(format);
+            },
+        });
+
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+
+        flatpickr(".GioHen1", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true
+        });
+
+    });
+
+</script>

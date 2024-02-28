@@ -1,0 +1,225 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = QLRHM
+build_property.RootNamespace = QLRHM
+build_property.ProjectDir = D:\08_CNPM\DoAnTotNghiep\QLRHM\QLRHM\QLRHM\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\08_CNPM\DoAnTotNghiep\QLRHM\QLRHM\QLRHM
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/BaoHanhs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFvSGFuaHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/BaoHanhs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFvSGFuaHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/BaoHanhs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFvSGFuaHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/BaoHanhs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFvSGFuaHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/BaoHanhs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFvSGFuaHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/BenhNhans/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/BenhNhans/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/BenhNhans/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/BenhNhans/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/BenhNhans/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/CongViecs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ1ZpZWNzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/CongViecs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ1ZpZWNzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/CongViecs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ1ZpZWNzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/CongViecs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ1ZpZWNzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/CongViecs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ1ZpZWNzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/HinhThucHanhToans/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaFRodWNIYW5oVG9hbnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/HinhThucHanhToans/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaFRodWNIYW5oVG9hbnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/HinhThucHanhToans/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaFRodWNIYW5oVG9hbnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/HinhThucHanhToans/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaFRodWNIYW5oVG9hbnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/HinhThucHanhToans/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaFRodWNIYW5oVG9hbnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/LichHens/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaEhlbnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/LichHens/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaEhlbnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/LichHens/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaEhlbnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/LichHens/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaEhlbnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/LichHens/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaEhlbnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NganHangs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbkhhbmdzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NganHangs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbkhhbmdzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NganHangs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbkhhbmdzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NganHangs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbkhhbmdzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NganHangs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbkhhbmdzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NhomBacSis/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUJhY1Npc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NhomBacSis/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUJhY1Npc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NhomBacSis/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUJhY1Npc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NhomBacSis/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUJhY1Npc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NhomBacSis/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUJhY1Npc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NhomCongViecs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NhomCongViecs/CreateMaster.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xDcmVhdGVNYXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NhomCongViecs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NhomCongViecs/DeleteMaster.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xEZWxldGVNYXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NhomCongViecs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NhomCongViecs/DetailsMaster.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xEZXRhaWxzTWFzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NhomCongViecs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NhomCongViecs/EditMaster.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xFZGl0TWFzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/NhomCongViecs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/Shared/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEhvbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/08_CNPM/DoAnTotNghiep/QLRHM/QLRHM/QLRHM/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-mernsh2bla

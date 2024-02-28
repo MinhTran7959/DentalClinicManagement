@@ -1,0 +1,610 @@
+﻿
+@using QLRHM.Models;
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+    decimal TienBangGia = 0; // Khởi tạo biến ngoài vòng lặp
+    var stt = 1; var SoLan = 0; var TienDieuTri = 0; var TongTiLe = 0; var TienChuaTT = 0; var TienDaTT = 0;
+    double TongTienThieuVaTT = 0; double TongTienThieuVaTT2 = 0;
+    double TienTT = 0;double TienTT2 = 0;
+}
+<script src="~/js/chart.js" asp-append-version="true"></script>
+<body style="padding-left: 2%;padding-right: 2%;">
+
+
+
+
+    <div class="container-fluid py-5 ">
+        <div class="container">
+            <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+                <li class="active"><a data-toggle="tab" href="#home"><i class="fa-solid fa-laptop-file"></i> Danh sách thống kê công việc điều trị tóm gọn</a></li>
+                <li><a data-toggle="tab" href="#menu1"><i class="fa-solid fa-list-check"></i> Danh sách thống kê chi tiết công việc điều trị</a></li>
+
+            </ul>
+            <div class="row" style="padding-top:10px ">
+                <center>
+                    <div class="col-md-7">
+                        <form asp-action="ThongKeCV" method="post" id="abc">
+                            <div class="row">
+                                <!-- ... (các trường khác) ... -->
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <label style="margin-top: 7px;padding-right: 10px;" class="control-label">Từ ngày:</label>
+                                            <input name="fo" class="form-control Ngay2" value="@ViewBag.fromDate" placeholder="Từ ngày" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3" style="width: 220px;">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <label style="margin-top: 7px;padding-right: 10px;" class="control-label">Đến ngày:</label>
+                                            <input name="to" class="form-control Ngay2" value="@ViewBag.toDate" placeholder="Đến ngày" />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-1" style="width:120px;">
+                                    <div class="form-group">
+                                        <input style="color:black" type="submit" value="Tìm kiếm" class="btn btn-primary form-control" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </center>
+            </div>
+
+
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
+                               
+                                <hr>
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <center><a style="font-size:18px; color:red;font-weight:700">Biểu đồ cột thông kê số tiền của từng công việc</a></center>
+                                        <canvas id="myChart"></canvas>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <center><a style="font-size:18px; color:red;font-weight:700">Biểu đồ đường thông kê số lần điều trị của từng công việc</a></center>
+                                        <canvas id="line"></canvas>
+                                    </div>
+                                </div>
+                                <hr>
+                          <div>
+            <center><a style="font-size:18px; color:red;font-weight:700">Danh sách thống kê tóm gọn công việc điều trị </a></center>
+        @if (ViewBag.TopCongViec.Count == 0)
+        {
+
+        }
+        else
+        {
+            <div class="row" style="justify-content: end">
+                <div class="col-md-2" style="display:block;">
+                    <a href="@Url.Action("PdfThongKeCV", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" class="btn btn-danger">Xuất pdf</a>
+                    <a href="@Url.Action("ExportExcel", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" class="btn btn-success">Xuất excel</a>
+                </div>
+            </div>
+        }
+        <table  class="table">
+                <thead>
+                    <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center">
+                        <th>
+                            Stt
+                        </th>
+                        <th>
+                            Mã công việc
+                        </th>
+                        <th>
+                          Tên công việc   
+                        </th>
+                        <th>
+                            Số lần
+                        </th>
+                        <th>
+                            Tiền theo bảng giá
+                        </th>
+
+                        <th>
+                            Tiền theo nội dung kế hoạch
+                        </th>
+                        <th>
+                            Tiền chưa thanh toán
+                        </th>
+                        <th>
+                            Thực thu
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.TopCongViec.Count == 0)
+                    {
+                        <tr>
+
+                            <td colspan="8" style="color:red;text-align: center">Không có công việc điều trị nào</td>
+
+                        </tr>
+                    }
+                    else
+                    {
+               
+                       @foreach (TongTienNDTT tongTien in ViewBag.TopCongViec)
+                        {
+                   
+                  
+                            <tr class="Search table">
+                                <td style="width:2%">
+                                    @stt
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => tongTien.MaCV)
+                                </td>
+                                <td>
+                                  @*   @Html.DisplayFor(modelItem => tongTien.TenCV) *@
+                                <a class="open-modal2" data-bs-toggle="modal" data-bs-target="#myModal2"
+                                   data-url="@Url.Action("ChiTietBaoCaoCV", "ThongKe", new {  id = tongTien.Idndkh, fo = tongTien.NgayTao, to = tongTien.NgaySua })">
+                                   @tongTien.TenCV
+                                </a>
+                                </td>
+                                <td style="text-align:center;width:5%">
+                                    @Html.DisplayFor(modelItem => tongTien.TotalSoCV)
+                                </td>
+                                <td style="text-align:right">
+                                    @{
+                                        // Chuyển đổi TotalSoCV từ chuỗi (string) thành số thực (double)
+                                        double TotalSoCV = double.Parse(tongTien.TotalSoCV);
+
+                                        // Tính toán tiecgoc
+                                        decimal tiecgoc = (decimal)(TotalSoCV * tongTien.TotalSoGoc);
+                                    }
+
+                                    @string.Format("{0:#,0}", tiecgoc)
+
+                                </td>
+                                <td style="text-align:right">
+                                    @{
+                                        decimal TienUocTinh = (decimal)(tongTien.TotalSoUocTinh + tongTien.TotalSoTienThanhToan);
+                                        decimal TiLe = 0;
+                                        if (tiecgoc != 0)
+                                        {
+                                            TiLe = (((TienUocTinh - tiecgoc) / tiecgoc) * 100);
+
+                                        }
+                                        string textColor = TiLe >= 0 ? "green" : "red";
+                                    }
+
+                                    @string.Format("{0:#,0}", TienUocTinh) <span style="color: @textColor">(@string.Format("{0:#,0}%", TiLe)) </span>
+                                </td>
+
+                                <td style="text-align:right">
+                                    @* tienchuathanhtoan *@
+                                    @Html.DisplayFor(modelItem => tongTien.FormattedTotalSoUocTinh)
+                                </td>
+
+                                <td style="text-align:right">
+                                    @Html.DisplayFor(modelItem => tongTien.FormattedTotalSoTienThanhToan)
+                                </td>
+                    
+                            </tr>
+                            TienBangGia += Convert.ToDecimal(tiecgoc);
+                            SoLan += Convert.ToInt32(tongTien.TotalSoCV);
+                            TienDieuTri += Convert.ToInt32(TienUocTinh);
+                            TienChuaTT += Convert.ToInt32(tongTien.TotalSoUocTinh);
+                            TienDaTT += Convert.ToInt32(tongTien.TotalSoTienThanhToan);
+                   
+                            stt++;
+                            string textColor1 = TongTiLe >= 0 ? "green" : "red";
+                        }
+                        <tr class="Tong" >
+
+                            <td colspan="3" style="text-align: center;color: #3b78ec">Tổng cộng</td>
+                              <td style="text-align: center;color: #3b78ec">@SoLan</td>
+                   
+                            <td style="text-align:right;color: #3b78ec">@string.Format("{0:#,0}", TienBangGia)</td>
+
+                            <td style="text-align:right;color: #3b78ec">@string.Format("{0:#,0}", TienDieuTri)</td>
+                            <td style="text-align:right;color: #3b78ec">@string.Format("{0:#,0}", TienChuaTT)</td>
+                            <td style="text-align:right;color: #3b78ec">@string.Format("{0:#,0}", TienDaTT)</td>
+                 
+                   
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <div class="modal" id="myModal2" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                        <div class="modal-header">
+                            
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                            <div id="partial-view-container2"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Đóng</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                </div>
+
+                <div id="menu1" class="tab-pane fade in ">
+                    <hr>
+                   @*  <div class="row">
+                        <div class="col-md-3">
+                            <select id="TimKiem" class="form-select" >
+                                <option value="">Tất cả</option>
+                                @foreach (var CV in ViewBag.DanhSachCV)
+                                {
+
+                                    <option value="@CV">@CV</option>
+                                }
+                            </select>
+                           
+                        </div>
+                    </div> *@
+                    @if (ViewBag.TopCongViec.Count == 0)
+                    {
+
+                    }
+                    else
+                    {
+                        <div class="row" style="justify-content: end">
+                            <div class="col-md-2" style="display:block;">
+                                <a href="@Url.Action("PdfChiTietBaoCaoCV2", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" class="btn btn-danger">Xuất pdf</a>
+                                <a href="@Url.Action("ExcelChiTietBaoCaoCV2", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" class="btn btn-success">Xuất excel</a>
+                            </div>
+                        </div>
+                    }
+                    <table class="table " id="example2">
+                        <thead>
+                            <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center ; font-size:14px">
+
+                                <th>
+                                    Stt
+                                </th>
+                                <th>
+                                    Mã bệnh nhân
+                                </th>
+                                <th>
+                                    Tên bệnh nhân
+                                </th>
+                                <th>
+                                    Ngày sinh
+                                </th>
+                                <th>
+                                    Sđt
+                                </th>
+                                <th>
+                                    Mã công việc
+                                </th>
+                                <th>
+                                    Tên công việc
+                                </th>
+                                <th>
+                                    Ghi chú
+                                </th>
+                                <th>
+                                    Số tiền thanh toán
+                                </th>
+                                
+                                <th>
+                                    Số tiền thực thu
+                                </th>
+                                <th>
+                                    Ngày thanh toán
+                                </th>
+
+                            </tr>
+                        </thead>
+
+                        @{
+                            int sttt = 1; var TongTien = 0;
+                        }
+                        @foreach (NoiDungThanhToan ChiTietBCCV in ViewBag.ChiTietCV)
+                        {
+                            
+                           
+                            if (ChiTietBCCV.ThanhToan == "1" ){TienTT = ChiTietBCCV.SoTienThanhToan;}
+                            else{TienTT = 0;}
+                           if (ChiTietBCCV.ThanhToan == "0" ){TienTT2 = ChiTietBCCV.SoTienThanhToan;}
+                            else{TienTT2 = 0;}
+                           
+                            if (ChiTietBCCV != null)
+                            {
+                                <tr class="timkiem">
+
+                                    <td style="width:2%">
+                                        @sttt
+                                    </td>
+                                    <td style="width:8%">
+                                        @ChiTietBCCV.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.MaBenhNhan
+                                    </td>
+                                    <td style="width:13%">
+                                        @ChiTietBCCV.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.TenBn
+                                    </td>
+                                    <td style="width:5%">
+                                        @ChiTietBCCV.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.FormatNgaySinh
+                                    </td>
+                                    <td style="width:7%">
+                                        @ChiTietBCCV.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Sdt
+                                    </td>
+
+                                    <td style="width:7%">
+                                        @ChiTietBCCV.IdndkhNavigation.IdcvdtNavigation.MaCongViec
+                                    </td>
+                                    <td style="width:15%">
+                                        @ChiTietBCCV.IdndkhNavigation.IdcvdtNavigation.TenCongViec
+                                    </td>
+                                    <td>
+                                        @ChiTietBCCV.IdndkhNavigation.GhiChu
+                                    </td>
+                                    <td style="text-align:right">
+                                        @string.Format("{0:#,0}", ChiTietBCCV.SoTienThanhToan)
+                                    </td>
+                                    <td style="text-align:right">
+                                        @string.Format("{0:#,0}",TienTT )
+                                    </td>
+
+                                    <td style="width:12%">
+                                        @ChiTietBCCV.FormatNgayTao
+                                    </td>
+
+                                </tr>
+                                sttt++;
+                                TongTienThieuVaTT += Convert.ToInt32(ChiTietBCCV.SoTienThanhToan);
+                                TongTien += Convert.ToInt32(TienTT);
+                            }
+                           
+                            }
+                        <tr class="Tong">
+                            @{
+                                TongTienThieuVaTT2 = TongTienThieuVaTT - TongTien;
+                            }
+                            <td style="display:none"></td>
+                            <td style="display:none"></td>
+                            <td style="display:none"></td>
+                            <td style="display:none"></td>
+                            <td style="display:none"></td>
+                            <td style="display:none"></td>
+                            <td style="display:none"></td>
+                            <td style="display:none"></td>
+                            
+
+                            <td colspan="4" style="text-align:center;color: #3b78ec">Tổng cộng tiền: @string.Format("{0:#,0}", TongTienThieuVaTT)</td>
+                            <td colspan="4" style="text-align:center;color: #3b78ec">Đã thanh toán: @string.Format("{0:#,0}", TongTien)</td>
+                            <td colspan="3" style="text-align:center;color:red">Còn thiếu: @string.Format("{0:#,0}", TongTienThieuVaTT2)</td>
+
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+     </div>
+</body>
+
+<script>
+    // Biểu đồ bar
+    const ctxBar = document.getElementById('myChart');
+    // Lấy dữ liệu từ bảng công việc
+    var labelsCongViecFull = [];
+    var labelsCongViecAbbr = [];
+    var dataCongViec = [];
+    var TongThucThu = [];
+    $('.Search').each(function () {
+        var $row = $(this);
+        var tenCongViecFull = $row.find('td:eq(2)').text().trim(); // Lấy tên đầy đủ
+        labelsCongViecFull.push(tenCongViecFull);
+
+        var tenCongViecAbbr = abbreviate(tenCongViecFull); // Viết tắt tên
+        labelsCongViecAbbr.push(tenCongViecAbbr);
+
+        dataCongViec.push(parseFloat($row.find('td:eq(7)').text().replace(/\./g, '').replace(',', '')));
+
+
+    });
+     $('.Tong').each(function () {
+        var $row = $(this);      
+        TongThucThu.push(parseFloat($row.find('td:eq(5)').text().replace(/\./g, '').replace(',', '')));
+    });
+
+    function abbreviate(fullName) {
+        var words = fullName.split(' ');
+        var abbreviation = words.map(word => {
+            return word.charAt(0).toUpperCase();
+        }).join('');
+
+        return abbreviation;
+    }
+
+    new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: labelsCongViecAbbr,
+            datasets: [{
+                label: 'Tổng tiền',
+
+                data: dataCongViec,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+           
+            tooltips: {
+                enabled: true,
+                callbacks: {
+                    label: function (tooltipItem, data) {
+                        var datasetLabel = data.datasets[tooltipItem.datasetIndex].label || '';
+                        var label = labelsCongViecFull[tooltipItem.index];
+                        var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+
+                        return datasetLabel + ': ' + label + ': ' + value;
+                    }
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Tổng tiền của tất cả công việc điều trị: ' + TongThucThu.toLocaleString(), // Thay đổi tên của bản đồ tại đây
+                    position: 'bottom' // Đặt vị trí của tiêu đề
+                }
+            }
+
+
+        },
+    });
+
+</script>
+
+
+
+<script>
+    var labelsCongViecFull2 = [];
+    var labelsCongViecAbbr2 = [];
+    var dataCongViec2 = [];
+    var TongThucThu2 = [];
+    $('.Search').each(function () {
+        var $row = $(this);
+        var tenCongViecFull2 = $row.find('td:eq(2)').text().trim(); // Lấy tên đầy đủ
+        labelsCongViecFull2.push(tenCongViecFull2);
+
+        var tenCongViecAbbr2 = abbreviate(tenCongViecFull2); // Viết tắt tên
+        labelsCongViecAbbr2.push(tenCongViecAbbr2);
+
+        dataCongViec2.push(parseFloat($row.find('td:eq(3)').text().replace(/\./g, '').replace(',', '')));
+
+
+    });
+    var TongThucThu2 = 0;
+    $('.Search').each(function () {
+        var $row = $(this);
+        TongThucThu2 += parseInt($row.find('td:eq(3)').text().replace(/\./g, '').replace(',', ''));
+    });
+    function abbreviate(fullName) {
+        var words = fullName.split(' ');
+        var abbreviation = words.map(word => {
+            return word.charAt(0).toUpperCase();
+        }).join('');
+
+        return abbreviation;
+    }
+    // Dữ liệu mẫu
+    var data = {
+        labels: labelsCongViecAbbr2,
+        datasets: [{
+            label: 'Số lần điều trị',
+            data: dataCongViec2,
+            borderColor: 'blue',
+            borderWidth: 2,
+            fill: false,
+        }]
+    };
+
+    // Tạo biểu đồ Line Chart
+    var ctx = document.getElementById('line').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem, data) {
+                        var datasetLabel = data.datasets[tooltipItem.datasetIndex].label || '';
+                        var label = labelsCongViecFull[tooltipItem.index];
+                        var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+
+                        return datasetLabel + ': ' + label + ': ' + value;
+                    }
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Tổng số lần điều trị của tất cả công việc: ' + TongThucThu2, // Thay đổi tên của bản đồ tại đây
+                    position: 'bottom' // Đặt vị trí của tiêu đề
+                }
+            },
+
+
+        },
+    });
+
+    // Tính trung bình, thấp và cao
+    var average = data.datasets[0].data.reduce((acc, val) => acc + val, 0) / data.datasets[0].data.length;
+    var low = Math.min(...data.datasets[0].data);
+    var high = Math.max(...data.datasets[0].data);
+
+    // Thêm giới hạn vào biểu đồ
+    var boundaries = {
+        datasets: [{
+            label: 'Trung bình',
+            data: Array(data.labels.length).fill(average),
+            borderColor: 'green',
+            borderWidth: 1,
+            fill: false,
+            borderDash: [5, 5]
+        }, {
+            label: 'Thấp nhất',
+            data: Array(data.labels.length).fill(low),
+            borderColor: 'orange',
+            borderWidth: 1,
+            fill: false,
+            borderDash: [5, 5]
+        }, {
+            label: 'Cao nhất',
+            data: Array(data.labels.length).fill(high),
+            borderColor: 'red',
+            borderWidth: 1,
+            fill: false,
+            borderDash: [5, 5]
+        }]
+    };
+
+    myChart.data.datasets = myChart.data.datasets.concat(boundaries.datasets);
+    myChart.update();
+</script>
+
+
+    <script>
+    $(document).ready(function () {
+        $('.open-modal2').click(function () {
+            var url = $(this).data('url');
+            $.get(url, function (data) {
+                $('#partial-view-container2').html(data);
+                $('#myModal2').modal('show');
+            });
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        // Sử dụng sự kiện change cho select element với ID là "yourId"
+        $("#TimKiem").on("change", function () {
+            var searchText = $(this).val().toLowerCase();
+            $(".timkiem").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+        });
+</script>

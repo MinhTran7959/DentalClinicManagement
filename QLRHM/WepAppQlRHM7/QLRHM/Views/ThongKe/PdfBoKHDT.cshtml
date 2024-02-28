@@ -1,0 +1,158 @@
+﻿
+
+@using QLRHM.Models;
+@{
+    Layout = "~/Views/Shared/Home_Modal.cshtml";
+
+
+<!-- Bây giờ bạn có thể sử dụng fromDate và toDate bình thường trong tệp Razor này -->
+
+}
+
+
+    <div class ="table" style="min-width:900px ; max-width:700px;color:black ">
+        <div>
+             <span style="font-weight:900;padding-left:8px">
+                PHÒNG KHÁM NHA KHOA RĂNG HÀM MẶT
+            </span>
+         
+        </div>
+    <div>
+        <a style="font-size: 14px; font-weight: normal;">
+            <span>  Địa chỉ : 69/96 tổ 3 , ấp 6 , đường Nguyễn Văn Bữa , Hóc Môn , Thành phố Hồ Chí Minh <br></span>
+            <span style="margin-top: 5px; display: block;">Sđt: 03827847566</span>
+            <span>Gmail: PhongKhamNhaKhoaRHM@gmail.com</span>
+        </a>
+    </div>
+
+    <div style="text-align:center;padding-top:30px; margin-bottom:20px ;text-transform:uppercase;color:red; font-weight:700"  >
+       <center>
+            <a>Báo cáo danh sách các kế hoạch điều bị huỷ bỏ  NGÀY @ViewBag.fromDate - @ViewBag.toDate</a>
+       </center>
+            
+        
+            
+        </div>
+
+    </div>
+<center>
+    <table class="table " >
+        <thead>
+            <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center ; font-size:14px">
+
+                <th>
+                    Stt
+                </th>
+                <th>
+                    Mã BSKH
+                </th>
+                <th>
+                    Tên BSKH
+                </th>
+
+                <th>
+                    Mã kế hoạch
+                </th>
+                <th>
+                    Ngày lập KH
+                </th>
+                <th>
+                    Mã bệnh nhân
+                </th>
+                <th>
+                    Tên bệnh nhân
+                </th>
+                <th>
+                    Mã BSĐT
+                </th>
+                <th>
+                    Tên BSĐT
+                </th>
+                <th>
+                    Tên CVDT
+                </th>
+
+                <th>
+                    Đơn giá gốc
+                </th>
+                <th>
+                    Đơn giá TT
+                </th>
+                <th>
+                    Ghi chú
+                </th>
+                <th>
+                    Lý do huỷ
+                </th>
+
+            </tr>
+        </thead>
+
+        @{
+            int HuyKhdtStt = 1;
+        }
+        @foreach (NoiDungKeHoach ChiTietBCKHDT in ViewBag.HuyKHDT)
+        {
+            <tr style="font-size:12px">
+                <td style="width:2%">
+                    @HuyKhdtStt
+                </td>
+
+                <td style="width:7%">
+
+                    @ChiTietBCKHDT.IdkhdtNavigation.IdbsNavigation.MaBacSi
+                </td>
+                <td style="width:10%">
+                    @ChiTietBCKHDT.IdkhdtNavigation.IdbsNavigation.TenBs
+                </td>
+                <td style="width:10%">
+                    @ChiTietBCKHDT.IdkhdtNavigation.MaKeHoacDieuTri
+                </td>
+
+                <td style="width:10%">
+
+                    @ChiTietBCKHDT.IdkhdtNavigation.NgayLap
+
+                </td>
+                <td style="width:10%">
+
+                    @ChiTietBCKHDT.IdkhdtNavigation.IdbnNavigation.MaBenhNhan
+
+
+                </td>
+
+                <td style="width:10%">
+                    @ChiTietBCKHDT.IdkhdtNavigation.IdbnNavigation.TenBn
+                </td>
+
+                <td style="width:7%">
+                    @ChiTietBCKHDT.IdbsdtNavigation.MaBacSi
+                </td>
+                <td style="width:8%">
+                    @ChiTietBCKHDT.IdbsdtNavigation.TenBs
+                </td>
+
+                <td style="width:10%">
+                    @ChiTietBCKHDT.IdcvdtNavigation.TenCongViec
+                </td>
+                <td style="text-align:right">
+                    @ChiTietBCKHDT.IdcvdtNavigation.FormattedDonGiaSuDung
+                </td>
+                <td style="text-align:right">
+                    @ChiTietBCKHDT.FormattedDonGia
+                </td>
+                 <td>
+                    @ChiTietBCKHDT.GhiChu
+                </td>
+                 <td>
+                    @ChiTietBCKHDT.IdkhdtNavigation.Nsua
+                </td>
+
+            </tr>
+
+            HuyKhdtStt++;
+        }
+
+    </table>
+
+</center>

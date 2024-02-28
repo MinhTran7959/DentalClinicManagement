@@ -1,0 +1,63 @@
+﻿@model QLRHM.Models.Thuoc
+
+@{
+    
+    Layout = null;
+}
+@using (Html.BeginForm("Edit", "Thuocs", FormMethod.Post, new { id = "myForm" }))
+{
+    @Html.AntiForgeryToken()
+    <center><b style="font-weight:900 ; color:red">Sửa thuốc</b></center>
+    <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Mã thuốc</label>
+                    <div class='input-group'>
+                        <input style="background-color:white;color:blue" asp-for="MaThuoc" type="text"  class="form-control" readonly />
+                        <input type="hidden"  asp-for="Id" >
+                        <input type="hidden"  asp-for="active" value="1" >
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Tên thuốc</label>
+                    <div class='input-group'>
+                        <input asp-for="TenThuoc" type="text" class="form-control" maxlength="100" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" />
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">Đơn vị</label>
+                    <div class='input-group'>
+                        <select class="form-select" asp-for="DonViTinh">
+                            <option value="Viên">Viên</option>
+                            <option value="Lọ">Lọ</option>
+                        </select>
+                        
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label">&nbsp;</label>
+                    <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+}

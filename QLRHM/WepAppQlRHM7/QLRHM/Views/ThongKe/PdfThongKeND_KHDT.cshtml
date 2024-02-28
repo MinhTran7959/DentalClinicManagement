@@ -1,0 +1,143 @@
+﻿@model IEnumerable<QLRHM.Models.TongTienNDTT>
+@using QLRHM.Models
+@{
+    Layout = "~/Views/Shared/Home_Modal.cshtml";
+    var stt = 1;var sttt = 1;
+    var TongND_KHDT = 0; var TongND_KHDT_Dang = 0; var TongND_KHDT_Huy = 0; var TongND_KHDT_DaX = 0;
+   
+
+}
+
+<body style="padding-left: 2%;padding-right: 2%;">
+   
+    <div class="table" style="min-width:900px ; max-width:700px;color:black ">
+        <div>
+            <span style="font-weight:900;padding-left:8px">
+                PHÒNG KHÁM NHA KHOA RĂNG HÀM MẶT
+            </span>
+
+        </div>
+        <div>
+            <a style="font-size: 14px; font-weight: normal;">
+                <span>  Địa chỉ : 69/96 tổ 3 , ấp 6 , đường Nguyễn Văn Bữa , Hóc Môn , Thành phố Hồ Chí Minh <br></span>
+                <span style="margin-top: 5px; display: block;">Sđt: 03827847566</span>
+                <span>Gmail: PhongKhamNhaKhoaRHM@gmail.com</span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="row">
+        
+       <div class="col-md-6">
+            <center><a style="font-size:18px; color:red;font-weight:700">Thống kê số lượng nội dung công việc điều trị (@ViewBag.FromDate - @ViewBag.ToDate)</a></center>
+            <table id="bieudo1" class="table ">
+                <thead>
+                    <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center;font-size:14px">
+                        <th>
+                            Stt
+                        </th>
+
+                        <th>
+                            Mã bác sĩ
+                        </th>
+                        <th>
+                            Tên bác sĩ
+                        </th>
+                        <th>
+                            Tổng số CV điều trị
+                        </th>
+                        <th>
+                            Số CV đã điều trị
+                        </th>
+                        <th>
+                            Số CV bị huỷ bỏ
+                        </th>
+                        <th>
+                            Số CV đang điều trị
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.TongND_KHDT.Count == 0)
+                    {
+                        <tr>
+
+                            <td colspan="8" style="color:red;text-align: center">Không có công việc điều trị nào</td>
+
+                        </tr>
+                    }
+                    else
+                    {
+
+                        @foreach (TongTienNDTT tongTien in ViewBag.TongND_KHDT)
+                        {
+
+                            <tr class="Search Chart_ND_KHDT" style="font-size:13px">
+                                <td style="width:2%">
+                                    @stt
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => tongTien.MaBS)
+                                </td>
+                                <td>
+                                    <a class="open-modal" data-bs-toggle="modal" data-bs-target="#myModal"
+                                       data-url="@Url.Action("ChiTietND_KHDT", "ThongKe", new {  id = tongTien.Idndkh, fo = tongTien.NgayTao, to = tongTien.NgaySua })">
+                                        @tongTien.TenBS
+                                    </a>
+                                </td>
+
+                                <td style="text-align:center">
+                                    @Html.DisplayFor(modelItem => tongTien.TotalTongKHDT)  @*tổng *@
+                                </td>
+                                <td style="text-align:center">
+                                    @Html.DisplayFor(modelItem => tongTien.TotalSoCV)  @*Số cv đã đt *@
+
+                                </td>
+                                <td style="text-align:center; color: @(Convert.ToInt32(tongTien.TotalSoKH) > 0 ? "red" : "black")">
+                                    @Html.DisplayFor(modelItem => tongTien.TotalSoKH)
+                                </td>
+
+
+                                @{
+                                    var Khdt_DangCo = (Convert.ToInt32(tongTien.TotalTongKHDT)) - (Convert.ToInt32(tongTien.TotalSoKH) + Convert.ToInt32(tongTien.TotalSoCV));
+                                    if (Khdt_DangCo < 0) { Khdt_DangCo = 0; }
+                                }
+                                <td style="text-align:center ;color: @(Khdt_DangCo> 0 ? " green" : "black" )">
+
+                                    @Html.DisplayFor(modelItem => Khdt_DangCo)
+                                </td>
+
+                            </tr>
+                            stt++; // Tăng số thứ tự sau mỗi lần lặp
+                            TongND_KHDT += Convert.ToInt32(tongTien.TotalTongKHDT);
+                            TongND_KHDT_DaX += Convert.ToInt32(tongTien.TotalSoCV);
+                            TongND_KHDT_Huy += Convert.ToInt32(tongTien.TotalSoKH);
+                            TongND_KHDT_Dang += Convert.ToInt32(tongTien.TotalSoUocTinh);
+
+
+
+                        }
+                        <tr class="Tong">
+                            <td colspan="3" style="text-align:center;color: #3b78ec">Tổng cộng</td>
+                            <td style="text-align:center;color: #3b78ec">@TongND_KHDT</td>
+                            <td style="text-align:center;color: #3b78ec">@string.Format("{0:#,0}", TongND_KHDT_DaX)</td>
+                            <td style="text-align:center;color: #3b78ec">@string.Format("{0:#,0}", TongND_KHDT_Huy)</td>
+                            <td style="text-align:center;color: #3b78ec">@string.Format("{0:#,0}", TongND_KHDT_Dang)</td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+       </div>
+
+
+
+    </div>
+  
+
+</body>
+
+
+

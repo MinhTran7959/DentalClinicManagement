@@ -1,0 +1,445 @@
+﻿@using QLRHM.Models;
+@model QLRHM.Models.BacSi
+
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+
+}
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+            <li class="active"><a data-toggle="tab" href="#home"><i class='bx bx-list-ul'></i> Danh sách nhân viên</a></li>
+            <li><a data-toggle="tab" href="#menu1"><i class='bx bx-folder-plus'></i>Danh sách nhân viên đã ẩn</a></li>
+            @*         <li><a data-toggle="tab" href="#menu2">Sửa nhóm bác sĩ</a></li> *@
+        </ul>
+        <hr>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+
+                <button id="toggleFormButton" class="btn btn-primary">Bật/tắt phiếu sửa</button>
+                <a asp-action="ExportExcel" asp-controller="BacSis"  class="btn btn-success">Xuất excel</a>
+                @using (Html.BeginForm("Edit", "BacSis", FormMethod.Post, new { id = "myForm", enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <center><b style="font-weight:900 ; color:red">Sửa nhân viên</b></center>
+                    <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+                        <div class="row">
+                            <div class="row" style="justify-content:center">
+
+                                <div class="col-md-3" style="width:11%">
+                                    <div class="form-group">
+                                        <label asp-for="FrontImage">
+                                            <img id="FrontImagePrv" src="~/image/NV/@Model.AnhBs" alt="Image" width="120"
+                                                 height="120" style="border:1px; border-radius:50%; object-fit:cover">
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-3" style="display:none">
+                                <div class="form-group">
+                                    <label class="control-label">Mã nhân viên</label>
+                                    <div class='input-group'>
+                                        <input style="background-color:white;color:blue" asp-for="Idbs" type="text" class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Mã nhân viên</label>
+                                    <div class='input-group'>
+                                        <input style="background-color:white;color:blue" asp-for="MaBacSi" type="text" class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Nhóm nhân viên</label>
+                                    <div class='input-group'>
+
+                                        <select asp-for="Idnbs" class="form-select" asp-items="ViewBag.Idnbs"></select>
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Tên nhân viên <span style="color:red">(*)</span></label>
+                                    <div class='input-group'>
+                                        <input asp-for="TenBs" id="Tenbs" type="text" maxlength="50" class="form-control" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" />
+                                    </div>
+                                    <span id="TenNCVError" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Ngày sinh <span style="color:red">(*)</span></label>
+                                    <div class='input-group date' id='inputmask1'>
+                                        <input asp-for="NgaySinh" type="text" class="form-control inputmask1"
+                                               placeholder="dd/mm/yyyy" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" />
+
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Giới Tinh <span style="color:red">(*)</span></label>
+                                    <div class='input-group'>
+                                        <select class="form-select" asp-for="GioiTinh">
+                                            <option value="Nam">Nam</option>
+                                            <option value="Nữ">Nữ</option>
+                                            <option value="Không xác định">Không xác định</option>
+                                        </select>
+
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">CCCD <span style="color:red">(*)</span></label>
+                                    <div class='input-group'>
+                                        <input asp-for="Cccd" type="number" oninput="validateCccd(this)" class="form-control" required />
+
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Quê quán</label>
+                                    <div class='input-group'>
+                                        <input asp-for="Cccd" type="text" maxlength="50" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" class="form-control" />
+
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Địa chỉ <span style="color:red">(*)</span></label>
+                                    <div class='input-group'>
+                                        <input asp-for="DiaChi" type="text" required maxlength="50" oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" class="form-control" />
+
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Sđt <span style="color:red">(*)</span></label>
+                                    <div class='input-group'>
+                                        <input asp-for="Sdt" type="number" oninput="validatePhoneNumber(this)" class="form-control" required />
+
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Email <span style="color:red">(*)</span></label>
+                                    <div class='input-group'>
+                                        <input asp-for="Email" type="email" maxlength="50" class="form-control" required oninvalid="this.setCustomValidity('Email không hợp lệ hoặc bỏ trống. Vui lòng nhập email hợp lệ.');" oninput="setCustomValidity('')" />
+
+                                    </div>
+                                    <span id="TenNCVError" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Zalo</label>
+                                    <div class='input-group'>
+                                        <input asp-for="Zalo" type="text" maxlength="50" class="form-control" />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Facebook</label>
+                                    <div class='input-group'>
+                                        <input asp-for="Facebook" type="text" maxlength="50" class="form-control" />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Ghi chú</label>
+                                    <div class='input-group'>
+                                        <input asp-for="GhiChu" type="text" maxlength="100" class="form-control" />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Hình ảnh</label>
+                                    <div class='input-group'>
+                                        <input title="Upload a employee image" asp-for="FrontImage" maxlength="50" class="form-control" maxlength="50"
+                                               onchange="document.getElementById('FrontImagePrv').src= window.URL.createObjectURL(this.files[0])">
+                                    </div>
+                                    <span asp-validation-for="FrontImage" class="text-danger"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Ngày Sửa</label>
+                                    <div class='input-group'>
+                                        <input asp-for="NgaySua" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div> 
+                            <div class="col-md-2" style="display:none">
+                                <div class="form-group">
+                                    <label class="control-label">Ngày Sửa</label>
+                                    <div class='input-group'>
+                                        <input asp-for="Active" type="text" value="1" class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                           
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label class="control-label">&nbsp;</label>
+                                        <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                                    </div>
+                                </div>
+                          
+                        </div>
+                    </div>
+
+                }
+                <div class="row" style="padding-top:5px;padding-bottom:5px">
+
+                    <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group">
+                                <input type="text" id="Search" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <table class="table" id="example">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Ảnh
+                            </th>
+
+                            <th>
+                                Mã nhân viên
+                            </th>
+                            <th>
+                                Nhóm nhân viên
+                            </th>
+                            <th>
+                                Tên nhân viên
+                            </th>
+                            <th>
+                                Ngày sinh
+                            </th>
+                            <th>
+                                Giới tính
+                            </th>
+                            <th>
+                                Sđt
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Ghi chú
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            int stt = 1; // Khởi tạo số thứ tự ban đầu
+
+                            foreach (BacSi bs in ViewBag.bs)
+                            {
+                                <tr class="Search">
+                                    <td style="width:2%">
+                                        @stt
+                                    </td>
+                                    <td style="width:2%">
+                                        <div class="rounded-image">
+                                            <img src="~/image/NV/@bs.AnhBs" alt="Ảnh Bác Sĩ" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bs.MaBacSi)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bs.IdnbsNavigation.TenNbs)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bs.TenBs)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bs.NgaySinh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bs.GioiTinh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bs.Sdt)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bs.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bs.GhiChu)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@bs.Idbs">
+
+                                            <box-icon name='edit' animation='tada-hover' color='#3b78ec'></box-icon>
+                                        </a>
+                                        @*    <a asp-action="Details" asp-route-id="@nbs.Idnbs">
+                                <box-icon type='solid' name='info-circle' animation='tada-hover' color='#05cdf6'></box-icon>
+                                </a>*@
+                                        <a asp-action="Hide" asp-route-id="@bs.Idbs">
+                                            <box-icon type='solid' name='hide' animation='tada-hover' color='red'></box-icon>
+                                        </a>
+                                    </td>
+                                </tr>
+                                stt++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+                    </tbody>
+                </table>
+              
+
+
+            </div>
+            <div id="menu1" class="tab-pane fade" style="color:#000">
+                <table class="table" id="example2">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Ảnh
+                            </th>
+
+                            <th>
+                                Mã nhân viên
+                            </th>
+                            <th>
+                                Nhóm nhân viên
+                            </th>
+                            <th>
+                                Tên nhân viên
+                            </th>
+                            <th>
+                                Ngày sinh
+                            </th>
+                            <th>
+                                Giới tính
+                            </th>
+                            <th>
+                                Sđt
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Ghi chú
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            int stt2 = 1; // Khởi tạo số thứ tự ban đầu
+
+                            foreach (BacSi bshide in ViewBag.bshide)
+                            {
+                                <tr class="Search">
+                                    <td style="width:2%">
+                                        @stt2
+                                    </td>
+                                    <td style="width:2%">
+                                        <div class="rounded-image">
+                                            <img src="~/image/NV/@bshide.AnhBs" alt="Ảnh Bác Sĩ" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bshide.MaBacSi)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bshide.IdnbsNavigation.TenNbs)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bshide.TenBs)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bshide.NgaySinh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bshide.GioiTinh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bshide.Sdt)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bshide.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bshide.GhiChu)
+                                    </td>
+                                    <td>
+
+                                        <a asp-action="Active" asp-route-id="@bshide.Idbs">
+                                            <box-icon type='solid' name='hide' animation='tada-hover' color='red'></box-icon>
+                                        </a>
+                                    </td>
+                                </tr>
+                                stt2++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div id="menu2" class="tab-pane fade">
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+

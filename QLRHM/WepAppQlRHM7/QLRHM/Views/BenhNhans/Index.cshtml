@@ -1,0 +1,540 @@
+﻿@using QLRHM.Models;
+@model QLRHM.Models.BenhNhan
+
+
+@{
+    Layout = "~/Views/Shared/Home2.cshtml";
+
+}
+
+
+<style>
+    td {
+        vertical-align: middle;
+    }
+
+</style>
+
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+            <li class="active"><a data-toggle="tab" href="#home"><i class="fa-solid fa-people-robbery"></i>&nbsp; Danh sách bệnh nhân</a></li>
+            <li><a data-toggle="tab" href="#menu1"><i class="fa-solid fa-users-slash"></i>&nbsp; Danh sách bệnh nhân đã ẩn</a></li>
+           
+        </ul>
+
+     
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <div class="row"></div>
+                <button id="toggleFormButton" class="btn btn-primary">Bật/tắt phiếu thêm bệnh nhân</button>
+                <div class="col-md-3">
+                    <form action="#" id="abc">
+
+                        <div class="input-group">
+                            @if (ViewBag.searchString != null)
+                            {
+                                <input type="text" name="searchString" class="form-control border-primary w-50" value="@ViewBag.searchString" placeholder="Tìm kiếm: Mã bệnh nhân ,tên, sdt, email,...">
+                            }
+                            else
+                            {
+                                <input type="text" name="searchString" class="form-control border-primary w-50" placeholder="Tìm kiếm: Mã bệnh nhân ,tên, sdt, email,...">
+                            }
+                           
+
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
+                        </div>
+
+                    </form>
+                </div>
+                @using (Html.BeginForm("Create", "BenhNhans", FormMethod.Post, new { id = "myForm", enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <center><b style="font-weight:900 ; color:red">Thêm bệnh nhân</b></center>
+                    <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+                        <div class="row">
+                            <div class="row" style="justify-content:center">
+
+                                <div class="col-md-3" style="width:11%">
+                                    <div class="form-group">
+                                        <label asp-for="FrontImage">
+                                            <img id="FrontImagePrv" src="~/image/profile.png" alt="Image" width="120"
+                                                 height="120" style="border:1px; border-radius:50%; object-fit:cover">
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Mã bệnh nhân</label>
+                                    <div class='input-group'>
+                                        <input style="background-color:white;color:blue" name="MaBenhNhan" type="text" value="@ViewBag.MaBenhNhan" class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Tên bệnh nhân <span style="color:red">(*)</span></label>
+                                    <div class='input-group'>
+                                        <input name="TenBn" id="TenBn" type="text" maxlength="50" class="form-control" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" onblur="capitalizeFirstLetter(this)" />
+                                    </div>
+                                    <span id="TenNCVError" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Ngày sinh <span style="color:red">(*)</span></label>
+                                    <div class='input-group date' id='inputmask1'>
+                                        <input asp-for="NgaySinh" type="text" class="form-control inputmask1"
+                                               placeholder="dd/mm/yyyy" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" />
+
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label class="control-label">Giới Tinh <span style="color:red">(*)</span></label>
+                                    <div class='input-group'>
+                                        <select class="form-select" name="GioiTinh">
+                                            <option value="Nam">Nam</option>
+                                            <option value="Nữ">Nữ</option>
+                                            <option value="Không xác định">Không xác định</option>
+                                        </select>
+
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">CCCD <span style="color:red">(*)</span></label>
+                                    <div class='input-group'>
+                                        <input name="Cccd" type="number" oninput="validateCccd(this)" class="form-control" required />
+
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Quê quán</label>
+                                    <div class='input-group'>
+                                        <input name="Cccd" type="text" maxlength="50"  class="form-control" />
+
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Địa chỉ  <span style="color:red">(*)</span></label>
+                                    <div class='input-group'>
+                                        <input name="DiaChi" type="text" maxlength="50" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" class="form-control" />
+
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Sđt <span style="color:red">(*)</span></label>
+                                    <div class='input-group'>
+                                        <input name="Sdt" type="number" oninput="validatePhoneNumber(this)" class="form-control" required />
+
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Email  <span style="color:red">(*)</span></label>
+                                    <div class='input-group'>
+                                        <input name="Email" type="email" maxlength="50" class="form-control" />
+
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Zalo</label>
+                                    <div class='input-group'>
+                                        <input name="Zalo" type="text" maxlength="50" class="form-control" />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Facebook</label>
+                                    <div class='input-group'>
+                                        <input name="FaceBook" type="text" maxlength="50" class="form-control" />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Hình ảnh</label>
+                                    <div class='input-group'>
+                                        <input title="Upload a employee image" asp-for="FrontImage" maxlength="50" class="form-control" placeholder="Chọn ảnh" maxlength="50"
+                                               onchange="document.getElementById('FrontImagePrv').src= window.URL.createObjectURL(this.files[0])">
+                                    </div>
+                                    <span asp-validation-for="FrontImage" class="text-danger"></span>
+                                </div>
+                            </div>
+                           
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Ghi chú</label>
+                                        <div class='input-group'>
+                                        <input name="GhiChu" maxlength="100" type="text" class="form-control" />
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                           
+
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Ngày thêm</label>
+                                        <div class='input-group'>
+                                            <input name="NgayTao" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" class="form-control" readonly />
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                            <div class='input-group' style="display:none">
+                                <input asp-for="Active" type="text" value="1" readonly />
+                                <input asp-for="Phong" type="text" value="1" readonly />
+                            </div>
+                          
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label class="control-label"> </label>
+                                            <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                                        </div>
+                                    </div>
+                          
+                        </div>
+                    </div>
+
+                }
+
+            <div style="overflow-x: auto;">
+                <table class="table">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Ảnh
+                            </th>
+
+                            <th style="width:11%">
+                                Mã bệnh nhân
+                            </th>
+
+                            <th style="width:12%">
+                                Tên bệnh nhân
+                            </th>
+                            <th style="width:8%">
+                                Ngày sinh
+                            </th>
+                            <th style="width:5.5%">
+                                Giới tính
+                            </th>
+                            <th style="width:8%">
+                                Sđt
+                            </th>
+                           
+                            <th>
+                                Địa chỉ
+                            </th>
+                            <th style="width:12%">
+                                Chuyển phòng khám
+                            </th>
+                            <th style="width:14%">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            int stt = (ViewBag.Page - 1) * ViewBag.NoOfRecordsPerPage + 1; // Tính toán số thứ tự bắt đầu
+                            foreach (BenhNhan bn in ViewBag.bn)
+                            {
+                                <tr class="Search">
+                                    <td style="width:2%">
+                                        @stt
+                                    </td>
+                                  <td style="width:2%">
+                                        <div class="rounded-image">
+                                            <img src="~/image/BN/@bn.AnhBn" alt="Ảnh" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bn.MaBenhNhan)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bn.TenBn)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bn.NgaySinh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bn.GioiTinh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bn.Sdt)
+                                    </td>
+                                   
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bn.DiaChi)
+                                    </td>
+                                        @if (bn.Active != 1)
+                                        {
+                                             <td>
+                                                <a style="color:red">Bệnh nhân đang ở trạng thái ẩn</a>
+                                             </td>
+                                            <td>
+                                                <a asp-action="Active" onclick="return KhoiPhuc(this)" data-name="@bn.TenBn" asp-route-id="@bn.Idbn">
+                                                    <i class="fa-solid fa-rotate-left btn" style="color: #288b04;"></i>
+                                                </a>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                <form id="abc" asp-action="ChonPhong" asp-controller="BenhNhans" asp-route-id="@bn.Idbn" style="display: flex;">
+                                                    <input type="hidden" name="Idbn" value="@bn.Idbn" />
+                                                    <select class="demo-consoles selectize" style="width:90%" asp-for="@bn.Phong" name="Phong" asp-items="ViewBag.Phong" onchange="showButton(this)">
+                                                        <option value="1">-Chọn-</option>
+                                                    </select>
+                                                    <input name="NgaySua" type="hidden" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")">
+                                                    <button type="submit" class="btn btn-primary form-control" data-name="@bn.TenBn" onclick="return PhongKham(this);"
+                                                            style="margin-left: 2px;margin-top: 3px;width: 50px;height: 30px;display: flex;">
+                                                        <i class="fa-solid fa-arrow-right" style="color: #000000;display: flex"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                           
+                                            <td>
+                                                <a asp-action="KHDT" asp-controller="PhongKhams" asp-route-id="@bn.Idbn">
+                                                    <i class="fa-solid fa-user-doctor fa-lg btn" style="color: #005eff;margin-left: 16%;"></i>
+                                                </a>
+                                                <a asp-action="Edit" asp-controller="BenhNhans" asp-route-id="@bn.Idbn">
+
+                                                    <i class="fa-regular fa-pen-to-square fa-lg btn" style="color: #5895fe;"></i>
+                                                </a>
+
+                                                <a asp-action="Hide" onclick="return AnBenhNhan(this)" data-name="@bn.TenBn" asp-route-id="@bn.Idbn">
+                                                    <i class="fa-regular fa-eye-slash fa-lg btn" style="color: #ff0000;"></i>
+                                                </a>
+                                            </td>
+                                        }
+
+
+                                    </tr>
+                                stt++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+                    </tbody>
+                </table>
+
+
+                    <div class="row" style="margin-top: 0.5%">
+                        <div>
+                            @{
+                                int PrevPage = ViewBag.Page - 1;
+                                if (PrevPage <= 0)
+                                {
+                                    PrevPage = 1;
+                                }
+                                int NextPage = ViewBag.Page + 1;
+                                if (NextPage > ViewBag.NoOfPages)
+                                {
+                                    NextPage = ViewBag.NoOfPages;
+                                }
+
+                                int numPagesToShow = 7;
+                                int startPage = Math.Max(1, ViewBag.Page - (numPagesToShow / 2));
+                                int endPage = Math.Min(ViewBag.NoOfPages, startPage + numPagesToShow - 1);
+                                if (endPage - startPage < numPagesToShow - 1)
+                                {
+                                    startPage = Math.Max(1, endPage - numPagesToShow + 1);
+                                }
+                            }
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item @(ViewBag.Page == 1 ? "disabled" : "")">
+                                    <a class="page-link page-number" href="@Url.Action("Index", new { page = 1 ,  searchString= ViewBag.searchString  })">
+                                        <<<
+                                    </a>
+                                </li>
+                                <li class="page-item @(ViewBag.Page == 1 ? "disabled" : "")">
+                                    <a class="page-link page-number" href="@Url.Action("Index", new { page = PrevPage ,searchString= ViewBag.searchString })">
+                                        &lt;
+                                    </a>
+                                </li>
+                                @if (startPage > 1)
+                                {
+                                    <li class="page-item">
+                                        <span class="page-link page-number">...</span>
+                                    </li>
+                                }
+                                @for (int i = startPage; i <= endPage; i++)
+                                {
+                                    <li class="page-item @(i == ViewBag.Page ? "active" : "")">
+                                        <a class="page-link page-number" href="@Url.Action("Index", new { page = i ,searchString= ViewBag.searchString})">
+                                            @i
+                                        </a>
+                                    </li>
+                                }
+                                @if (endPage < ViewBag.NoOfPages)
+                                {
+                                    <li class="page-item">
+                                        <span class="page-link page-number">...</span>
+                                    </li>
+                                }
+                                <li class="page-item @(ViewBag.Page == ViewBag.NoOfPages ? "disabled" : "")">
+                                    <a class="page-link page-number" href="@Url.Action("Index", new { page = NextPage ,searchString= ViewBag.searchString})">
+                                        &gt;
+                                    </a>
+                                </li>
+                                <li class="page-item @(ViewBag.Page == ViewBag.NoOfPages ? "disabled" : "")">
+                                    <a class="page-link page-number" href="@Url.Action("Index", new { page = ViewBag.NoOfPages ,searchString= ViewBag.searchString })">
+                                        >>>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+
+
+        </div>
+            <div id="menu1" class="tab-pane fade" style="color:#000">
+               
+                <div class="col-md-3 "> 
+                    <div class="input-group">
+                        <input type="text" id="Search1" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+                       @*  <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button> *@
+                    </div>
+                </div>
+               
+                <table class="table" id="example2">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Ảnh
+                            </th>
+
+                            <th style="width:11%">
+                                Mã bệnh nhân
+                            </th>
+
+                            <th style="width:12%">
+                                Tên bệnh nhân
+                            </th>
+                            <th style="width:8%">
+                                Ngày sinh
+                            </th>
+                            <th style="width:5.5%">
+                                Giới tính
+                            </th>
+                            <th style="width:8%">
+                                Sđt
+                            </th>
+                            <th style="width:8%">
+                                Email
+                            </th>
+                            <th>
+                                Địa chỉ
+                            </th>
+                            <th>
+                                Ghi chú
+                            </th>
+
+                          <th>
+                              Thao tác
+                          </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            int stt2 = 1; // Khởi tạo số thứ tự ban đầu
+
+                            foreach (BenhNhan bnhide in ViewBag.bnhide)
+                            {
+                                <tr class="Search1">
+                                    <td style="width:2%">
+                                        @stt2
+                                    </td>
+                                    
+                                    <td style="width:5%">
+                                        <div class="rounded-image">
+                                            <img src="~/image/BN/@bnhide.AnhBn" alt="Ảnh" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bnhide.MaBenhNhan)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bnhide.TenBn)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bnhide.NgaySinh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bnhide.GioiTinh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bnhide.Sdt)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bnhide.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bnhide.DiaChi)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => bnhide.GhiChu)
+                                    </td>
+                                    <td>
+
+                                        <a asp-action="Active" onclick="return KhoiPhuc(this)" data-name="@bnhide.TenBn" asp-route-id="@bnhide.Idbn">
+                                            <i class="fa-solid fa-rotate-left btn" style="color: #288b04;"></i>
+
+                                        </a>
+                                    </td>
+                                </tr>
+                                stt2++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+         
+            <div id="menu2" class="tab-pane fade">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/benhnhan.js" asp-append-version="true"></script>

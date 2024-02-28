@@ -1,0 +1,122 @@
+﻿@model QLRHM.Models.TienSuBenhNhan
+
+@{
+    
+    Layout = null;
+}
+
+
+
+<div class="container-fluid" style="padding-bottom:10px;color:black;margin-bottom:10px">
+    @using (Html.BeginForm("Edit", "TienSuBenhNhans", FormMethod.Post, new { id = "abc", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="col-md-3" style="display:none">
+            <div class="form-group">
+                <label class="control-label">ẩn</label>
+                <div class="input-group">
+                    <input type="hidden" name="id2" value="@ViewBag.Idbn2">
+                    <input type="hidden" asp-for="Idbn">
+                    <input type="hidden" asp-for="Id">
+
+
+                </div>
+            </div>
+        </div>
+        <div class="row" style="border: 2px solid #2acb6f;padding-bottom:10px;">
+            <center><b style="font-weight:900 ; color:red">Sửa tiền sử bệnh</b></center>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">Tim mạch </label>
+                    <div class="input-group">
+                        <select asp-for="TimMach" class="form-select">
+
+                            <option value="1">Có</option>
+                            <option value="2">Không</option>
+                        </select>
+                        <span asp-validation-for="TimMach" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">Tiểu đường</label>
+                    <div class="input-group">
+                        <select asp-for="TieuDuong" class="form-select">
+
+                            <option value="1">Có</option>
+                            <option value="2">Không</option>
+                        </select>
+                        <span asp-validation-for="TieuDuong" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">Câo huyết áp </label>
+                    <div class="input-group">
+                        <select asp-for="CaoHuyetAp" class="form-select">
+
+                            <option value="1">Có</option>
+                            <option value="2">Không</option>
+                        </select>
+                        <span asp-validation-for="CaoHuyetAp" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">Truyền nhiễm </label>
+                    <div class="input-group">
+                        <select asp-for="TruyenNhiem" class="form-select">
+                            <option value="1">Có</option>
+                            <option value="2">Không</option>
+                        </select>
+                        <span asp-validation-for="TruyenNhiem" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">Dị ứng thuốc </label>
+                    <div class='input-group'>
+                        <textarea asp-for="DiUngThuoc" type="text" maxlength="500" class="form-control"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">Khác </label>
+                    <div class='input-group'>
+                        <textarea asp-for="Khac" type="text" maxlength="500" class="form-control"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label"> </label>
+                    <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                </div>
+            </div>
+
+        </div>
+
+
+    }
+</div>

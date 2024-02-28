@@ -1,0 +1,500 @@
+﻿@model QLRHM.Models.KeHoachDieuTri
+@using QLRHM.Models
+
+@{
+    Layout = "~/Views/Shared/Qlkh.cshtml";
+
+}
+<style>
+    .form1{
+
+        display: inline-block;
+        font-weight: 400;
+        line-height: 1.5;
+        color: black;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        user-select: none;
+        background-color: transparent;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        border-radius: 8px;
+       /*  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; */
+        border: 1px solid #b6b6b6;
+        
+    }
+    .form1 .a{
+    font-weight:700;
+    }
+
+    .demo-consoles{
+        background-color:white;
+    }
+           
+
+</style>
+<div class="container-fluid py-5 ">
+    <div class="container" style="border: 0px solid #b8ceff;padding-bottom:10px">
+        <center>   <a style="text-align:center;font-weight:600;padding-top:10px;padding-bottom:10px ;color:red">Thêm kế hoạch điều trị</a></center>
+        <hr>
+        @using (Html.BeginForm("CreateMaster", "KeHoachDieuTris", FormMethod.Post, new { enctype = "multipart/form-data", id = "ApplicantForm" }))
+        {
+
+
+            <div  class="container-fluid" style="color:black">
+                <div class="row">
+                    <div class="row" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Mã kế hoạch điều trị</label>
+                                <div class="input-group">
+                                    <input style="background-color:white;color:blue" name="MaKeHoacDieuTri" type="text" value="@TempData["GeneratedMaKhđt"]" class="form-control" readonly />
+                                </div>
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="control-label">Bác Sĩ lập kế hoạch</label>
+                            <select class="demo-consoles selectize" name="Idbs" asp-items="ViewBag.Idbs" placeholder="..Chọn.."></select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="control-label">Bệnh nhân</label>
+                            <select  class="demo-consoles selectize" name="Idbn" asp-items="ViewBag.Idbn" placeholder="..Chọn.."></select>
+                        </div>
+
+
+
+                        
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="control-label">Ngày tạo</label>
+                                <div class="input-group">
+                                    <input  asp-for="NgayLap" type="text" value=" @DateTime.Now.ToString("dd/MM/yyyy HH:mm")" class="form-control" readonly />
+                                </div>
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <a style="text-align:center;font-weight:600;padding-top:10px;padding-bottom:10px ;color:red">Thêm công việc</a>
+                    <div class="row" style="padding-bottom:10px;">
+
+                        <table id="ExpTable" class="table table-striped test "style="max-height:430px;overflow:auto;" >
+                            <thead >
+
+                                <tr style="background-color:#eff6fe;border:3px solid #b8ceff">
+
+
+                                    <th>
+                                        Bác sĩ điều trị
+                                    </th>
+                                    <th>
+                                        Công việc điều trị
+                                    </th>
+                                    <th style="width:5%">
+                                        Số lần 
+                                    </th>
+                                    <th style="width:12%">
+                                        Đơn giá 
+                                    </th>
+                                    <th>
+                                       Ngày tạo
+                                    </th>
+                                
+                                    <th style="width:3.5%">
+                                      
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                @for (int i = 0; i < Model.MasterNd.Count; i++)
+                                {
+                                    <tr>
+                                     
+                                        <td>
+
+                                            <select asp-for="@Model.MasterNd[i].Idbsdt" asp-items="ViewBag.Idbs" class="form-select " required></select>
+                                          
+                                        </td>
+
+                                        <td>
+
+                                            <select asp-for="@Model.MasterNd[i].Idcvdt" asp-items="ViewBag.Idcvdt" class="form-select selectIdcvdt " required></select>
+                                           
+                                        </td>
+                                      
+
+                                        <td>
+                                            <input asp-for="@Model.MasterNd[i].SoLan" class="form-control" required>
+                                        </td>
+                                        <td>
+
+                                            <input asp-for="@Model.MasterNd[i].DonGia" type="text" class="form-control don-gia"  required oninvalid="this.setCustomValidity('Không được bỏ trống đơn giá');" oninput="setCustomValidity('')" onkeyup="formatCurrency(this)" />
+                                            <span asp-validation-for="@Model.MasterNd[i].DonGia" class="text-danger"></span>
+                                        </td>
+                                        <td style="width: 11%">
+                                            <input asp-for="@Model.MasterNd[i].NgayTao" type="text" value="@DateTime.Now.ToString("dd/mm/yyyy")" class="form-control" required>
+                                        </td>
+                                        <td>
+                                            <button id="btnadd-@i" type="button" class="btn btn-sm btn-success visible" style="position:absolute;"
+                                                    onclick="AddItem(this)">
+                                                <i class='bx bx-plus-medical'></i>
+                                            </button>
+                                            <button id="btnremove-@i" type="button" class="btn btn-sm btn-danger invisible" style="position:absolute;"
+                                                    onclick="DeleteItem(this)">
+                                                <i class='bx bxs-trash' style='color:#ffffff'></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <input type="hidden"  id="hdnLastIndex" value="0" />
+
+                    <div class="row" style=" height:50px; justify-content: flex-start ;border:2px solid #b8ceff">
+                        
+                            <div class="col-md-10">
+                            <a class="btn btn-primary" id="calculateTotalBtn"><i class="fa-solid fa-money-bill-transfer" style="color: #ffffff;"></i></a>
+                                <a class="form1" style="font-weight: 700;"><i class="fa-solid fa-pen-nib"></i> Tiền số: <span style="font-weight:500;color:blue" id="tong-tien">0</span></a>
+                                <a class="form1" style="font-weight: 700;"><i class="fa-solid fa-file-pen"></i> Tiền chữ: <span style="font-weight:500;color:blue" id="tong-tien-text"></span></a>
+                            </div>
+
+
+                        <div class="col-md-2" >
+                            <a  id="back" class="btn btn-primary">Quay lại</a>
+                            <input type="submit" value="Lưu" onclick="return ConfirmSave(this);" class="btn btn-primary" />
+                        </div>
+                            
+
+                    </div>
+
+
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+        $.validator.methods.range = function (value, element, param) {
+            var globalizedValue = value.replace(",", ".");
+            return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+        }
+
+        $.validator.methods.number = function (value, element) {
+            return this.optional(element) || /-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+        }
+</script>
+}
+
+
+
+    <script >
+
+
+        // Sử dụng event delegation cho sự kiện "change" trên .form-control
+        $(document).on("change", ".form-control", function () {
+            var fileName = $(this).val().split("\\").pop();
+            // $(this).siblings(".control-label").addClass("selected").html(fileName);
+        });
+        function DeleteItem(btn) {
+            var rows = $('#ExpTable tbody tr');
+            if (rows.length > 1) { // Kiểm tra xem có nhiều hơn một dòng trong bảng
+                $(btn).closest('tr').remove();
+            } else {
+                alert("Bạn không thể xoá dòng cuối cùng.");
+            }
+        }
+        function AddItem(btn) {
+
+            var table = document.getElementById('ExpTable');
+            var rows = table.getElementsByTagName('tr');
+
+            var rowOuterHtml = rows[rows.length - 1].outerHTML;
+
+            var lastrowIdx = document.getElementById('hdnLastIndex').value;
+
+            var nextrowIdx = eval(lastrowIdx) + 1;
+
+            document.getElementById('hdnLastIndex').value = nextrowIdx;
+
+            rowOuterHtml = rowOuterHtml.replaceAll('_' + lastrowIdx + '_', '_' + nextrowIdx + '_');
+            rowOuterHtml = rowOuterHtml.replaceAll('[' + lastrowIdx + ']', '[' + nextrowIdx + ']');
+            rowOuterHtml = rowOuterHtml.replaceAll('-' + lastrowIdx, '-' + nextrowIdx);
+
+
+            var newRow = table.insertRow();
+            newRow.innerHTML = rowOuterHtml;
+
+
+
+            // Khi trang đã tải hoàn toàn
+        $('.selectize').selectize();
+
+
+            var btnAddID = btn.id;
+            var btnDeleteid = btnAddID.replaceAll('btnadd', 'btnremove');
+
+            var delbtn = document.getElementById(btnDeleteid);
+            delbtn.classList.add("visible");
+            delbtn.classList.remove("invisible");
+
+
+            var addbtn = document.getElementById(btnAddID);
+            addbtn.classList.remove("visible");
+            addbtn.classList.add("invisible");
+          
+            rebindvalidators();
+        }
+        function rebindvalidators() {
+            var $form = $("#ApplicantForm");
+
+            $form.unbind();
+
+            $form.data("validator", null);
+
+            $.validator.unobtrusive.parse($form);
+
+            $form.validate($form.data("unobtrusiveValidation").options);
+        }
+       
+    </script>
+    @* <script>
+        $(document).on("change", ".selectIdcvdt", function () {
+            var selectedValue = this.value;
+            // Tìm đơn giá tương ứng từ ViewBag.Idcvdt
+            var selectedOption = @Html.Raw(Json.Serialize(ViewBag.Idcvdt))
+                .find(option => option.value == selectedValue);
+
+            // Nếu tìm thấy đơn giá, đặt giá trị vào input
+            if (selectedOption) {
+                // Tìm input đơn giá cùng hàng
+                var donGiaInput = $(this).closest('tr').find('.don-gia');
+                if (donGiaInput.length > 0) {
+                    donGiaInput.val(selectedOption.text.split('-')[3].trim());
+                }
+            }
+        });
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Lắng nghe sự kiện khi có sự thay đổi trong các ô đơn giá
+            $(".form-control").on("input", function () {
+                calculateTotal();
+            });
+
+            // Khởi tạo tổng tiền ban đầu
+            calculateTotal();
+
+            function calculateTotal() {
+                var total = 0;
+                $(".don-gia").each(function () {
+                    var donGia = parseFloat($(this).val().replace(/\./g, "").replace(/,/g, ".")) || 0;
+                    total += donGia;
+                });
+
+                // Hiển thị tổng tiền đã tính được trong phần tử có id là "tong-tien"
+                $("#tong-tien").text(total.toLocaleString("vi-VN"));
+            }
+
+            // Các hàm AddItem, DeleteItem và rebindvalidators có thể được giữ nguyên.
+        });
+    </script> *@
+<script>
+    $(document).ready(function () {
+        // Lắng nghe sự kiện khi có sự thay đổi trong các ô đơn giá
+        $(document).on("input", ".form-control.don-gia", function () {
+            calculateTotal();
+        });
+
+        // Lắng nghe sự kiện khi có thay đổi trong select .selectIdcvdt
+        $(document).on("change", ".selectIdcvdt", function () {
+            var selectedValue = this.value;
+            var selectedOption = @Html.Raw(Json.Serialize(ViewBag.Idcvdt))
+                        .find(option => option.value == selectedValue);
+
+            if (selectedOption) {
+                var donGiaInput = $(this).closest('tr').find('.don-gia');
+                if (donGiaInput.length > 0) {
+                    donGiaInput.val(selectedOption.text.split('-')[3].trim());
+                }
+            }
+
+            calculateTotal(); // Tính lại tổng tiền sau khi thay đổi select
+        });
+
+        // Khởi tạo tổng tiền ban đầu
+        calculateTotal();
+
+        function calculateTotal() {
+            var total = 0;
+            $(".don-gia").each(function () {
+                var donGia = parseFloat($(this).val().replace(/\./g, "").replace(/,/g, ".")) || 0;
+                total += donGia;
+            });
+
+            // Hiển thị tổng tiền đã tính được trong phần tử có id là "tong-tien"
+            $("#tong-tien").text(total.toLocaleString("vi-VN"));
+        }
+
+        // Các hàm AddItem, DeleteItem và rebindvalidators có thể được giữ nguyên.
+    });
+</script>
+
+
+
+<script>
+    var object = { stat: false, ele: null };
+
+    function ConfirmSave(ev) {
+        if (object.stat) {
+            return true;
+        }
+        swal({
+            title: "Bạn có muốn lưu dữ liệu?",
+            text: "Kiểm tra kỹ trước khi lưu!",
+
+            type: "warning",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn btn-danger",
+            confirmButtonText: "Lưu!",
+            cancelButtonText: "Xem lại",
+            closeOnConfirm: true
+        }, function () {
+            swal("Xóa!", "Đã ẩn thành công.", "success");
+            object.stat = true;
+            object.ele = ev;
+            object.ele.click();
+        },1000);
+        return false;
+    }
+</script>
+
+
+<script>
+    function formatCurrency(input) {
+        // Lấy giá trị nhập vào
+        let value = input.value;
+
+        // Loại bỏ tất cả các dấu chấm và dấu phân cách khác
+        value = value.replace(/[^0-9]/g, '');
+
+        // Định dạng lại giá trị thành số tiền có dấu chấm phân cách hàng nghìn
+        if (value.length > 3) {
+            value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        }
+
+        // Gán giá trị đã định dạng lại vào trường input
+        input.value = value;
+    }
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        // Lắng nghe sự kiện khi người dùng nhấp vào nút "Tổng tiền"
+        $("#calculateTotalBtn").click(function () {
+            var total = 0;
+
+            // Duyệt qua tất cả các input đơn giá và tính tổng
+            $(".don-gia").each(function () {
+                var rowval = $(this).val();
+                total += parseFloat(rowval.replace(/\./g, "").replace(/,/g, ".")) || 0;
+            });
+
+            // Hiển thị tổng tiền đã tính được trong phần tử có id là "tong-tien"
+            $("#tong-tien").text(total.toLocaleString("vi-VN"));
+
+            // Chuyển đổi số thành chuỗi chữ và viết hoa chữ đầu
+            var totalText = convertToWords(total);
+            // $("#tong-tien-text").text(capitalizeFirstLetter(totalText) + " đồng");
+            $("#tong-tien-text").text(capitalizeFirstLetter(totalText));
+        });
+
+        // Hàm chuyển đổi số thành chuỗi chữ và viết hoa chữ đầu
+        function convertToWords(number) {
+            // Các tên của các số
+            var ones = ["", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"];
+            var onesTeen = ["", "mười một", "mười hai", "mười ba", "mười bốn", "mười lăm", "mười sáu", "mười bảy", "mười tám", "mười chín"];
+            var tens = ["", "mười", "hai mươi", "ba mươi", "bốn mươi", "năm mươi", "sáu mươi", "bảy mươi", "tám mươi", "chín mươi"];
+            var hundreds = ["", "một trăm", "hai trăm", "ba trăm", "bốn trăm", "năm trăm", "sáu trăm", "bảy trăm", "tám trăm", "chín trăm"];
+            var thousands = ["", "nghìn", "triệu", "tỷ"];
+
+            var words = "";
+
+            var digitGroups = [];
+            while (number > 0) {
+                digitGroups.push(number % 1000);
+                number = Math.floor(number / 1000);
+            }
+
+            for (var i = 0; i < digitGroups.length; i++) {
+                var groupNumber = digitGroups[i];
+
+                var onesDigit = groupNumber % 10;
+                var tensDigit = Math.floor(groupNumber / 10) % 10;
+                var hundredsDigit = Math.floor(groupNumber / 100) % 10;
+
+                var groupWords = "";
+
+                if (hundredsDigit > 0) {
+                    groupWords += hundreds[hundredsDigit] + " ";
+                }
+
+                if (tensDigit > 0) {
+                    if (tensDigit === 1 && onesDigit > 0) {
+                        groupWords += onesTeen[onesDigit] + " ";
+                    } else {
+                        groupWords += tens[tensDigit] + " ";
+                    }
+                }
+
+                if (onesDigit > 0 && tensDigit !== 1) {
+                    groupWords += ones[onesDigit] + " ";
+                }
+
+                if (groupNumber > 0) {
+                    if (groupNumber === 1) {
+                        groupWords += thousands[i] + " ";
+                    } else {
+                        groupWords += thousands[i] + " ";
+                    }
+                }
+
+                words = groupWords + words;
+            }
+
+            return words.trim(); // Loại bỏ khoảng trắng ở đầu và cuối chuỗi
+        }
+
+        // Hàm viết hoa chữ đầu
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+    });
+</script>
+            
+
+
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+﻿@model QLRHM.Models.HinhThucThanhToan
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/Home.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>HinhThucHanhToan</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Idnh" class="control-label"></label>
+                <select asp-for="Idnh" class ="form-control" asp-items="ViewBag.Idnh"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaHttt" class="control-label"></label>
+                <input asp-for="MaHttt" class="form-control" />
+                <span asp-validation-for="MaHttt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenHttt" class="control-label"></label>
+                <input asp-for="TenHttt" class="form-control" />
+                <span asp-validation-for="TenHttt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ntao" class="control-label"></label>
+                <input asp-for="Ntao" class="form-control" />
+                <span asp-validation-for="Ntao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nsua" class="control-label"></label>
+                <input asp-for="Nsua" class="form-control" />
+                <span asp-validation-for="Nsua" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgayTao" class="control-label"></label>
+                <input asp-for="NgayTao" class="form-control" />
+                <span asp-validation-for="NgayTao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgaySua" class="control-label"></label>
+                <input asp-for="NgaySua" class="form-control" />
+                <span asp-validation-for="NgaySua" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

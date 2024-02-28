@@ -1,0 +1,158 @@
+﻿@inject QLRHM.Models.DatnqlrhmContext _context
+@model QLRHM.Models.NoiDungThanhToan
+@using QLRHM.Models
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Home.cshtml";
+}
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+            <li class="active"><a data-toggle="tab" href="#home"> <i class="fa-solid fa-list-ul"></i> Danh sách hoá đơn bệnh nhân</a></li>
+           @*  <li><a data-toggle="tab" href="#menu1"> <i class="fa-solid fa-list-check"></i> Danh sách bệnh nhân đã thanh toán</a></li> *@
+            
+            
+        </ul>
+
+
+                <div class="tab-content">
+                    <div id="home" class="tab-pane fade in active" style="background-color:#f8f9fe;width:100%">
+                <table class="table" id="example3">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                         
+                          
+                            <th>
+                                Mã bệnh nhân
+                            </th>
+
+                            <th>
+                                Tên bệnh nhân
+                            </th>
+                            <th>
+                                Năm sinh
+                            </th>
+                            <th>
+                               Giới tính
+                            </th>
+                             <th>
+                               CCCD
+                            </th>
+
+                            <th>
+                                Sđt
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Thao tác
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            int sttt = 1;
+                            // BenhNhan benh in ViewBag.BenhNhan;
+                            foreach (NoiDungThanhToan ptt in ViewBag.bn)
+                            {
+                                <tr class="Search">
+                                    <td style="width:2.5%">
+                                        @sttt
+                                    </td>
+                                  
+                                   
+
+                                 
+
+                                    <td style="width:9%">
+                                        @Html.DisplayFor(modelItem => ptt.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.MaBenhNhan)
+                                    </td>
+                                    <td style="width:11.5%">
+                                        @Html.DisplayFor(modelItem => ptt.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.TenBn)
+                                    </td>
+                                    <td style="width:7%">
+                                        @Html.DisplayFor(modelItem => ptt.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.FormatNgaySinh)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => ptt.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.GioiTinh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => ptt.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Cccd)
+                                    </td>
+                                     <td>
+                                        @Html.DisplayFor(modelItem => ptt.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Sdt)
+                                    </td>
+
+                                     <td>
+                                        @if (ptt.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Email !=null)
+                                        {
+                                            @Html.DisplayFor(modelItem => ptt.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Email)
+                                        }
+                                        else
+                                        {
+                                            <a>Không có email</a>
+                                        }
+                                     
+                                    </td>
+                                   
+                                   <td>
+                                        <a asp-action="PhieuThanhToan" asp-controller="ThanhToans" asp-route-id="@ptt.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Idbn">
+                                            <i class="fa-solid fa-file-invoice-dollar fa-xl btn" style="color: #005eff;margin-left: 16%;"></i>
+                                        </a>
+                                   </td>
+
+
+                                </tr>
+                                sttt++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+                    </tbody>
+                </table>
+                        <div/>
+
+                    </div>
+                </div>
+
+
+
+  
+
+    </div>
+</div>
+
+<script>
+    function XacNhanThanhToan(link) {
+        var TenBenhNhan = link.getAttribute("data-name");
+        var tenCV = link.getAttribute("data-name2");
+        var SoTien = link.getAttribute("data-name3");
+        if (object.stat) {
+            return true;
+        }
+
+        swal({
+            title: "Thanh toán bệnh nhân\n" + TenBenhNhan,
+            text: "Công việc: " + tenCV + ", tổng tiền: " + SoTien,
+            //type: "warning",
+            //icon: "warning",
+            showCancelButton: true,
+            confirmButtonClass: false,
+            confirmButtonText: false,
+            cancelButtonText: "Đóng",
+            closeOnConfirm: true
+        }, function () {
+            swal("Xoá!", "Đã Hiện thành công.", "success");
+            object.stat = true;
+            object.ele = link;
+            object.ele.click();
+        });
+
+        return false;
+    }
+
+</script>

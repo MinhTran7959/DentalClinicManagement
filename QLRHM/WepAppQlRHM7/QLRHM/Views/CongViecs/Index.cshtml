@@ -1,0 +1,353 @@
+﻿@using QLRHM.Models;
+@model QLRHM.Models.CongViec
+
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+
+}
+
+
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+            <li class="active"><a data-toggle="tab" href="#home"><i class='bx bx-list-ul'></i> Danh sách công việc</a></li>
+            <li><a data-toggle="tab" href="#menu1"><i class='bx bx-folder-plus'></i>Cộng việc đã ẩn</a></li>
+           
+        </ul>
+
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <button id="toggleFormButton" class="btn btn-primary">Bật/tắt phiếu thêm</button>
+                <a asp-action="ExportExcel" asp-controller="CongViecs" type="submit" class="btn btn-success">Xuất excel</a>
+                @using (Html.BeginForm("Create", "CongViecs", FormMethod.Post, new { id = "myForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <center><b style="font-weight:900 ; color:red">Thêm công việc</b></center>
+                    <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+                        <div class="row">
+                            @*   <b>Thêm nhóm công việc</b> *@
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Mã công việc</label>
+                                    <div class='input-group'>
+                                        <input style="background-color:white;color:blue" name="MaCongViec" type="text" value="@ViewBag.GeneratedCvdt" class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Tên công việc</label>
+                                    <div class='input-group'>
+                                        <input name="TenCongViec" id="TenNbs" type="text" class="form-control" maxlength="50" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" />
+                                    </div>
+                                    <span id="TenNCVError" class="text-danger"></span>
+                                </div>
+                            </div> 
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Nhóm công việc</label>
+                                    <div class='input-group'>
+                                         <div id="productDropdownContainer" class="dropdown">
+                                            <input type="text" id="searchInput" class="form-control" placeholder="- - Nhóm công việc - -" autocomplete="off"  required />
+                                            <div id="productList" class="dropdown-list">
+                                                <select id="productDropdown" class="form-control" name="Idncv" asp-items="ViewBag.Idncv" size="5" >
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>                                 
+                                </div>
+                            </div> 
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Bảo hành(Ngày)</label>
+                                    <div class='input-group'>
+                                        <select asp-for="Idbh" class="form-select" asp-items="ViewBag.Idbh"></select>
+                                    </div>
+                                    <span id="TenNCVError" class="text-danger"></span>
+                                </div>
+                            </div> 
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Mô tả</label>
+                                    <div class='input-group'>
+                                        <textarea name="MoTa" id="TenNbs" type="text" maxlength="100" class="form-control" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')"></textarea>
+                                    </div>
+                                    <span id="TenNCVError" class="text-danger"></span>
+                                </div>
+                            </div>                            
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Đơn giá sử dụng</label>
+                                    <div class='input-group'>
+                                        <input name="DonGiaSuDung" id="TenNbs" type="text" class="form-control" required oninvalid="this.setCustomValidity('Không được bỏ trống');" onkeyup="formatCurrency(this)" oninput="setCustomValidity('')" />
+                                    </div>
+                                    <span id="TenNCVError" class="text-danger"></span>
+                                </div>
+                            </div>
+                      
+                  
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Ngày thêm</label>
+                                    <div class='input-group'>
+                                        <input name="NgayTao" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label class="control-label">&nbsp;</label>
+                                    <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+
+                }
+
+                <div class="row" style="padding-top:5px ;padding-bottom:5px">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <div class="d-flex align-items-center">
+                                <!-- Sử dụng flexbox để căn chỉnh label và select cùng hàng -->
+                               @*  <label class="control-label">Nhóm Công việc</label> *@
+                                <div class='input-group'>
+                                    <select id="IdNcv" class="form-select" asp-items="ViewBag.Idncv2">
+                                        <option  value="">-- Chọn nhóm --</option>
+                                        <option  value="">Tất cả</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group" >
+                                <input type="text" id="Search" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+                <table class="table scroll " id="example">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã công việc
+                            </th>
+                            <th>
+                                 Nhóm công việc
+                            </th>
+                            <th>
+                                Tên công việc
+                            </th>  
+
+                            <th>
+                                Mô tả
+                            </th>
+                            
+                            <th>
+                                Đơn giá
+                            </th>                                 
+                           @*  <th>
+                                BH(Ngày)
+                            </th>      *@ 
+                            
+                            <th>
+                               Ngày thêm
+                            </th>
+
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                  
+                        @{
+                            int stt = 1; // Khởi tạo số thứ tự ban đầu
+
+                            foreach (CongViec cv in ViewBag.cv)
+                            {
+                                    <tr class="Search">
+                                        <td style="width:2%">
+                                            @stt
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => cv.MaCongViec)
+                                        </td>
+                                        <td style="width:11%">
+                                            @Html.DisplayFor(modelItem => cv.NhomCongViec.TenNcv)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => cv.TenCongViec)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => cv.MoTa)
+                                        </td>
+                                        <td style="text-align: end;">
+                                            @Html.DisplayFor(modelItem => cv.FormattedDonGiaSuDung)
+                                        </td>
+                               @* <td style="width:2%;text-align:center">
+                                            @Html.DisplayFor(modelItem => cv.BaoHanh.SoNgay)
+                                        </td>*@
+                                        <td>
+                                            @Html.DisplayFor(modelItem => cv.NgayTao)
+                                        </td>
+                                        <td style="width:70px">
+                                            <a asp-action="Edit" asp-route-id="@cv.Idcvdt">
+
+                                                <box-icon name='edit' animation='tada-hover' color='#3b78ec'></box-icon>
+                                            </a>
+                                         
+                                            <a asp-action="Hide" onclick="return ConfirmDelete(this);" asp-route-id="@cv.Idcvdt">
+                                                <box-icon type='solid' name='hide' animation='tada-hover' color='red'></box-icon>
+                                            </a>
+                                         
+                                        </td>
+                                    </tr>
+                                stt++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }                  
+                </table>
+
+
+            </div>
+            <div id="menu1" class="tab-pane fade" style="color:#000">
+                <div class="row" style="padding-top:5px;padding-bottom:20px">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <div class="d-flex align-items-center">
+                                <!-- Sử dụng flexbox để căn chỉnh label và select cùng hàng -->
+                                @*  <label class="control-label">Nhóm Công việc</label> *@
+                                <div class='input-group'>
+                                    <select id="IdNcv2" class="form-select" asp-items="ViewBag.Idncv2">
+                                        <option  value="">-- Chọn nhóm --</option>
+                                        <option  value="">Tất cả</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                   
+                </div>
+                <table class="table scroll " id="example2">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã công việc
+                            </th>
+                            <th>
+                                Nhóm công việc
+                            </th>
+                            <th>
+                                Tên công việc
+                            </th>
+
+                            <th>
+                                Mô tả
+                            </th>
+
+                            <th>
+                                Đơn giá
+                            </th>
+                            <th>
+                                BH(Ngày)
+                            </th>
+
+                            <th>
+                                Ngày thêm
+                            </th>
+
+
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    @{
+                        int stt2 = 1; // Khởi tạo số thứ tự ban đầu
+
+                        foreach (CongViec cvhide in ViewBag.cvhide)
+                        {
+                            <tr class="hide">
+                                <td style="width:2%">
+                                    @stt2
+                                </td>
+
+                                <td style="width:10%">
+                                    @Html.DisplayFor(modelItem => cvhide.MaCongViec)
+                                </td>
+                                <td style="width:10%">
+                                    @Html.DisplayFor(modelItem => cvhide.NhomCongViec.TenNcv)
+                                </td>
+                                <td style="width:18%">
+                                    @Html.DisplayFor(modelItem => cvhide.TenCongViec)
+                                </td>
+                                <td style="width:25%">
+                                    @Html.DisplayFor(modelItem => cvhide.MoTa)
+                                </td>
+                                <td style="text-align:right">
+                                    @Html.DisplayFor(modelItem => cvhide.FormattedDonGiaSuDung)
+                                </td>
+                                <td style="width:2%;text-align:center">
+                                    @Html.DisplayFor(modelItem => cvhide.BaoHanh.SoNgay)
+                                </td>
+                                <td style="width:12%">
+                                    @Html.DisplayFor(modelItem => cvhide.NgayTao)
+                                </td>
+                                <td style="width:70px">
+                                    <a asp-action="Active" onclick="return ConfirmActive(this);" asp-route-id="@cvhide.Idcvdt">
+                                        <box-icon name='rotate-right' flip='horizontal' color='#04b245'></box-icon>
+                                    </a>
+
+                                </td>
+                            </tr>
+                            stt2++; // Tăng số thứ tự sau mỗi lần lặp
+                        }
+                    }
+                </table>
+            </div>
+           
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        // Sử dụng sự kiện change cho select element với ID là "yourId"
+        $("#IdNcv").on("change", function () {
+            var searchText = $(this).val().toLowerCase();
+            $(".Search").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+    });$(document).ready(function () {
+        // Sử dụng sự kiện change cho select element với ID là "yourId"
+        $("#IdNcv2").on("change", function () {
+            var searchText = $(this).val().toLowerCase();
+            $(".hide").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+    });
+</script>
+
+
+
+

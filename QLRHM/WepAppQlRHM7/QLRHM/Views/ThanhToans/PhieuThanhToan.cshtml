@@ -1,0 +1,374 @@
+﻿
+@inject QLRHM.Models.DatnqlrhmContext _context
+@using QLRHM.Models;
+@using QLRHM7.Models;
+@using System.Globalization;
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+  
+}
+
+<style>
+    .status{
+        width:7%;
+    }
+
+    img {
+        max-width: 100%; /* Giới hạn chiều rộng tối đa của ảnh */
+        max-height: 100%; /* Giới hạn chiều cao tối đa của ảnh */
+        border-radius:10px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .hidden-form {
+        display: none;
+    }
+</style>
+
+<div class="container-fluid py-5 ">
+    <div class="container">
+      
+    
+
+        <div class="tab-content">
+            <div class="row" style="padding-bottom:5px; min-width:400px">
+
+                <div class="col-md-1" style="width:110px">
+                    <a href="@Url.Action("Index", "ThanhToans")" class="btn btn-primary"> Quay lại </a>
+                </div>
+
+               
+
+            </div>
+
+            <div id="home" class="tab-pane fade in active" style="background-color:#f8f9fe;width:100%">
+
+                <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+                    <center><h3 style="color:red">Thông tin bệnh nhân</h3></center>
+                    <div class="row">
+                        <div class="col-md-3 d-flex justify-content-center align-items-center">
+                            <div class="col-md-6 text-center">
+                                <div class="form-group" style="border:10px solid #cacaca4f;  border-radius: 10px;">
+                                    <label>
+                                        <img  id="FrontImagePrv" src="~/image/BN/@ViewBag.bn.AnhBn" alt="Image"  >
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-9">
+                            <div class="row" >
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Mã bệnh nhân</label>
+                                        <div class='input-group'>
+                                            <input value="@ViewBag.bn.MaBenhNhan"  maxlength="50" class="form-control" readonly />
+                                        </div>  
+                               
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Tên bệnh nhân</label>
+                                        <div class='input-group'>
+                                            <input value="@ViewBag.bn.TenBn"  maxlength="50" class="form-control" readonly />
+                                        </div>
+                                        <span id="TenNCVError" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Ngày sinh</label>
+                                        <div class='input-group date' id='inputmask1'>
+                                            <input value="@ViewBag.bn.FormatNgaySinh"  maxlength="50" class="form-control" readonly />
+
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Giới Tinh</label>
+                                        <div class='input-group'>
+                                            <input value="@ViewBag.bn.GioiTinh"  maxlength="50" class="form-control" readonly />
+
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">CCCD</label>
+                                        <div class='input-group'>
+                                            <input value="@ViewBag.bn.Cccd"  maxlength="50" class="form-control" readonly />
+
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Quê quán</label>
+                                        <div class='input-group'>
+                                            <input value="Không"  maxlength="50" class="form-control" readonly />
+
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Địa chỉ</label>
+                                        <div class='input-group'>
+                                            <input value="@ViewBag.bn.DiaChi"  maxlength="50" class="form-control" readonly />
+
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Sđt</label>
+                                        <div class='input-group'>
+                                            <input value="@ViewBag.bn.Sdt"  maxlength="50" class="form-control" readonly />
+
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Email</label>
+                                        <div class='input-group'>
+                                            <input value="@ViewBag.bn.Email"  maxlength="50" class="form-control" readonly />
+
+                                        </div>
+                                        <span id="TenNCVError" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Zalo</label>
+                                        <div class='input-group'>
+                                            <input value="@ViewBag.bn.Zalo"  maxlength="50" class="form-control" readonly />
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Facebook</label>
+                                        <div class='input-group'>
+                                            <input value="@ViewBag.bn.FaceBook"  maxlength="50" class="form-control" readonly />
+                                        </div>
+                           
+                                    </div>
+                                </div>
+                                <div class="col-md-1" style="display:none">
+                                    <div class="form-group">
+                                        <label class="control-label">Hình ảnh</label>
+                                        <div class='input-group'>
+                                            <input value="@ViewBag.bn.MaBenhNhan"  maxlength="50" class="form-control" readonly />
+                                        </div>
+                                   </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Được thêm vào ngày</label>
+                                        <div class='input-group'>
+                                            <input value="@ViewBag.bn.NgayTao"  maxlength="50" class="form-control" readonly />
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>  <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Chỉnh sửa lần cuối vào ngày</label>
+                                        <div class='input-group'>
+                                            <input value="@ViewBag.bn.NgaySua"  maxlength="50" class="form-control" readonly />
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="form-group">
+                                        <label class="control-label">Ghi chú</label>
+                                        <div class='input-group'>
+                                            <textarea value="@ViewBag.bn.GhiChu"  maxlength="50" class="form-control" readonly></textarea>
+                                        </div>
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                   
+                               
+                            </div>
+                        </div>
+                    </div>
+                  
+                    </div>
+
+                </div>
+            </div>
+           
+          
+       
+           
+                <table class="table" id="example3">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                              Stt
+                            </th>                   
+                            <th>
+                                Mã bệnh nhân
+                            </th>
+                         
+                            <th>
+                                Tên bệnh nhân
+                            </th>
+                            <th>
+                                Năm sinh
+                            </th>
+
+                            <th>
+                                Sđt
+                            </th>
+                            <th>
+                                Mã phiếu thanh toán
+                            </th>
+                            <th>
+                                Mã kế hoạch điều trị
+                            </th>
+                            <th>
+                                Ngày tạo phiếu
+                            </th>
+                            <th>
+                                Thao tác
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                           
+                            int sttt = 1;
+                            // BenhNhan benh in ViewBag.BenhNhan;
+                            foreach (NoiDungThanhToan ptt in ViewBag.ptt)
+                            {
+                                <tr class="Search">
+                                    <td style="width:2.5%">
+                                        @sttt
+                                    </td>
+                            
+                                    
+
+                                  
+
+                                    <td style="width:9%">
+                                        @Html.DisplayFor(modelItem => ptt.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.MaBenhNhan)
+                                    </td>
+                                    <td style="width:11.5%">
+                                        @Html.DisplayFor(modelItem => ptt.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.TenBn)
+                                    </td>
+                                    <td style="width:7%">
+                                        @Html.DisplayFor(modelItem => ptt.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.FormatNgaySinh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => ptt.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Sdt)
+                                    </td>
+                                    <td style="width:11.5%">
+                                        @Html.DisplayFor(modelItem => ptt.IdttNavigation.MaThanhToan)
+                                    </td>
+
+                                    <td style="width:7%">
+                                        @Html.DisplayFor(modelItem => ptt.IdndkhNavigation.IdkhdtNavigation.MaKeHoacDieuTri)
+                                    </td>
+                                    <td style="width:11%">
+                                        @Html.DisplayFor(modelItem => ptt.IdttNavigation.NgayThanhToan)
+                                    </td>
+                                    <td style="width:8%">
+                                        @if (int.TryParse(ptt.IdndkhNavigation.IdkhdtNavigation.DieuTri, out int dieuTriValue1) && dieuTriValue1 != 3)
+                                        {
+                                            @if(ptt.ThanhToan !="1"){
+                                                <a href="@Url.Action("SuaPhieuThanhToan", "ThanhToans", new { id = ptt.Idtt, id2 = ViewBag.bn.Idbn })">                                                  
+                                                     <box-icon name='credit-card' animation='tada-hover' color='#008713'></box-icon>
+                                                </a>
+                                            }
+                                            else{}
+
+                                         
+                                          
+                                            <a class="open-modal2" data-bs-toggle="modal" data-bs-target="#myModal2" data-url="@Url.Action("ChiTietPhieuThanhToan", "BenhNhans", new {  id = ptt.Idtt, id2 = ViewBag.bn.Idbn  })">
+                                                <box-icon type='solid' name='info-circle' animation='tada-hover' color='@((ptt.ThanhToan != "1") ? "red" : "#05cdf6")'></box-icon>
+                                            </a>
+
+                                            
+
+
+                                            <a href="@Url.Action("PdfPhieuThanhToan", "BenhNhans", new { id = ptt.Idtt, id2 = ViewBag.bn.Idbn })">
+                                                <box-icon name='file-pdf' type='solid' color='#e83f3f' animation='tada-hover'></box-icon>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a class="open-modal3" data-bs-toggle="modal" data-bs-target="#myModal3" data-url="@Url.Action("ChiTietPhieuThanhToan", "BenhNhans", new {  id = ptt.Idtt, id2 = ViewBag.bn.Idbn  })">
+                                                <box-icon type='solid' name='info-circle' animation='tada-hover' color='@((ptt.ThanhToan != "1") ? "red" : "#05cdf6")'></box-icon>
+                                            </a>
+
+                                           
+                                            <a href="@Url.Action("PdfPhieuThanhToan", "BenhNhans", new { id = ptt.Idtt, id2 = ViewBag.bn.Idbn })">
+                                                <box-icon name='file-pdf' type='solid' color='#e83f3f' animation='tada-hover'></box-icon>
+                                            </a>
+                                        }
+                                    </td>
+
+
+                                </tr>
+                                sttt++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+               
+                    </tbody>
+                </table>
+        <div class="modal" id="myModal3" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="partial-view-container3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="myModal2" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="partial-view-container2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+             </div>
+
+
+
+          </div>
+      
+    
+
+
+<script src="~/js/khdt.js" asp-append-version="true"></script>
+

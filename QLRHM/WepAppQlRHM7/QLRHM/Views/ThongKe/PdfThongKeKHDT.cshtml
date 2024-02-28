@@ -1,0 +1,145 @@
+﻿@model IEnumerable<QLRHM.Models.TongTienNDTT>
+@using QLRHM.Models
+@{
+    Layout = "~/Views/Shared/Home_Modal.cshtml";
+    var stt = 1;var sttt = 1;
+    var TongKHDT = 0; var TongKHDT_Dang = 0 ; var TongKHDT_Huy = 0;var TongKHDT_DaX = 0;
+    var Khdt_DangCo = 0;
+}
+
+<body style="padding-left: 2%;padding-right: 2%;">
+   
+    <div class="table" style="min-width:900px ; max-width:700px;color:black ">
+        <div>
+            <span style="font-weight:900;padding-left:8px">
+                PHÒNG KHÁM NHA KHOA RĂNG HÀM MẶT
+            </span>
+
+        </div>
+        <div>
+            <a style="font-size: 14px; font-weight: normal;">
+                <span>  Địa chỉ : 69/96 tổ 3 , ấp 6 , đường Nguyễn Văn Bữa , Hóc Môn , Thành phố Hồ Chí Minh <br></span>
+                <span style="margin-top: 5px; display: block;">Sđt: 03827847566</span>
+                <span>Gmail: PhongKhamNhaKhoaRHM@gmail.com</span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="row">
+        
+       <div class="col-md-6">
+            <center><a style="font-size:18px; color:red;font-weight:700">Thống kê số lượng kế hoạch điều trị (@ViewBag.FromDate - @ViewBag.ToDate)</a></center>
+            <table id="bieudo1" class="table ">
+                <thead>
+                    <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center;font-size:14px">
+                        <th>
+                            Stt
+                        </th>
+
+                        <th>
+                            Mã bác sĩ
+                        </th>
+                        <th>
+                            Tên bác sĩ
+                        </th>
+                        <th>
+                            Tổng số khđt
+                        </th>
+                        <th>
+                            KHĐT đã thực hiện 
+                        </th>
+                        <th>
+                            KHĐT bị huỷ bỏ
+                        </th>
+                        <th>
+                           KHĐT đang hoạt động
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.TongKHDT.Count == 0)
+                    {
+                        <tr>
+
+                            <td colspan="8" style="color:red;text-align: center">Không có công việc điều trị nào</td>
+
+                        </tr>
+                    }
+                    else
+                    {
+                        
+                        @foreach (TongTienNDTT tongTien in ViewBag.TongKHDT )
+                        {
+                             
+                                      Khdt_DangCo = (Convert.ToInt32(tongTien.TotalTongKHDT)) - (Convert.ToInt32(tongTien.TotalSoKH) + Convert.ToInt32(tongTien.TotalSoCV));
+                                     if (Khdt_DangCo < 0) { Khdt_DangCo = 0; }
+                                 
+                            <tr class="Search Chart_KHDT" style="font-size:13px">
+                                <td style="width:2%">
+                                    @sttt
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => tongTien.MaBS)
+                                </td>
+                                <td>
+                                  @*   @Html.DisplayFor(modelItem => tongTien.TenBS) *@
+                                    <a class="open-modal2" data-bs-toggle="modal" data-bs-target="#myModal2"
+                                       data-url="@Url.Action("ChiTietKHDT", "ThongKe", new {  id = tongTien.Idndkh, fo = tongTien.NgayTao, to = tongTien.NgaySua })">
+                                        @tongTien.TenBS
+                                    </a>
+                                </td>
+
+                                <td style="text-align:center">
+                                    @Html.DisplayFor(modelItem => tongTien.TotalTongKHDT)  @*tổng *@
+                                </td>
+                                <td style="text-align:center">
+                                    @Html.DisplayFor(modelItem => tongTien.TotalSoCV)  @*Số cv đã đt *@
+
+                                </td>
+                                <td style="text-align:center; color: @(Convert.ToInt32(tongTien.TotalSoKH) > 0 ? "red" : "black")">
+                                    @Html.DisplayFor(modelItem => tongTien.TotalSoKH)
+                                </td>
+                               
+                                <td style="text-align:center ;color: @(Khdt_DangCo> 0 ? " green" : "black" )">
+                                  
+                                    @Html.DisplayFor(modelItem => Khdt_DangCo)
+                                </td>
+
+                            </tr>
+                           
+                                sttt++; // Tăng số thứ tự sau mỗi lần lặp
+                                TongKHDT += Convert.ToInt32(tongTien.TotalTongKHDT);
+                                TongKHDT_DaX += Convert.ToInt32(tongTien.TotalSoCV);
+                            TongKHDT_Huy += Convert.ToInt32(tongTien.TotalSoKH);
+                            TongKHDT_Dang += Convert.ToInt32(Khdt_DangCo);
+                           
+
+
+                            
+                        }
+                        <tr class="Tong">
+                            <td colspan="3" style="text-align: center;color: #3b78ec">Tổng cộng</td>
+                            <td style="text-align: center;color: #3b78ec">@TongKHDT</td>
+                            <td style="text-align:center;color: #3b78ec">@string.Format("{0:#,0}", TongKHDT_DaX)</td>
+                            <td style="text-align:center;color: #3b78ec">@string.Format("{0:#,0}", TongKHDT_Huy)</td>
+                            <td style="text-align:center;color: #3b78ec">@string.Format("{0:#,0}", TongKHDT_Dang)</td>
+                           
+
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+       </div>
+
+
+
+    </div>
+  
+
+</body>
+
+
+

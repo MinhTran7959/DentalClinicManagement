@@ -1,0 +1,135 @@
+﻿
+@model IEnumerable<QLRHM.Models.TongTienNDTT>
+@using QLRHM.Models;
+@{
+    Layout = "~/Views/Shared/Home_Modal.cshtml";
+    decimal TienBangGia = 0; // Khởi tạo biến ngoài vòng lặp
+    var stt = 1; var SoLan = 0; var TienDieuTri = 0; var TongTiLe = 0; var TienChuaTT = 0; var TienDaTT = 0;
+    var ngay = Model.FirstOrDefault(); // Lấy đối tượng đầu tiên từ danh sách Model
+}
+
+
+    <div class ="table" style="min-width:900px ; max-width:700px;color:black ">
+        <div>
+             <span style="font-weight:900;padding-left:8px">
+                PHÒNG KHÁM NHA KHOA RĂNG HÀM MẶT
+            </span>
+         
+        </div>
+    <div>
+        <a style="font-size: 14px; font-weight: normal;">
+            <span>  Địa chỉ : 69/96 tổ 3 , ấp 6 , đường Nguyễn Văn Bữa , Hóc Môn , Thành phố Hồ Chí Minh <br></span>
+            <span style="margin-top: 5px; display: block;">Sđt: 03827847566</span>
+            <span>Gmail: PhongKhamNhaKhoaRHM@gmail.com</span>
+        </a>
+    </div>
+
+        <div style="text-align:center;padding-top:30px; margin-bottom:20px" >
+        @if (ngay != null)
+        {
+            <a>BÁO CÁO DANH SÁCH CÔNG VIỆC ĐIỀU TRỊ TỪ NGÀY @ngay.NgayTao ĐẾN NGÀY @ngay.NgaySua</a>
+        }
+            
+        </div>
+
+    </div>
+<center>
+    <table id="bieudo1" class="table" style="min-width:900px ; max-width:700px;">
+      
+        <thead>
+            <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center ; font-size:13px">
+                <th>
+                    Stt
+                </th>
+                <th>
+                    Mã công việc
+                </th>
+                <th>
+                    Tên công việc
+                </th>
+                <th>
+                    Số lần
+                </th>
+            
+
+                <th>
+                    Tiền theo nội dung kế hoạch
+                </th>
+                <th>
+                    Tiền chưa thanh toán
+                </th>
+                <th>
+                    Thực thu
+                </th>
+            </tr>
+        </thead>
+        <tbody >
+           
+
+            @foreach (var tongTien in Model)
+            {
+                @if (tongTien == null)
+                {
+                    <tr>
+
+                        <td colspan="8" style="color:red;text-align: center">Không có công việc điều trị nào</td>
+
+                    </tr>
+                }
+                else
+                {
+                    decimal TienUocTinh = (decimal)(tongTien.TotalSoUocTinh + tongTien.TotalSoTienThanhToan);
+                    <tr class="Search" style="font-size:12px">
+                        <td style="width:2%">
+                            @stt
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => tongTien.MaCV)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => tongTien.TenCV)
+                        </td>
+                        <td style="text-align:center;width:8%">
+                            @Html.DisplayFor(modelItem => tongTien.TotalSoCV)
+                        </td>
+
+                        <td style="text-align:right">
+                           
+                            @string.Format("{0:#,0}", TienUocTinh) 
+                        </td>
+
+                        <td style="text-align:right">
+                            @* tienchuathanhtoan *@
+                            @Html.DisplayFor(modelItem => tongTien.FormattedTotalSoUocTinh)
+                        </td>
+
+                        <td style="text-align:right">
+                            @Html.DisplayFor(modelItem => tongTien.FormattedTotalSoTienThanhToan)
+                        </td>
+
+                    </tr>
+                  
+                    SoLan += Convert.ToInt32(tongTien.TotalSoCV);
+                    TienDieuTri += Convert.ToInt32(TienUocTinh);
+                    TienChuaTT += Convert.ToInt32(tongTien.TotalSoUocTinh);
+                    TienDaTT += Convert.ToInt32(tongTien.TotalSoTienThanhToan);
+
+                    stt++;
+                    string textColor1 = TongTiLe >= 0 ? "green" : "red";
+                }
+               
+            }
+            <tr class="Tong">
+                <td colspan="3" style="text-align: center;color: #3b78ec">Tổng cộng</td>
+                <td style="text-align: center;color: #3b78ec">@SoLan</td>
+               
+                <td style="text-align:right;color: #3b78ec">@string.Format("{0:#,0}", TienDieuTri)</td>
+                <td style="text-align:right;color: #3b78ec">@string.Format("{0:#,0}", TienChuaTT)</td>
+                <td style="text-align:right;color: #3b78ec">@string.Format("{0:#,0}", TienDaTT)</td>
+
+
+            </tr>
+        </tbody>
+    </table>
+
+</center>

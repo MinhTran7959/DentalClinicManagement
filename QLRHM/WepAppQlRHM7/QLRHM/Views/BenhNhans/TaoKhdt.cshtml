@@ -1,0 +1,295 @@
+﻿@model QLRHM.Models.KeHoachDieuTri
+@using QLRHM.Models
+@using System.Security.Claims;
+
+@{
+    Layout = "~/Views/Shared/Qlkh.cshtml";
+
+}
+<style>
+    .form1{
+
+        display: inline-block;
+        font-weight: 400;
+        line-height: 1.5;
+        color: black;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        user-select: none;
+        background-color: transparent;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        border-radius: 8px;
+       /*  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; */
+        border: 1px solid #b6b6b6;
+        
+    }
+    .form1 .a{
+    font-weight:700;
+    }
+
+    .demo-consoles{
+        background-color:white;
+    }
+           
+
+</style>
+<div class="container-fluid py-5 ">
+    <div class="container" style="border: 0px solid #b8ceff;padding-bottom:10px">
+        <center>   <a style="text-align:center;font-weight:600;padding-top:10px;padding-bottom:10px ;color:red">Thêm kế hoạch điều trị</a></center>
+        <hr>
+        @using (Html.BeginForm("TaoKhdt", "BenhNhans", FormMethod.Post, new { enctype = "multipart/form-data", id = "ApplicantForm" }))
+        {
+
+
+            <div  class="container-fluid" style="color:black">
+                <div class="row">
+                    <div class="row" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Mã kế hoạch điều trị</label>
+                                <div class="input-group">
+                                    <input style="background-color:white;color:blue" name="MaKeHoacDieuTri" type="text" value="@ViewBag.MaKeHoach"class="form-control" readonly />
+                                </div>
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="control-label">Bác Sĩ lập kế hoạch</label>
+                            <input class="form-control" placeholder="..Chọn.." readonly value=" @User.Claims.FirstOrDefault(x=>x.Type == ClaimTypes.Name)?.ValueType">
+
+                            <input type="hidden" name="Idbs" value="@User.Claims.FirstOrDefault(x=>x.Type == "BacSiID")?.Value">
+                        </div>
+                        <div class="col-md-3"style="display:none">
+                            <div class="form-group">
+                                <label class="control-label">Bệnh nhân</label>
+                                <div class="input-group">
+                                    <input class="demo-consoles selectize" name="Idbn" value="@ViewBag.BenhNhan.Idbn">
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Bệnh nhân</label>
+                                <div class="input-group">
+                                    <input class="form-control" value="@($"{ViewBag.BenhNhan.MaBenhNhan} - {ViewBag.BenhNhan.TenBn}- {ViewBag.BenhNhan.FormatNgaySinh}")">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="control-label">Ngày tạo</label>
+                                <div class="input-group">
+                                    <input  asp-for="NgayLap" type="text" value=" @DateTime.Now.ToString("dd/MM/yyyy HH:mm")" class="form-control" readonly />
+                                </div>
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <a style="text-align:center;font-weight:600;padding-top:10px;padding-bottom:10px ;color:red">Thêm công việc</a>
+                    <div class="row" style="padding-bottom: 10px; min-width: 100%; max-width: 200%; overflow-x: auto;">
+                        <table id="ExpTable" class="table table-striped test" style="min-width: 1000px; max-width: 200%;">
+                            <thead >
+
+                                <tr style="background-color:#eff6fe;border:3px solid #b8ceff">
+
+
+                                    <th style="width:12%">
+                                        Bác sĩ điều trị
+                                    </th>
+                                    <th style="width:12%">
+                                       Sắp xếp theo nhóm
+                                    </th>
+                                    <th style="width:20%">
+                                        Công việc điều trị
+                                    </th> 
+                                    <th style="width:10%">
+                                       Ghi chú
+                                    </th>
+                                    <th style="width:6%">
+                                        Số lượng 
+                                    </th>
+                                    <th style="width:12%">
+                                        Đơn giá 
+                                    </th>
+                                    <th>
+                                       Ngày tạo
+                                    </th>
+                                
+                                    <th style="width:3.5%">
+                                        <button id="btnadd" type="button" class="btn btn-sm btn-success visible" onclick="AddItem(this)">
+                                            <i class='bx bx-plus-medical'></i>
+                                        </button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                
+                                @for (int i = 0; i < Model.MasterNd.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <select asp-for="@Model.MasterNd[i].Idbsdt" asp-items="ViewBag.Idbs" class="form-select" required></select>
+                                        </td>
+                                        <td>
+                                            <select asp-items="ViewBag.NhomCongViec" class="form-select  TenNhom" required>
+                                                <option disabled selected value="">--Chọn nhóm--</option>
+                                            </select>
+                                            <input type="hidden" asp-for="@Model.MasterNd[i].IsDelete" />
+                                        </td>
+                                        <td>
+                                            <select asp-for="@Model.MasterNd[i].Idcvdt" class="form-select  selectIdcvdt TenCV" required>
+                                                <option disabled selected value="">--Chọn nhóm trước--</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <textarea asp-for="@Model.MasterNd[i].GhiChu" class="form-control"></textarea>
+                                        </td>
+                                        <td>
+                                            <input asp-for="@Model.MasterNd[i].SoLan" value="1" class="form-control" required>
+                                        </td>
+                                        <td>
+                                            <input asp-for="@Model.MasterNd[i].DonGia" type="text" class="form-control don-gia" required oninvalid="this.setCustomValidity('Không được bỏ trống đơn giá');" oninput="setCustomValidity('')" onkeyup="formatCurrency(this)" onchange="validateDonGia(this)" />
+                                        </td>
+                                        <td style="width: 11%">
+                                            <input asp-for="@Model.MasterNd[i].NgayTao" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control" required>
+                                        </td>
+                                            <td style="position: relative;">
+                                                <button id="btnremove-@i" type="button" class="btn btn-sm btn-danger visible"
+                                                        onclick="DeleteItem(this)">
+                                                    <i class='bx bxs-trash' style='color:#ffffff'></i>
+                                                </button>
+                                            </td>
+ 
+                                    </tr>
+                                }
+                                
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <input type="hidden"  id="hdnLastIndex" value="0" />
+
+                    <div class="row" style=" height:50px; justify-content: flex-start ;border:2px solid #b8ceff">
+                        
+                            <div class="col-md-10">
+                            <a class="btn btn-primary" id="calculateTotalBtn"><i class="fa-solid fa-money-bill-transfer" style="color: #ffffff;"></i></a>
+                                <a class="form1" style="font-weight: 700;"><i class="fa-solid fa-pen-nib"></i> Tiền số: <span style="font-weight:500;color:blue" id="tong-tien">0</span></a>
+                               
+                            </div>
+
+
+                        <div class="col-md-2" >
+                            <a  id="back" class="btn btn-primary">Quay lại</a>
+                            <input type="submit" value="Lưu" onclick="return ConfirmSave(this);" class="btn btn-primary" />
+                        </div>
+                            
+
+                    </div>
+
+
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+<script>
+        $.validator.methods.range = function (value, element, param) {
+            var globalizedValue = value.replace(",", ".");
+            return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+        }
+
+        $.validator.methods.number = function (value, element) {
+            return this.optional(element) || /-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+        }
+</script>
+}
+<script src="~/js/taokhdt.js"></script>
+
+
+@*  tu dien don gia *@
+<script>
+    $(document).ready(function () {
+        // Lắng nghe sự kiện khi có sự thay đổi trong các ô đơn giá
+        $(document).on("input", ".form-control.don-gia", function () {
+            calculateTotal();
+        });
+
+        // Lắng nghe sự kiện khi có thay đổi trong select .selectIdcvdt
+        $(document).on("change", ".selectIdcvdt", function () {
+            var selectedValue = this.value;
+            var selectedOption = @Html.Raw(Json.Serialize(ViewBag.Idcvdt))
+                        .find(option => option.value == selectedValue);
+
+            if (selectedOption) {
+                var donGiaInput = $(this).closest('tr').find('.don-gia');
+                if (donGiaInput.length > 0) {
+                    var donGiaText = selectedOption.text.split('-')[1].trim(); // Lấy phần sau dấu '-'
+                    donGiaInput.val(donGiaText);
+                }
+            }
+
+            calculateTotal(); // Tính lại tổng tiền sau khi thay đổi select
+        });
+
+        // Khởi tạo tổng tiền ban đầu
+        calculateTotal();
+        $(document).ready(function () {
+            $("#calculateTotal").on("click", function () {
+                calculateTotal();
+            });
+        });
+        function calculateTotal() {
+            var total = 0;
+
+            $(".don-gia").each(function () {
+                if ($(this).closest('tr').css('display') !== 'none') {
+                    var donGia = parseFloat($(this).val().replace(/\./g, "").replace(/,/g, ".")) || 0;
+                    total += donGia;
+                }
+            });
+
+            // Hiển thị tổng tiền đã tính được trong phần tử có id là "tong-tien"
+            $("#tong-tien").text(total.toLocaleString("vi-VN"));
+        }
+
+
+        // Các hàm AddItem, DeleteItem và rebindvalidators có thể được giữ nguyên.
+    });
+
+    function validateDonGia(inputElement) {
+        var donGiaValue = parseFloat(inputElement.value.replace(/\D/g, '')); // Lấy giá trị số từ chuỗi
+
+        if (donGiaValue === 0) {
+            inputElement.setCustomValidity('Đơn giá không được là 0.');
+        } else {
+            inputElement.setCustomValidity('');
+        }
+    }
+</script>
+
+
+
+
+

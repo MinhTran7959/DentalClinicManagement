@@ -1,0 +1,53 @@
+﻿@model QLRHM.Models.KeHoachDieuTri
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("HuyKHDT", "BenhNhans", FormMethod.Post, new { id = "abc", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+        <center><b style="font-weight:900;font-size:18px ; color:red">Huỷ kế hoạch điều trị</b></center>
+        <div class="row">
+           
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">Mã bệnh nhân</label>
+                    <div class='input-group'>
+                        <input style="background-color:white;color:blue" asp-for="MaKeHoacDieuTri" type="text" class="form-control" readonly />
+                        <input  asp-for="Idkhdt" type="hidden" class="form-control" readonly />
+                        <input  asp-for="Idbs" type="hidden" class="form-control" readonly />
+                        <input  asp-for="Idbn" type="hidden" class="form-control" readonly />
+                        <input  asp-for="NgayLap" type="hidden" class="form-control" readonly />
+                        <input  name="id2" value="@ViewBag.id2" type="hidden" class="form-control" readonly />
+                        
+                        <input  asp-for="DieuTri" value="2" type="hidden" class="form-control" readonly />
+                    </div>   
+                </div>
+            </div>
+           
+           
+
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label class="control-label">Ghi chú lý do</label>
+                    <div class='input-group'>
+                        <textarea asp-for="Nsua" type="text"  maxlength="150" class="form-control" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" ></textarea>
+                    </div>
+                   
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label"> </label>
+                    <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                </div>
+            </div>  
+
+
+        </div>
+    </div>
+
+}

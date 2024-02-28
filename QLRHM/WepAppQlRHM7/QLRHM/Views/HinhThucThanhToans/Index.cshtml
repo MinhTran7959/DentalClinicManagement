@@ -1,0 +1,194 @@
+﻿@using QLRHM.Models;
+@model QLRHM.Models.HinhThucThanhToan
+
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+
+}
+
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+            <li class="active"><a data-toggle="tab" href="#home"><i class='bx bx-list-ul'></i> Danh sách hình thức thanh toán</a></li>
+          @*   <li><a data-toggle="tab" href="#menu1"><i class='bx bx-folder-plus'></i></a></li> *@
+
+        </ul>
+
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <button id="toggleFormButton" class="btn btn-primary">Bật/tắt phiếu thêm</button>
+                <a asp-action="ExportExcel" asp-controller="HinhThucThanhToans" type="submit" class="btn btn-success">Xuất excel</a>
+                @using (Html.BeginForm("Create", "HinhThucThanhToans", FormMethod.Post, new { id = "myForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <center><b style="font-weight:900 ; color:red">Thêm hình thức thanh toán</b></center>
+                    <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+                        <div class="row">
+                            @*   <b>Thêm nhóm công việc</b> *@
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Mã hình thức thanh toán</label>
+                                    <div class='input-group'>
+                                        <input style="background-color:white;color:blue" name="MaHTTT" type="text" value="@ViewBag.GeneratedHttt" class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Tên hình thức thanh toán</label>
+                                    <div class='input-group'>
+                                        <input name="TenHTTT" id="TenNbs" type="text" class="form-control" maxlength="50" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" />
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Nhóm ngân hàng</label>
+                                    <div class='input-group'>
+                                        <div id="productDropdownContainer" class="dropdown">
+                                            <input type="text" id="searchInput" class="form-control" placeholder="Tìm kiếm sản phẩm" autocomplete="off" />
+                                            <div id="productList" class="dropdown-list">
+                                                <select id="productDropdown" class="form-control" name="Idnh" asp-items="ViewBag.NH" size="5">
+                                                </select>
+                                            </div>
+                                        </div>
+                                       
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Ngày thêm</label>
+                                    <div class='input-group'>
+                                        <input name="NgayTao" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" class="form-control" readonly />
+                                    </div>
+
+                                </div>
+                            </div>
+
+                          
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label class="control-label">&nbsp;</label>
+                                        <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                                    </div>
+                                </div>
+                         
+                            </div>
+                        </div>
+                   
+
+
+                }
+
+                <div class="row" style="padding-top:5px ;padding-bottom:5px">
+
+
+                    <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group">
+                                <input type="text" id="Search" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <table class="table scroll " id="example">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã ngân hàng
+                            </th>
+                            <th>
+                                Tên ngân hàng
+                            </th>
+                            <th>
+                                Tên hình thức
+                            </th>
+
+                            <th>
+                                Tên tài khoản
+                            </th>
+                            <th>
+                                Số tài khoản
+                            </th>
+
+                            <th>
+                                Ngày thêm
+                            </th>
+
+
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    @{
+                        int stt = 1; // Khởi tạo số thứ tự ban đầu
+
+                        foreach (HinhThucThanhToan httt in ViewBag.httt)
+                        {
+                            <tr class="Search">
+                                <td style="width:2%">
+                                    @stt
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => httt.MaHttt)
+                                </td>
+                                <td style="width:11%">
+                                    @Html.DisplayFor(modelItem => httt.IdnhNavigation.TenNganHang)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => httt.TenHttt)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => httt.IdnhNavigation.TenTk)
+                                </td>
+                                <td style="text-align: end;">
+                                    @Html.DisplayFor(modelItem => httt.IdnhNavigation.SoTk)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => httt.NgayTao)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@httt.Idhttt">
+
+                                        <box-icon name='edit' animation='tada-hover' color='#3b78ec'></box-icon>
+                                    </a>
+
+                                
+
+                                </td>
+                            </tr>
+                            stt++; // Tăng số thứ tự sau mỗi lần lặp
+                        }
+                    }
+                </table>
+
+
+            </div>
+        
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,228 @@
+﻿@using QLRHM.Models;
+@model QLRHM.Models.TaiKhoan
+
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+
+}
+
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+            <li class="active"><a data-toggle="tab" href="#home"><i class="fa-regular fa-address-book"></i> Danh sách tài khoản hệ thống</a></li>
+            @* <li><a data-toggle="tab" href="#menu1"><i class='bx bx-folder-plus'></i>Ngân hàng đã ẩn</a></li> *@
+
+        </ul>
+
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <button id="toggleFormButton" class="btn btn-primary">Bật/tắt phiếu thêm</button>
+              
+                @using (Html.BeginForm("Create", "TaiKhoans", FormMethod.Post, new { id = "myForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <center><b style="font-weight:900 ; color:red">Thêm tài khoản</b></center>
+                    <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+                        <div class="row">
+                        
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Nhân viên</label>
+                                    <div class='input-group'>
+                                        <select  asp-for="Idbs" asp-items="ViewBag.ListNhanVien" class="form-select"></select>
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                      
+                                        <input asp-for="TenTaiKhoan" type="hidden" maxlength="50" value="" class="form-control"  required />
+                            <input asp-for="MatKhau" type="hidden" value="NV12345678" maxlength="50" oninput="validateSoTK(this)" class="form-control" required />
+                                  
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Quyền</label>
+                                    <select style="color:black" asp-for="Quyen" type="text" readonly class="form-control">
+                                       
+                                        <option value="BacSi">Bác sĩ</option>
+                                        <option value="TiepTan">Tiếp tân </option>
+                                        <option value="ThuNgan">Thu ngân</option>
+                                        <option value="QuanLy">Quản lý</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Ngày thêm</label>
+                                    <div class='input-group'>
+                                        <input asp-for="NgayTao" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" class="form-control" readonly />
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label class="control-label">&nbsp;</label>
+                                    <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                }
+
+                <div class="row" style="padding-top:5px ;padding-bottom:5px">
+
+
+                    <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group">
+                                <input type="text" id="Search" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <table class="table scroll " id="example">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã nhân viên
+                            </th>
+                            <th>
+                                Tên nhân viên
+                            </th>
+                            <th>
+                                Tên nhóm nhân viên
+                            </th>
+                            <th>
+                                Tên tài khoản
+                            </th>
+                            <th>
+                                Mật khẩu
+                            </th>
+                            <th>
+                               Quyền
+                            </th>
+                            <th>
+                                Ngày thêm
+                            </th>
+                            <th>
+                               Thao tác
+                            </th>
+
+
+                           
+                        </tr>
+                    </thead>
+
+                    @{
+                        int stt = 1; // Khởi tạo số thứ tự ban đầu
+
+                        foreach (TaiKhoan tk in ViewBag.taiKhoans)
+                        {
+                            <tr class="Search">
+                                <td style="width:2%">
+                                    @stt
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => tk.IdbsNavigation.MaBacSi)
+                                </td>
+                                <td style="width:15%">
+                                    @Html.DisplayFor(modelItem => tk.IdbsNavigation.TenBs)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => tk.IdbsNavigation.IdnbsNavigation.TenNbs)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => tk.TenTaiKhoan)
+                                </td>
+                                <td>
+                                   ***
+                                </td>
+                                 <td>
+                                    @Html.DisplayFor(modelItem => tk.Quyen)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => tk.NgayTao)
+                                </td>
+
+                              <td>
+                                   
+                                    <a  class="open-modal" data-bs-toggle="modal" data-bs-target="#myModal" data-url="@Url.Action("Edit", new { id =  tk.Idtk  })">
+                                        <box-icon name='edit' animation='tada-hover' color='#3b78ec'></box-icon>
+                                    </a>
+
+                                    <a asp-action="Delete" onclick="return XoaLichHen(this);" data-name="@tk.TenTaiKhoan" asp-route-id="@tk.Idtk">
+                                        <box-icon type='solid' name='trash' animation='tada-hover' color='red'></box-icon>
+                                    </a>
+
+                                </td>
+                            </tr>
+                            stt++; // Tăng số thứ tự sau mỗi lần lặp
+                        }
+                    }
+                </table>
+
+
+            </div>
+           
+
+
+            <div class="modal" id="myModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+
+                            <div id="partial-view-container"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script src="~/js/khdt.js" asp-append-version="true"></script>
+<script>
+    function validateSoTK(input) {     
+        var sanitizedValue = input.value;
+
+        // Giới hạn độ dài tối đa là 14 ký tự
+        if (sanitizedValue.length > 14) {
+            sanitizedValue = sanitizedValue.slice(0, 14);
+        }
+
+        // Kiểm tra độ dài của giá trị
+        if (sanitizedValue.length < 8 || sanitizedValue.length > 14) {
+            input.setCustomValidity('Nhập it nhất từ 8 đến 14  .');
+        } else {
+            input.setCustomValidity('');
+        }
+
+        // Gán giá trị đã xử lý vào input
+        input.value = sanitizedValue;
+    }
+</script>
+
+

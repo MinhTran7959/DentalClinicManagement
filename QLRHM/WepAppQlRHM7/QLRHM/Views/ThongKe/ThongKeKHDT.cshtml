@@ -1,0 +1,992 @@
+﻿@model IEnumerable<QLRHM.Models.TongTienNDTT>
+@using QLRHM.Models
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+    var stt = 1;var sttt = 1;
+    var TongKHDT = 0; var TongKHDT_Dang = 0 ; var TongKHDT_Huy = 0;var TongKHDT_DaX = 0;
+    var TongND_KHDT = 0; var TongND_KHDT_Dang = 0; var TongND_KHDT_Huy = 0; var TongND_KHDT_DaX = 0; var Khdt_DangCo = 0;
+}
+
+<script src="~/js/chart.js" asp-append-version="true"></script>
+<body >
+
+
+
+    <div class="container-fluid py-5 ">
+        <div class="container">
+            <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+                <li class="active"><a data-toggle="tab" href="#home"><i class="fa-solid fa-laptop-file"></i>Thống kê chung kế hoạch điều trị</a></li>
+                <li><a data-toggle="tab" href="#menu1"><i class="fa-solid fa-list-check"></i> Danh sách thống kê chi tiết kế KHDT</a></li>
+              @*   <li><a data-toggle="tab" href="#menu2"><i class="fa-solid fa-list-check"></i> Danh sách các KHDT không đồng ý</a></li> *@
+                <li><a data-toggle="tab" href="#menu3"><i class="fa-solid fa-list-check"></i> Danh sách các KHDT bị huỷ bỏ</a></li>
+            </ul>
+
+            <div class="row" style="padding-top:10px ">
+                <center>
+                    <div class="col-md-7">
+                        <form asp-action="ThongKeKHDT" method="post" id="abc">
+                            <div class="row">
+                                <!-- ... (các trường khác) ... -->
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <label style="margin-top: 7px;padding-right: 10px;" class="control-label">Từ ngày:</label>
+                                            <input name="fo" class="form-control Ngay2" value="@ViewBag.fromDate" placeholder="Từ ngày" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <label style="margin-top: 7px;padding-right: 10px;" class="control-label">Đến ngày:</label>
+                                            <input name="to" class="form-control Ngay2" value="@ViewBag.toDate" placeholder="Đến ngày" />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-1" style="width:120px;">
+                                    <div class="form-group">
+                                        <input style="color:black" type="submit" value="Tìm kiếm" class="btn btn-primary form-control" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </center>
+            </div>
+
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <center><a style="font-size:18px; color:red;font-weight:700">Biểu đồ cột thông kê số lượng kế hoạch điều trị </a></center>
+                            <canvas id="myChart"></canvas>
+                        </div>
+                        <div class="col-md-6" style="max-height:352px">
+                            <center><a style="font-size:18px; color:red;font-weight:700 ; ">Biểu đồ đường thông kê số lần điều trị của các bác sĩ</a></center>
+                            <canvas id="line"></canvas>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            @if (ViewBag.TongKHDT.Count != 0)
+                            {
+
+                                <div class="row" style="justify-content: end">
+                                    <div class="col-md-12" style="display:block;">
+                                        <a style="font-size:18px; color:red;font-weight:700">Thống kê số lần lập kế hoạch điều trị của các bác sĩ </a>
+                                        <a href="@Url.Action("PdfThongKeKHDT", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" style="margin-left:10%" class="btn btn-danger">Xuất pdf</a>
+                                        <a href="@Url.Action("ExcelThongKeKHDT", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" class="btn btn-success">Xuất excel</a>
+                                    </div>
+                                </div>
+                            }
+                           
+                            <table id="bieudo1" class="table ">
+                                <thead>
+                                    <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center;font-size:14px">
+                                        <th>
+                                            Stt
+                                        </th>
+
+                                        <th>
+                                            Mã bác sĩ
+                                        </th>
+                                        <th>
+                                            Tên bác sĩ
+                                        </th>
+                                        <th>
+                                            Tổng số khđt
+                                        </th>
+                                        <th>
+                                            KHĐT đã thực hiện
+                                        </th>
+                                        <th>
+                                            KHĐT bị huỷ bỏ
+                                        </th>
+                                        <th>
+                                            KHĐT đang hoạt động
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (ViewBag.TongKHDT.Count == 0)
+                                    {
+                                        <tr>
+
+                                            <td colspan="8" style="color:red;text-align: center">Không có công việc điều trị nào</td>
+
+                                        </tr>
+                                    }
+                                    else
+                                    {
+
+                                        @foreach (TongTienNDTT tongTien in ViewBag.TongKHDT)
+                                        {
+                                             Khdt_DangCo = (Convert.ToInt32(tongTien.TotalTongKHDT)) - (Convert.ToInt32(tongTien.TotalSoKH) + Convert.ToInt32(tongTien.TotalSoCV));
+                                            if (Khdt_DangCo < 0) { Khdt_DangCo = 0; }
+                                            <tr class="Search Chart_KHDT" style="font-size:13px">
+                                                <td style="width:2%">
+                                                    @sttt
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => tongTien.MaBS)
+                                                </td>
+                                                <td>
+                                                    @*   @Html.DisplayFor(modelItem => tongTien.TenBS) *@
+                                                    <a class="open-modal2" data-bs-toggle="modal" data-bs-target="#myModal2"
+                                                       data-url="@Url.Action("ChiTietKHDT", "ThongKe", new {  id = tongTien.Idndkh, fo = tongTien.NgayTao, to = tongTien.NgaySua })">
+                                                        @tongTien.TenBS
+                                                    </a>
+                                                </td>
+
+                                                <td style="text-align:center">
+                                                    @Html.DisplayFor(modelItem => tongTien.TotalTongKHDT)  @*tổng *@
+                                                </td>
+                                                <td style="text-align:center">
+                                                    @Html.DisplayFor(modelItem => tongTien.TotalSoCV)  @*Số cv đã đt *@
+
+                                                </td>
+                                                <td style="text-align:center; color: @(Convert.ToInt32(tongTien.TotalSoKH) > 0 ? "red" : "black")">
+                                                    @Html.DisplayFor(modelItem => tongTien.TotalSoKH)
+                                                </td>
+                                              
+                                                <td style="text-align:center ;color: @(Khdt_DangCo> 0 ? " green" : "black" )">
+
+                                                    @Html.DisplayFor(modelItem => Khdt_DangCo)
+                                                </td>
+
+                                            </tr>
+
+                                            sttt++; // Tăng số thứ tự sau mỗi lần lặp
+                                            TongKHDT += Convert.ToInt32(tongTien.TotalTongKHDT);
+                                            TongKHDT_DaX += Convert.ToInt32(tongTien.TotalSoCV);
+                                            TongKHDT_Huy += Convert.ToInt32(tongTien.TotalSoKH);
+                                            TongKHDT_Dang += Convert.ToInt32(Khdt_DangCo);
+
+
+
+
+                                        }
+                                        <tr class="Tong">
+                                            <td colspan="3" style="text-align: center;color: #3b78ec">Tổng cộng</td>
+                                            <td style="text-align: center;color: #3b78ec">@TongKHDT</td>
+                                            <td style="text-align:center;color: #3b78ec">@string.Format("{0:#,0}", TongKHDT_DaX)</td>
+                                            <td style="text-align:center;color: #3b78ec">@string.Format("{0:#,0}", TongKHDT_Huy)</td>
+                                            <td style="text-align:center;color: #3b78ec">@string.Format("{0:#,0}", TongKHDT_Dang)</td>
+
+
+
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="col-md-6">
+                            @if (ViewBag.TongKHDT.Count != 0)
+                            {
+
+                                <div class="row" >
+                                    <div class="col-md-12" style="display:block;">
+                                         <a style="font-size:18px; color:red;font-weight:700">Thống kê số lần điều trị của các bác sĩ</a>
+                                        <a href="@Url.Action("PdfThongKeND_KHDT", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" style="margin-left:25%" class="btn btn-danger">Xuất pdf</a>
+                                        <a href="@Url.Action("ExcelThongKeND_KHDT", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" class="btn btn-success">Xuất excel</a>
+                                    </div>
+                                </div>
+                            }
+                          
+                            <table id="bieudo1" class="table ">
+                                <thead>
+                                    <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center;font-size:14px">
+                                        <th>
+                                            Stt
+                                        </th>
+
+                                        <th>
+                                            Mã bác sĩ
+                                        </th>
+                                        <th>
+                                            Tên bác sĩ
+                                        </th>
+                                        <th>
+                                            Tổng số CV điều trị
+                                        </th>
+                                        <th>
+                                            Số CV đã điều trị
+                                        </th>
+                                        <th>
+                                            Số CV bị huỷ bỏ
+                                        </th>
+                                        <th>
+                                            Số CV đang điều trị
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (ViewBag.TongND_KHDT.Count == 0)
+                                    {
+                                        <tr>
+
+                                            <td colspan="8" style="color:red;text-align: center">Không có công việc điều trị nào</td>
+
+                                        </tr>
+                                    }
+                                    else
+                                    {
+
+                                        @foreach (TongTienNDTT tongTien in ViewBag.TongND_KHDT)
+                                        {
+                                             Khdt_DangCo = (Convert.ToInt32(tongTien.TotalTongKHDT)) - (Convert.ToInt32(tongTien.TotalSoKH) + Convert.ToInt32(tongTien.TotalSoCV));
+                                            <tr class="Search Chart_ND_KHDT" style="font-size:13px">
+                                                <td style="width:2%">
+                                                    @stt
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => tongTien.MaBS)
+                                                </td>
+                                                <td>
+                                                    <a class="open-modal" data-bs-toggle="modal" data-bs-target="#myModal"
+                                                       data-url="@Url.Action("ChiTietND_KHDT", "ThongKe", new {  id = tongTien.Idndkh, fo = tongTien.NgayTao, to = tongTien.NgaySua })">
+                                                        @tongTien.TenBS
+                                                    </a>
+                                                </td>
+
+                                                <td style="text-align:center">
+                                                    @Html.DisplayFor(modelItem => tongTien.TotalTongKHDT)  @*tổng *@
+                                                </td>
+                                                <td style="text-align:center">
+                                                    @Html.DisplayFor(modelItem => tongTien.TotalSoCV)  @*Số cv đã đt *@
+
+                                                </td>
+                                                <td style="text-align:center; color: @(Convert.ToInt32(tongTien.TotalSoKH) > 0 ? "red" : "black")">
+                                                    @Html.DisplayFor(modelItem => tongTien.TotalSoKH)
+                                                </td>
+
+
+                                                @{
+                                                   
+                                                    if (Khdt_DangCo < 0) { Khdt_DangCo = 0; }
+                                                    <td style="text-align:center ;color: @(Khdt_DangCo> 0 ? " green" : "black" )">
+
+                                                        @Html.DisplayFor(modelItem => Khdt_DangCo)
+                                                    </td>
+                                                }
+                                               
+
+                                            </tr>
+                                            stt++; // Tăng số thứ tự sau mỗi lần lặp
+                                            TongND_KHDT += Convert.ToInt32(tongTien.TotalTongKHDT);
+                                            TongND_KHDT_DaX += Convert.ToInt32(tongTien.TotalSoCV);
+                                            TongND_KHDT_Huy += Convert.ToInt32(tongTien.TotalSoKH);
+                                            TongND_KHDT_Dang += Convert.ToInt32(Khdt_DangCo);
+
+
+
+                                        }
+                                        <tr class="Tong">
+                                            <td colspan="3" style="text-align:center;color: #3b78ec">Tổng cộng</td>
+                                            <td style="text-align:center;color: #3b78ec">@TongND_KHDT</td>
+                                            <td style="text-align:center;color: #3b78ec">@string.Format("{0:#,0}", TongND_KHDT_DaX)</td>
+                                            <td style="text-align:center;color: #3b78ec">@string.Format("{0:#,0}", TongND_KHDT_Huy)</td>
+                                            <td style="text-align:center;color: #3b78ec">@string.Format("{0:#,0}", TongND_KHDT_Dang)</td>
+
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div id="menu1" class="tab-pane fade in ">
+                    @if (ViewBag.ChiTietKHDT.Count != 0)
+                    {
+
+                        <div class="row">
+                            <div class="col-md-12" style="display:block;">
+
+                                <a href="@Url.Action("PdfThongKeChiTietKHDT", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" class="btn btn-danger">Xuất pdf</a>
+                                <a href="@Url.Action("ExcelThongKeChiTietKHDT", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" class="btn btn-success">Xuất excel</a>
+                            </div>
+                        </div>
+                    }
+                    <table class="table " id="example2">
+                        <thead>
+                            <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center ; font-size:14px">
+
+                                <th>
+                                    Stt
+                                </th>
+                                  <th>
+                                   Mã bác sĩ KH
+                                </th>
+                                  <th>
+                                    Tên bác sĩ KH
+                                </th>
+
+                                <th>
+                                    Mã kế hoạch
+                                </th>
+                                <th>
+                                    Ngày lập KH
+                                </th>
+                                <th>
+                                    Mã bệnh nhân
+                                </th>
+                                <th>
+                                    Tên bệnh nhân
+                                </th>
+                                <th>
+                                    Mã bác sĩ điều trị
+                                </th>
+                                <th>
+                                    Tên bác sĩ điều trị
+                                </th>
+                                <th>
+                                    Tên CVDT
+                                </th>
+                                <th>
+                                    Giá gốc
+                                </th>
+                              
+                                <th>
+                                    Đơn giá TT
+                                </th>
+                                 <th>
+                                    Ghi chú
+                                </th>
+
+                               <th>
+                                    Tình trạng
+                                </th>
+                               
+                            </tr>
+                        </thead>
+
+                        @{
+                            int st = 1;
+                        }
+                        
+                        @foreach (NoiDungThanhToan ChiTietBCKHDT in ViewBag.ChiTietKHDT)
+                        {
+                            <tr style="font-size:12px" class="ChiTietKHDT">
+                                <td style="width:2%">
+                                    @st
+                                </td>
+
+                                <td style="width:7%">
+                                  
+                                    @ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.IdbsNavigation.MaBacSi
+                                </td>
+                                <td style="width:8%">
+                                    @ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.IdbsNavigation.TenBs
+                                </td>
+                                <td style="width:10%">
+                                    @ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.MaKeHoacDieuTri
+                                </td>
+
+                                <td style="width:10%">
+
+                                    @ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.NgayLap
+
+                                </td>
+                                <td style="width:10%">
+                                    @if (@ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.MaBenhNhan != null)
+                                    {
+                                        @ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.MaBenhNhan
+                                    }
+
+                                    else
+                                    {
+                                        <a>Không</a>
+                                    }
+
+                                </td>
+
+                                <td style="width:8%">
+
+                                    @if ( @ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.TenBn != null)
+                                    {
+                                        @ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.TenBn
+                                    }
+
+                                    else
+                                    {
+                                        <a>Không</a>
+                                    }
+                                </td>
+
+                                <td style="width:10%">
+                                    @ChiTietBCKHDT.IdndkhNavigation.IdbsdtNavigation.MaBacSi
+                                </td>
+                                <td style="width:10%">
+                                    @ChiTietBCKHDT.IdndkhNavigation.IdbsdtNavigation.TenBs
+                                </td>
+
+                                <td style="width:10%">
+                                    @ChiTietBCKHDT.IdndkhNavigation.IdcvdtNavigation.TenCongViec
+                                </td>
+                                <td style=" text-align:right">
+                                    @ChiTietBCKHDT.IdndkhNavigation.IdcvdtNavigation.FormattedDonGiaSuDung
+                                </td>
+
+                                <td style="text-align:right">
+                                    @ChiTietBCKHDT.IdndkhNavigation.FormattedDonGia
+                                </td>
+                                <td >
+                                    @ChiTietBCKHDT.IdndkhNavigation.GhiChu
+                                </td>
+
+
+                                <td style="width:7%">
+                                        @if (ChiTietBCKHDT.ThanhToan == "1" && (ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.DieuTri == "3"))
+                                        {
+
+                                   
+                                                <a>Đã điều trị</a>
+                                   
+
+                                        }
+                                    else if ((ChiTietBCKHDT.ThanhToan == "0" && ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.DieuTri == "3") || ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.DieuTri == "2")
+                                        {
+                                   
+                                                <a style="color:red">Bị huỷ</a>
+                                   
+                                        }
+                                    else if ((ChiTietBCKHDT.ThanhToan == "0"|| ChiTietBCKHDT.ThanhToan == "1")   && ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.DieuTri == "1")
+                                        {
+                                   
+                                                <a>Đang điều trị</a>
+                                   
+                                        }                               
+                                </td>
+                            </tr>
+
+                            st++;
+                        }
+
+                    </table>
+
+                </div>
+
+                @* <div id="menu2" class="tab-pane fade in ">
+                    @if (ViewBag.HuyKHDT.Count != 0)
+                    {
+
+                        <div class="row">
+                            <div class="col-md-12" style="display:block;">
+
+                                <a href="@Url.Action("PdfHuyKHDT", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" class="btn btn-danger">Xuất pdf</a>
+                                <a href="@Url.Action("ExcelHuyKHDT", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" class="btn btn-success">Xuất excel</a>
+                            </div>
+                        </div>
+                    }
+                    <table class="table " id="example3">
+                        <thead>
+                            <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center ; font-size:14px">
+
+                                <th>
+                                    Stt
+                                </th>
+                                <th>
+                                    Mã bác sĩ KH
+                                </th>
+                                <th>
+                                    Tên bác sĩ KH
+                                </th>
+
+                                <th>
+                                    Mã kế hoạch
+                                </th>
+                                <th>
+                                    Ngày lập KH
+                                </th>
+                                <th>
+                                    Mã bệnh nhân
+                                </th>
+                                <th>
+                                    Tên bệnh nhân
+                                </th>
+                                <th>
+                                    Mã bác sĩ điều trị
+                                </th>
+                                <th>
+                                    Tên bác sĩ điều trị
+                                </th>
+                                <th>
+                                    Tên CVDT
+                                </th>
+
+                                <th>
+                                    Giá gốc
+                                </th>
+
+                                <th>
+                                    Đơn giá TT
+                                </th>
+                                  <th>
+                                    Ghi chú
+                                </th>
+                                
+
+                            </tr>
+                        </thead>
+
+                        @{
+                            int HuyKhdtStt = 1;
+                        }
+                        @foreach (NoiDungKeHoach ChiTietBCKHDT in ViewBag.HuyKHDT)
+                        {
+                            <tr style="font-size:12px">
+                                <td style="width:2%">
+                                    @HuyKhdtStt
+                                </td>
+
+                                <td style="width:7%">
+
+                                    @ChiTietBCKHDT.IdkhdtNavigation.IdbsNavigation.MaBacSi
+                                </td>
+                                <td style="width:8%">
+                                    @ChiTietBCKHDT.IdkhdtNavigation.IdbsNavigation.TenBs
+                                </td>
+                                <td style="width:10%">
+                                    @ChiTietBCKHDT.IdkhdtNavigation.MaKeHoacDieuTri
+                                </td>
+
+                                <td style="width:10%">
+
+                                    @ChiTietBCKHDT.IdkhdtNavigation.NgayLap
+
+                                </td>
+                                <td style="width:10%">
+
+                                    @ChiTietBCKHDT.IdkhdtNavigation.IdbnNavigation.MaBenhNhan
+
+
+                                </td>
+
+                                <td style="width:8%">
+                                    @ChiTietBCKHDT.IdkhdtNavigation.IdbnNavigation.TenBn
+                                </td>
+
+                                <td style="width:10%">
+                                    @ChiTietBCKHDT.IdbsdtNavigation.MaBacSi
+                                </td>
+                                <td style="width:10%">
+                                    @ChiTietBCKHDT.IdbsdtNavigation.TenBs
+                                </td>
+
+                                <td style="width:10%">
+                                    @ChiTietBCKHDT.IdcvdtNavigation.TenCongViec
+                                </td>
+                                <td style=" text-align:right">
+                                    @ChiTietBCKHDT.IdcvdtNavigation.FormattedDonGiaSuDung
+                                </td>
+
+                                <td style="text-align:right">
+                                    @ChiTietBCKHDT.FormattedDonGia
+                                </td>
+                               <td>
+                                    @ChiTietBCKHDT.GhiChu
+                                </td>
+                               
+                            </tr>
+
+                            HuyKhdtStt++;
+                        }
+
+                    </table>
+                </div> *@
+
+                <div id="menu3" class="tab-pane fade in ">
+                    @if (ViewBag.ChiTietKHDT.Count != 0)
+                    {
+
+                        <div class="row">
+                            <div class="col-md-12" style="display:block;">
+
+                                <a href="@Url.Action("PdfBoKHDT", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" class="btn btn-danger">Xuất pdf</a>
+                                <a href="@Url.Action("ExcelBoKHDT", "ThongKe", new { fo = ViewBag.fromDate, to = ViewBag.toDate })" class="btn btn-success">Xuất excel</a>
+                            </div>
+                        </div>
+                    }
+                    <table class="table " id="example4">
+                        <thead>
+                            <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center ; font-size:14px">
+
+                                <th>
+                                    Stt
+                                </th>
+                                <th>
+                                    Mã bác sĩ KH
+                                </th>
+                                <th>
+                                    Tên bác sĩ KH
+                                </th>
+
+                                <th>
+                                    Mã kế hoạch
+                                </th>
+                                <th>
+                                    Ngày lập KH
+                                </th>
+                                <th>
+                                    Mã bệnh nhân
+                                </th>
+                                <th>
+                                    Tên bệnh nhân
+                                </th>
+                                <th>
+                                    Mã BSĐT
+                                </th>
+                                <th>
+                                    Tên BSDT
+                                </th>
+                                <th>
+                                    Tên CVDT
+                                </th>
+
+                                <th>
+                                    Giá gốc
+                                </th>
+
+                                <th>
+                                    Đơn giá TT
+                                </th>
+                                <th>
+                                    Ghi chú CV
+                                </th>
+                                 <th>
+                                    lý do huỷ
+                                </th>
+                               
+
+                            </tr>
+                        </thead>
+
+                        @{
+                            int st4 = 1;
+                        }
+                        @foreach (NoiDungThanhToan BoKHDT in ViewBag.BoKHDT)
+                        {
+                            <tr style="font-size:12px" class="ChiTietKHDT">
+                                <td style="width:2%">
+                                    @st4
+                                </td>
+
+                                <td style="width:7%">
+
+                                    @BoKHDT.IdndkhNavigation.IdkhdtNavigation.IdbsNavigation.MaBacSi
+                                </td>
+                                <td style="width:8%">
+                                    @BoKHDT.IdndkhNavigation.IdkhdtNavigation.IdbsNavigation.TenBs
+                                </td>
+                                <td style="width:10%">
+                                    @BoKHDT.IdndkhNavigation.IdkhdtNavigation.MaKeHoacDieuTri
+                                </td>
+
+                                <td style="width:10%">
+
+                                    @BoKHDT.IdndkhNavigation.IdkhdtNavigation.NgayLap
+
+                                </td>
+                                <td style="width:10%">
+
+                                    @BoKHDT.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.MaBenhNhan
+
+
+                                </td>
+
+                                <td style="width:8%">
+                                    @BoKHDT.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.TenBn
+                                </td>
+
+                                <td style="width:7%">
+                                    @BoKHDT.IdndkhNavigation.IdbsdtNavigation.MaBacSi
+                                </td>
+                                <td style="width:8%">
+                                    @BoKHDT.IdndkhNavigation.IdbsdtNavigation.TenBs
+                                </td>
+
+                                <td style="width:10%">
+                                    @BoKHDT.IdndkhNavigation.IdcvdtNavigation.TenCongViec
+                                </td>
+                                <td style="text-align:right">
+                                    @BoKHDT.IdndkhNavigation.IdcvdtNavigation.FormattedDonGiaSuDung
+                                </td>
+
+
+                                <td style="text-align:right">
+                                    @BoKHDT.IdndkhNavigation.FormattedDonGia
+                                </td>
+                                <td >
+                                    @BoKHDT.IdndkhNavigation.GhiChu
+                                </td>
+                               <td >
+                                    @BoKHDT.IdndkhNavigation.IdkhdtNavigation.Nsua
+                                </td>
+                               
+                            </tr>
+
+                            st4++;
+                        }
+
+                    </table>
+
+                </div>
+            </div>
+
+         </div>
+    </div>
+   
+    <hr>
+
+    <div class="modal" id="myModal2" tabindex="-1">
+        <div class="modal-dialog" style="max-width:98%">
+          
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">BÁO CÁO DANH SÁCH KẾ HOẠCH ĐIÈU TRỊ TỪ NGÀY @ViewBag.fromDate ĐẾN NGÀY @ViewBag.toDate</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="partial-view-container2"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="myModal" tabindex="-1">
+        <div class="modal-dialog" >
+          
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">BÁO CÁO DANH SÁCH CÔNG VIỆC ĐIỀU TRỊ TỪ NGÀY @ViewBag.fromDate ĐẾN NGÀY @ViewBag.toDate</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="partial-view-container"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+
+<script>
+    // Biểu đồ bar
+    const ctxBar = document.getElementById('myChart');
+    // Lấy dữ liệu từ bảng công việc
+    var labelsCongViecFull = [];
+    var labelsCongViecAbbr = [];
+    var dataCongViec = [];
+    var TongThucThu = [];
+    $('.Chart_KHDT').each(function () {
+        var $row = $(this);
+        var tenCongViecFull = $row.find('td:eq(2)').text().trim(); // Lấy tên đầy đủ
+        labelsCongViecFull.push(tenCongViecFull);
+
+        var tenCongViecAbbr = abbreviate(tenCongViecFull); // Viết tắt tên
+        labelsCongViecAbbr.push(tenCongViecAbbr);
+
+        dataCongViec.push(parseFloat($row.find('td:eq(4)').text().replace(/\./g, '').replace(',', '')));
+
+
+    });
+    $('.Chart_KHDT').each(function () {
+        var $row = $(this);
+        TongThucThu.push(parseFloat($row.find('td:eq(5)').text().replace(/\./g, '').replace(',', '')));
+    });
+
+    function abbreviate(fullName) {
+        var words = fullName.split(' ');
+        var abbreviation = words.map(word => {
+            return word.charAt(0).toUpperCase();
+        }).join('');
+
+        return abbreviation;
+    }
+
+    new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: labelsCongViecAbbr,
+            datasets: [
+                {
+                    label: 'Tổng KHĐT đã thực hiện',
+                    data: dataCongViec,
+                    borderWidth: 1,
+                    backgroundColor: 'rgb(102, 196, 255, 0.2)', // Màu của cột
+                    borderColor: 'rgb(102, 196, 255, 1)', // Màu của đường biên của cột
+                },
+                {
+                    label: 'Tổng KHĐT bị huỷ', // Nhãn cho cột thứ hai
+                    data: TongThucThu, // Dữ liệu cột thứ hai
+                    borderWidth: 1,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)', // Màu của cột thứ hai
+                    borderColor: 'rgba(255, 99, 132, 1)', // Màu của đường biên của cột thứ hai
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    position: 'left',
+                    ticks: {
+                        callback: function (value, index, values) {
+                            return value.toLocaleString(); // Định dạng số cột y
+                        }
+                    }
+                }
+            },
+            tooltips: {
+                enabled: true,
+                callbacks: {
+                    label: function (tooltipItem, data) {
+                        var datasetLabel = data.datasets[tooltipItem.datasetIndex].label || '';
+                        var label = labelsCongViecFull[tooltipItem.index];
+                        var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+
+                        return datasetLabel + ': ' + label + ': ' + value;
+                    }
+                }
+            }
+        }
+    });
+
+
+
+
+</script>
+
+
+
+<script>
+    var labelsCongViecFull2 = [];
+    var labelsCongViecAbbr2 = [];
+    var dataCongViec2 = [];
+    var TongThucThu2 = [];
+    $('.Chart_ND_KHDT').each(function () {
+        var $row = $(this);
+        var tenCongViecFull2 = $row.find('td:eq(2)').text().trim(); // Lấy tên đầy đủ
+        labelsCongViecFull2.push(tenCongViecFull2);
+
+        var tenCongViecAbbr2 = abbreviate(tenCongViecFull2); // Viết tắt tên
+        labelsCongViecAbbr2.push(tenCongViecAbbr2);
+
+        dataCongViec2.push(parseFloat($row.find('td:eq(3)').text().replace(/\./g, '').replace(',', '')));
+
+
+    });
+    var TongThucThu2 = 0;
+    $('.Chart_ND_KHDT').each(function () {
+        var $row = $(this);
+        TongThucThu2 += parseInt($row.find('td:eq(3)').text().replace(/\./g, '').replace(',', ''));
+    });
+    function abbreviate(fullName) {
+        var words = fullName.split(' ');
+        var abbreviation = words.map(word => {
+            return word.charAt(0).toUpperCase();
+        }).join('');
+
+        return abbreviation;
+    }
+    // Dữ liệu mẫu
+    var data = {
+        labels: labelsCongViecAbbr2,
+        datasets: [{
+            label: 'Số lần điều trị',
+            data: dataCongViec2,
+            // borderColor: 'blue',
+            // borderWidth: 2,
+            fill: false,
+            borderColor: 'rgb(201, 185, 253)',
+            backgroundColor:' rgb(201, 185, 253)',
+      pointStyle: 'circle',
+      pointRadius: 10,
+      pointHoverRadius: 15
+        }]
+    };
+
+    // Tạo biểu đồ Line Chart
+    // Tạo biểu đồ Doughnut Chart
+    var ctx = document.getElementById('line').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line', // Thay đổi type thành 'doughnut'
+        data: data,
+        options: {
+            responsive: true,
+            cutout: '70%', // Thêm tùy chọn cutout để làm cho biểu đồ trở nên giống hình tròn
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Tổng số lần điều trị của tất cả công việc: ' + TongThucThu2, // Thay đổi tên của bản đồ tại đây
+                    position: 'bottom' // Đặt vị trí của tiêu đề
+                },
+                legend: {
+                    position: 'top' // Đặt vị trí của chú thích
+                }
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem, data) {
+                        var datasetLabel = data.labels[tooltipItem.index] || '';
+                        var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+
+                        return datasetLabel + ': ' + value;
+                    }
+                }
+            }
+        },
+    });
+
+
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $('.open-modal2').click(function () {
+            var url = $(this).data('url');
+            $.get(url, function (data) {
+                $('#partial-view-container2').html(data);
+                $('#myModal2').modal('show');
+            });
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.open-modal').click(function () {
+            var url = $(this).data('url');
+            $.get(url, function (data) {
+                $('#partial-view-container').html(data);
+                $('#myModal').modal('show');
+            });
+        });
+    });
+</script>

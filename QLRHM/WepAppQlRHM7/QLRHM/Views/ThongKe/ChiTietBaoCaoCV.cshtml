@@ -1,0 +1,127 @@
+﻿@model IEnumerable<QLRHM.Models.NoiDungThanhToan>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+    var ChiTietBaoCaoCV = Model.FirstOrDefault(); // Lấy đối tượng đầu tiên từ danh sách Model
+    var TongTien = 0;
+}
+
+<div class="row" >
+    <div style="text-align:center ; font-weight:900; margin: 10px 0 10px  0;color:red">
+        <a> Chi tiết công việc: @ChiTietBaoCaoCV.IdndkhNavigation.IdcvdtNavigation.TenCongViec từ ngày: @ViewBag.fromDate đến ngày: @ViewBag.toDate</a>
+    </div>
+  
+</div>
+@if (ChiTietBaoCaoCV == null)
+{
+
+}
+else
+{
+    <div class="row" style="justify-content: end">
+        <div class="col-md-2" style="display:block;">
+            <a class="btn btn-danger" asp-action="PdfChiTietBaoCaoCV" asp-controller="ThongKe" asp-route-id="@ChiTietBaoCaoCV.IdndkhNavigation.IdcvdtNavigation.Idcvdt" asp-route-fo="@ViewBag.fromDate" asp-route-to="@ViewBag.toDate">Xuất pdf</a>
+            <a class="btn btn-success" asp-action="ExcelChiTietBaoCaoCV" asp-controller="ThongKe" asp-route-id="@ChiTietBaoCaoCV.IdndkhNavigation.IdcvdtNavigation.Idcvdt" asp-route-fo="@ViewBag.fromDate" asp-route-to="@ViewBag.toDate">Xuất excel</a>
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm("ChiTietBaoCaoCV", "ThongKe", FormMethod.Post, new { id = "abc", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <table class="table example2" >
+        <thead>
+            <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center">
+
+                <th>
+                    Stt
+                </th>
+                <th>
+                    Mã bệnh nhân
+                </th>
+                <th>
+                    Tên bệnh nhân
+                </th>
+                <th>
+                    Ngày sinh
+                </th>
+                <th>
+                    Sđt
+                </th>
+                 <th>
+                    Mã công việc
+                </th>
+                 <th>
+                    Tên công việc
+                </th>
+                 <th>
+                    Số tiền thanh toán
+                </th>
+                 <th>
+                    Ngày thanh toán
+                </th>
+
+            </tr>
+        </thead>
+
+        @{
+            int stt = 1;
+        }
+            @foreach(var ChiTietBCCV in Model)
+            {
+            
+                <tr>
+
+                    <td>
+                        @stt
+                    </td>
+                    <td>
+                         @ChiTietBCCV.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.MaBenhNhan
+                    </td>
+                     <td>
+                         @ChiTietBCCV.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.TenBn
+                    </td>
+                     <td>
+                         @ChiTietBCCV.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.FormatNgaySinh
+                    </td>
+                     <td>
+                         @ChiTietBCCV.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Sdt
+                    </td>
+
+                    <td>
+                         @ChiTietBCCV.IdndkhNavigation.IdcvdtNavigation.MaCongViec
+                    </td>
+                     <td>
+                         @ChiTietBCCV.IdndkhNavigation.IdcvdtNavigation.TenCongViec
+                    </td>
+                    <td style="text-align:right">
+                           @string.Format("{0:#,0}", ChiTietBCCV.SoTienThanhToan)
+                    </td>
+                   
+                    <td>
+                         @ChiTietBCCV.FormatNgayTao
+                    </td>
+
+                </tr>
+                stt++;
+            TongTien += Convert.ToInt32(ChiTietBCCV.SoTienThanhToan);
+            }
+        <tr class="Tong">
+            <td style="display:none"></td>
+            <td style="display:none"></td>
+            <td style="display:none"></td>
+            <td style="display:none"></td>
+            <td style="display:none"></td>
+            <td style="display:none"></td>
+            <td style="display:none"></td>
+            <td colspan="7" style="text-align: center;color: #3b78ec">Tổng cộng</td>
+
+            <td colspan="2" style="text-align:center;color: #3b78ec">@string.Format("{0:#,0}", TongTien)</td>        
+        </tr>
+        
+    </table>
+    
+}
+<script src="~/js/modal_chitiet.js" asp-append-version="true"></script>

@@ -1,0 +1,294 @@
+﻿@using QLRHM.Models;
+@model QLRHM.Models.NhomCongViec
+
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+
+}
+
+
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+            <li class="active"><a data-toggle="tab" href="#home"><i class='bx bx-list-ul'></i> Danh sách nhóm công việc</a></li>
+            <li><a data-toggle="tab" href="#menu1"><i class='bx bx-folder-plus'></i>Nhóm công việc đã ẩn</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <button id="toggleFormButton" class="btn btn-primary">Bật/tắt phiếu sửa</button>
+                <a asp-action="ExportExcel" asp-controller="NhomCongViecs" type="submit" class="btn btn-success">Xuất excel</a>
+                @using (Html.BeginForm("Edit", "NhomCongViecs", FormMethod.Post, new { id = "myForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <center><b style="font-weight:900 ; color:red">Sửa nhóm công việc </b></center>
+                    <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+                        <div class="row">
+                       <input   asp-for="Idncv" type="hidden">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Mã nhóm công việc</label>
+                                    <div class='input-group'>
+                                        <input style="background-color:white;color:blue" asp-for="MaNcv" type="text"  class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Tên nhóm công việc</label>
+                                    <div class='input-group'>
+                                        <input asp-for="TenNcv"  type="text" class="form-control" required oninvalid="this.setCustomValidity('Không được bỏ trống tên nhóm');" oninput="setCustomValidity('')" />
+                                    </div>
+                                    <span id="TenNCVError" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Ngày thêm</label>
+                                    <div class='input-group'>
+                                        <input asp-for="NgayTao" type="text"  class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Ngày sửa</label>
+                                    <div class='input-group'>
+                                        <input asp-for="NgaySua" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                            <input asp-for="Active" type="hidden" value="1">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">&nbsp;</label>
+                                    <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                <div class="row" style="padding-top:5px;padding-bottom:20px">
+
+                    <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group" style="height: 20px;">
+                                <input type="text" id="Search" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                @*  <div class="row" > *@
+                <table class="table" id="example">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã nhóm công việc
+                            </th>
+                            <th>
+                                Tên nhóm công việc
+                            </th>
+                            <th>
+                                Ngày thêm
+                            </th>
+                         
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            int stt = 1; // Khởi tạo số thứ tự ban đầu
+
+                            foreach (NhomCongViec ncv in ViewBag.ncv)
+                            {
+                                <tr class="Search">
+                                    <td style="width:2%">
+                                        @stt
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => ncv.MaNcv)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => ncv.TenNcv)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => ncv.NgayTao)
+                                    </td>
+                                    <td>
+                                    
+                                        <a href="@Url.Action("Edit", "NhomCongViecs", new { id = ncv.Idncv })">
+                                            <box-icon name='edit' animation='tada-hover' color='#3b78ec'></box-icon>
+                                        </a>
+                                       @* <a asp-action="DetailsMaster" asp-route-id="@ncv.Idncv">
+                                            <box-icon type='solid' name='info-circle' animation='tada-hover' color='#05cdf6'></box-icon>
+                                        </a>*@
+                                        <a asp-action="HideMaster" onclick="return ConfirmDelete(this);" asp-route-id="@ncv.Idncv">
+                                            <box-icon type='solid' name='hide' animation='tada-hover' color='red'></box-icon>
+                                        </a>
+                                    </td>
+                                </tr>
+                                stt++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+                    </tbody>
+                </table>
+             
+
+            </div>
+            <div id="menu1" class="tab-pane fade" style="color:#000">
+                <div class="row" style="padding-top:5px;padding-bottom:20px">
+               
+                    <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group" style="height: 20px;">
+                                <input type="text" id="Search1" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <table class="table" id="example2">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã nhóm công việc
+                            </th>
+                            <th>
+                                Tên nhóm công việc
+                            </th>
+                            <th>
+                                Ngày thêm
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            int sttt = 1; // Khởi tạo số thứ tự ban đầu
+
+                            foreach (NhomCongViec nvchide in ViewBag.nvchide)
+                            {
+                                <tr class="Search">
+                                    <td style="width:2%">
+                                        @sttt
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => nvchide.MaNcv)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => nvchide.TenNcv)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => nvchide.NgayTao)
+                                    </td>
+                                    <td>
+                                        @* <a asp-action="EditMaster" asp-route-id="@ncv.Idncv">*@
+                                        <a asp-action="DetailsMaster" asp-route-id="@nvchide.Idncv">
+                                            <box-icon type='solid' name='info-circle' animation='tada-hover' color='#05cdf6'></box-icon>
+                                        </a>
+                                        <a asp-action="ActiveMaster" onclick="return ConfirmActive(this);" asp-route-id="@nvchide.Idncv">
+                                            <box-icon name='rotate-right' flip='horizontal' color='#04b245'></box-icon>
+                                        </a>
+                                    </td>
+                                </tr>
+                                sttt++; // Tăng số thứ tự sau mỗi lần lặp
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#Search").on("keyup", function () {
+            var searchText = $(this).val().toLowerCase();
+            $(".Search").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+    });
+</script><script>
+    $(document).ready(function () {
+        $("#Search1").on("keyup", function () {
+            var searchText = $(this).val().toLowerCase();
+            $(".Search").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+    });
+</script>
+
+
+<script>
+    var object = { stat: false, ele: null };
+
+    function ConfirmDelete(ev) {
+        if (object.stat) {
+            return true;
+        }
+        swal({
+            title: "Bạn muốn ẩn dữ liệu này?",
+            text: "Dữ liệu này sẽ mất khỏi bảng!",
+
+            type: "warning",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn btn-danger",
+            confirmButtonText: "Xóa!",
+            closeOnConfirm: true
+        }, function () {
+            swal("Xóa!", "Đã ẩn thành công.", "success");
+            object.stat = true;
+            object.ele = ev;
+            object.ele.click();
+        }, 1000);
+        return false;
+    } var object = { stat: false, ele: null };
+
+    function ConfirmActive(ev) {
+        if (object.stat) {
+            return true;
+        }
+        swal({
+            title: "Bạn muốn kích hoạt dữ liệu này?",
+            text: "Dữ liệu này sẽ mất khỏi bảng!",
+
+            type: "warning",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn btn-danger",
+            confirmButtonText: "Xóa!",
+            closeOnConfirm: true
+        },
+            function () {
+                swal("Xóa!", "Đã Hiện thành công.", "success");
+                object.stat = true;
+                object.ele = ev;
+                object.ele.click();
+
+            }, 1000);
+        return false;
+    }
+</script>

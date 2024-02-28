@@ -1,0 +1,116 @@
+﻿@using QLRHM.Models
+
+@{
+    Layout = "~/Views/Shared/Home_Modal.cshtml";
+    var stt = 1;
+   
+    var TongBN = ViewBag.dataBn.Count;
+
+}
+<body style="padding-left: 2%;padding-right: 2%;">
+    <div class="table" style="min-width:900px ; max-width:700px;color:black ">
+        <div>
+            <span style="font-weight:900;padding-left:8px">
+                PHÒNG KHÁM NHA KHOA RĂNG HÀM MẶT
+            </span>
+
+        </div>
+        <div>
+            <a style="font-size: 14px; font-weight: normal;">
+                <span>  Địa chỉ : 69/96 tổ 3 , ấp 6 , đường Nguyễn Văn Bữa , Hóc Môn , Thành phố Hồ Chí Minh <br></span>
+                <span style="margin-top: 5px; display: block;">Sđt: 03827847566</span>
+                <span>Gmail: PhongKhamNhaKhoaRHM@gmail.com</span>
+            </a>
+        </div>
+
+        <div style="text-align:center;padding-top:30px; margin-bottom:20px ;text-transform:uppercase;">
+           
+                <a>Danh sách bệnh nhân mới (@ViewBag.fromDate - @ViewBag.toDate)</a>
+            
+
+        </div>
+
+    </div>
+    <center>
+                        <table id="example5" class="table">
+                            <thead>
+                                <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center">
+                                    <th>
+                                        Stt
+                                    </th>
+                                    <th>
+                                        Mã bệnh nhân
+                                    </th>
+                                    <th>
+                                        Tên bệnh nhân
+                                    </th>
+                                    <th>
+                                        Giới tính
+                                    </th>
+                                    <th>
+                                        Ngày sinh
+                                    </th>
+
+                                    <th>
+                                        Địa chỉ
+                                    </th>
+                                    <th>
+                                        Sđt
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                     <th>
+                                        Ngày thêm
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (BenhNhan bn in ViewBag.dataBn)
+                                {
+
+
+                                    <tr class="Search table">
+                                        <td style="width:2%">
+                                            @stt
+                                        </td>
+                                        
+                                        <td>
+                                            @Html.DisplayFor(modelItem => bn.MaBenhNhan)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => bn.TenBn)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => bn.GioiTinh)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => bn.FormatNgaySinh)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => bn.DiaChi)
+                                        </td>
+                                           <td>
+                                            @Html.DisplayFor(modelItem => bn.Sdt)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => bn.Email)
+                                        </td>
+                                         <td>
+                                            @Html.DisplayFor(modelItem => bn.NgayTao)
+                                        </td>
+
+
+                                    </tr>
+                                    stt++;
+                                }
+
+                            </tbody>
+                        </table>
+                     
+
+</center>
+</body>

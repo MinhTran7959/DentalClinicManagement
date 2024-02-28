@@ -1,0 +1,149 @@
+﻿@using QLRHM.Models
+
+@{
+    Layout = "~/Views/Shared/Home_Modal.cshtml";
+
+    int stt = 1;
+    var TongTien = 0;
+}
+<body >
+    <div class="table" style="min-width:900px ; max-width:700px;color:black ">
+        <div>
+            <span style="font-weight:900;padding-left:8px">
+                PHÒNG KHÁM NHA KHOA RĂNG HÀM MẶT
+            </span>
+
+        </div>
+        <div>
+            <a style="font-size: 14px; font-weight: normal;">
+                <span>  Địa chỉ : 69/96 tổ 3 , ấp 6 , đường Nguyễn Văn Bữa , Hóc Môn , Thành phố Hồ Chí Minh <br></span>
+                <span style="margin-top: 5px; display: block;">Sđt: 03827847566</span>
+                <span>Gmail: PhongKhamNhaKhoaRHM@gmail.com</span>
+            </a>
+        </div>
+
+        <div style="text-align:center;padding-top:30px; margin-bottom:20px ;text-transform:uppercase;">
+
+            <a>Danh sách hoá đơn thanh toán (@ViewBag.fromDate - @ViewBag.toDate)</a>
+
+
+        </div>
+
+    </div>
+    <div class="container-fluid py-5 ">
+       
+                <div id="home" class="tab-pane fade in active">
+                    <div style="min-width:1500px; font-size:12px">
+                        <table class="table" id="example3">
+                            <thead>
+                                <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center">
+                                    <th>
+                                        Stt
+                                    </th>
+                                    <th>
+                                        Mã phiếu thanh toán
+                                    </th>
+                                    <th>
+                                        Mã bệnh nhân
+                                    </th>
+                                   
+
+                                    <th>
+                                        Tên bệnh nhân
+                                    </th>
+                                    <th>
+                                        GT
+                                    </th>
+                                    <th>
+                                        Ngày sinh
+                                    </th>
+
+                                    <th>
+                                        Sđt
+                                    </th>
+                                    
+                                    <th>
+                                        Tên công việc
+                                    </th>
+                                    <th>
+                                        Hình thức thanh toán
+                                    </th>
+
+                                    <th>
+                                        Số tiền thanh toán
+                                    </th>
+                                    <th>
+                                        Ngày thanh toán
+                                    </th>
+                                     <th>
+                                       Người thực thu
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                        @foreach (NoiDungThanhToan bn in ViewBag.dataHD)
+                                {
+                                    <tr class="Search table">
+                                <td style="width:2%">
+                                    @stt
+                                </td>
+
+                                <td style="width:7%">
+                                    @(bn.IdttNavigation.MaThanhToan ?? "Không có dữ liệu")
+                                </td>
+                                <td style="width:7%">
+                                    @(bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.MaBenhNhan ?? "Không có dữ liệu")
+                                </td>
+                                <td>
+                                    @(bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.TenBn ?? "Không có dữ liệu")
+                                </td>
+                                <td>
+                                    @(bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.GioiTinh ?? "Không có dữ liệu")
+                                </td>
+
+                                <td style="width:5%">
+                                    @(bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.FormatNgaySinh ?? "Không có dữ liệu")
+                                </td>
+                                <td style="width:5%">
+                                    @(bn.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.Sdt ?? "Không có dữ liệu")
+                                </td>
+
+                                <td>
+                                    @(bn.IdndkhNavigation.IdcvdtNavigation.TenCongViec ?? "Không có dữ liệu")
+                                </td>
+
+                                <td style="width:20%">
+                                    @(bn.IdhtttNavigation.TenHttt) - @(bn.IdhtttNavigation.IdnhNavigation.TenNganHang)  - TK: @(bn.IdhtttNavigation.IdnhNavigation.SoTk)
+                                </td>
+                                <td style="text-align:right">
+                                    @(bn.FormattedSoTienThanhToan)
+                                </td>
+                                <td style="width:8%">
+                                    @(bn.FormatNgayTao ?? "Không có dữ liệu")
+                                </td>
+                                <td>
+                                    @(bn.Ntao ?? "Không có dữ liệu")
+                                </td>
+
+                                    </tr>
+                                    stt++;
+                                    TongTien += Convert.ToInt32(bn.SoTienThanhToan);
+                                }
+                                <tr class="Tong">
+                                    <td colspan="9" style="text-align: center;color: #3b78ec">Tổng cộng</td>
+                                    <td colspan="3" style="text-align: center;color: #3b78ec">@TongTien.ToString("N0")</td>
+
+                                  
+
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                   
+                 </div>
+            </div>
+</body>

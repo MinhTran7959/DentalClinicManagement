@@ -1,0 +1,337 @@
+﻿@using QLRHM.Models;
+@model QLRHM.Models.NganHang
+
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+
+}
+
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <ul style="font-weight:bold" class="nav nav-tabs custom-tabs">
+            <li class="active"><a data-toggle="tab" href="#home"><i class='bx bx-list-ul'></i> Danh sách ngân hàng</a></li>
+            <li><a data-toggle="tab" href="#menu1"><i class='bx bx-folder-plus'></i>Ngân hàng</a></li>
+
+        </ul>
+
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <button id="toggleFormButton" class="btn btn-primary">Bật/tắt phiếu</button>
+                <a asp-action="ExportExcel" asp-controller="HinhThucThanhToans" type="submit" class="btn btn-success">Xuất excel</a>
+                @using (Html.BeginForm("Edit", "NganHangs", FormMethod.Post, new { id = "myForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <center><b style="font-weight:900 ; color:red">Sửa ngân hàng</b></center>
+                    <div class="container-fluid" style="border: 2px solid #b8ceff;padding-bottom:10px;color:black">
+                        <div class="row">
+                      
+                            <div class="col-md-3" style="display:none">
+                               
+                                        <input style="background-color:white;color:blue" asp-for="Idnh" type="text" class="form-control" readonly />
+                                 
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Mã ngân hàng</label>
+                                    <div class='input-group'>
+                                        <input style="background-color:white;color:blue" asp-for="MaNganHang" type="text"  class="form-control" readonly />
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Tên ngân hàng</label>
+                                    <div class='input-group'>
+                                        <input asp-for="TenNganHang" type="text" maxlength="50" class="form-control" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" />
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Số tài khoản</label>
+                                    <div class='input-group'>
+                                        <input asp-for="SoTk" type="text" class="form-control" required oninput="validateSoTK(this)" />
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Tên tài khoản</label>
+                                    <div class='input-group'>
+                                        <input asp-for="TenTk" id="TenNbs" type="text" maxlength="50" class="form-control" required oninvalid="this.setCustomValidity('Không được bỏ trống');" oninput="setCustomValidity('')" />
+                                    </div>
+
+                                </div>
+                            </div>
+
+                          
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Ngày thêm</label>
+                                        <div class='input-group'>
+                                            <input asp-for="NgayTao" type="text" class="form-control" readonly />
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Ngày sửa</label>
+                                        <div class='input-group'>
+                                            <input asp-for="NgaySua" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" class="form-control" readonly />
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3" style="display:none">
+                                
+                                            <input asp-for="Active" type="text" value="1" class="form-control" readonly />
+                                  
+                                </div>
+
+                                <div class="col-md-1" >
+                                    <div class="form-group">
+                                        <label class="control-label">&nbsp;</label>
+                                        <input style="color:black" type="submit" value="Lưu" class="btn btn-primary form-control" />
+                                    </div>
+                                </div>
+                          
+                        </div>
+                    </div>
+
+
+                }
+
+                <div class="row" style="padding-top:5px ;padding-bottom:5px">
+
+
+                    <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group">
+                                <input type="text" id="Search" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <table class="table scroll " id="example">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã ngân hàng
+                            </th>
+                            <th>
+                                Tên ngân hàng
+                            </th>
+                            <th>
+                                Số tài Khoản
+                            </th>
+
+                            <th>
+                                Tên tài khoản
+                            </th>
+
+                            <th>
+                                Ngày thêm
+                            </th>
+
+
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    @{
+                        int stt = 1; // Khởi tạo số thứ tự ban đầu
+
+                        foreach (NganHang nh in ViewBag.nh)
+                        {
+                            <tr class="Search">
+                                <td style="width:2%">
+                                    @stt
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => nh.MaNganHang)
+                                </td>
+                                <td style="width:11%">
+                                    @Html.DisplayFor(modelItem => nh.TenNganHang)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => nh.SoTk)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => nh.TenTk)
+                                </td>
+                               
+                                <td style="text-align: end;">
+                                    @Html.DisplayFor(modelItem => nh.NgayTao)
+                                </td>
+
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@nh.Idnh">
+
+                                        <box-icon name='edit' animation='tada-hover' color='#3b78ec'></box-icon>
+                                    </a>
+
+                                    <a asp-action="Hide" onclick="return ConfirmDelete(this);" asp-route-id="@nh.Idnh">
+                                        <box-icon name='rotate-right' flip='horizontal' color='#04b245'></box-icon>
+                                    </a>
+
+                                </td>
+                            </tr>
+                            stt++; // Tăng số thứ tự sau mỗi lần lặp
+                        }
+                    }
+                </table>
+
+
+            </div>
+            <div id="menu1" class="tab-pane fade" style="color:#000">
+                <div class="row" style="padding-top:5px;padding-bottom:20px">
+
+@*                     <div class="col-md-3">
+                        <div class="mx-auto" style="justify-content: flex-end;">
+                            <div class="input-group" style="height: 20px;">
+                                <input type="text" id="Search" class="form-control border-primary w-50" placeholder="Tìm kiếm">
+
+                            </div>
+                        </div>
+                    </div> *@
+
+                </div>
+                <table class="table scroll " id="example2">
+                    <thead>
+                        <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);">
+                            <th>
+                                Stt
+                            </th>
+                            <th>
+                                Mã ngân hàng
+                            </th>
+                            <th>
+                                Tên ngân hàng
+                            </th>
+                            <th>
+                                Số tài Khoản
+                            </th>
+
+                            <th>
+                                Tên tài khoản
+                            </th>
+
+                            <th>
+                                Ngày thêm
+                            </th>
+
+
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    @{
+                        int stt2 = 1; // Khởi tạo số thứ tự ban đầu
+
+                        foreach (NganHang nhhide in ViewBag.nhhide)
+                        {
+                            <tr class="Search">
+                                <td style="width:2%">
+                                    @stt2
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => nhhide.MaNganHang)
+                                </td>
+                                <td style="width:11%">
+                                    @Html.DisplayFor(modelItem => nhhide.TenNganHang)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => nhhide.TenTk)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => nhhide.SoTk)
+                                </td>
+                                <td style="text-align: end;">
+                                    @Html.DisplayFor(modelItem => nhhide.NgayTao)
+                                </td>
+
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@nhhide.Idnh">
+
+                                        <box-icon name='edit' animation='tada-hover' color='#3b78ec'></box-icon>
+                                    </a>
+
+                                    <a asp-action="Hide" onclick="return ConfirmDelete(this);" asp-route-id="@nhhide.Idnh">
+                                        <box-icon type='solid' name='hide' animation='tada-hover' color='red'></box-icon>
+                                    </a>
+
+                                </td>
+                            </tr>
+                            stt2++; // Tăng số thứ tự sau mỗi lần lặp
+                        }
+                    }
+                </table>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    function validateSoTK(input) {
+        // Loại bỏ tất cả các ký tự không phải là số và dấu chấm
+        var sanitizedValue = input.value.replace(/[^0-9.]/g, '');
+
+        // Kiểm tra xem giá trị đã nhập có chứa ký tự không phải số không
+        if (input.value !== sanitizedValue) {
+            input.setCustomValidity('Chỉ nhập số.');
+        } else {
+            input.setCustomValidity('');
+        }
+
+        // Giới hạn độ dài tối đa là 14 ký tự
+        if (sanitizedValue.length > 14) {
+            sanitizedValue = sanitizedValue.slice(0, 14);
+        }
+
+        // Kiểm tra độ dài của giá trị
+        if (sanitizedValue.length < 9 || sanitizedValue.length > 14) {
+            input.setCustomValidity('Nhập it nhất từ 9 đến 14 số .');
+        } else {
+            input.setCustomValidity('');
+        }
+
+        // Gán giá trị đã xử lý vào input
+        input.value = sanitizedValue;
+    }
+</script>
+
+

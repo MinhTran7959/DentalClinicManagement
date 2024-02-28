@@ -1,0 +1,137 @@
+﻿@model IEnumerable<QLRHM.Models.NoiDungThanhToan>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Home_Modal.cshtml";
+    var ChiTietBaoCaoKHDT = Model.FirstOrDefault(); // Lấy đối tượng đầu tiên từ danh sách Model
+    
+}
+
+<div class="table" style="min-width:900px ; max-width:700px;color:black ">
+    <div>
+        <span style="font-weight:900;padding-left:8px">
+            PHÒNG KHÁM NHA KHOA RĂNG HÀM MẶT
+        </span>
+
+    </div>
+    <div>
+        <a style="font-size: 14px; font-weight: normal;">
+            <span>  Địa chỉ : 69/96 tổ 3 , ấp 6 , đường Nguyễn Văn Bữa , Hóc Môn , Thành phố Hồ Chí Minh <br></span>
+            <span style="margin-top: 5px; display: block;">Sđt: 03827847566</span>
+            <span>Gmail: PhongKhamNhaKhoaRHM@gmail.com</span>
+        </a>
+    </div>
+
+</div>
+@if (ChiTietBaoCaoKHDT != null)
+{
+    <div class="row" style="justify-content: end">
+        <div class="col-12" style="text-align:center; color:red; text-transform: uppercase">
+            <a>Bác sĩ điều trị: @ChiTietBaoCaoKHDT.IdndkhNavigation.IdbsdtNavigation.MaBacSi - @ChiTietBaoCaoKHDT.IdndkhNavigation.IdbsdtNavigation.TenBs </a>
+        </div>
+       
+    </div>
+}
+
+@using (Html.BeginForm("ChiTietKHDT", "ThongKe", FormMethod.Post, new { id = "abc", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <table class="table">
+        <thead>
+            <tr style="background-color:#eff6fe;border: 5px solid  rgba(135,206,250,0.5);text-align:center ; font-size:13px">
+
+                <th>
+                    Stt
+                </th>
+                <th>
+                    Mã kế hoạch điều trị
+                </th>
+               
+            
+                <th>
+                    Mã bệnh nhân
+                </th>
+                <th>
+                    Tên bệnh nhân
+                </th>
+              
+                <th>
+                   Tên công việc điều trị
+                </th>
+                <th>
+                    Số lần điều trị
+                </th>
+                 <th>
+                   Đơn giá
+                </th>
+                 <th>
+                   Tình trạng
+                </th>
+
+            </tr>
+        </thead>
+
+        @{
+            int stt = 1;
+        }
+        @foreach (var ChiTietBCKHDT in Model)
+        {
+            <tr style="font-size:12px">
+
+                <td>
+                    @stt
+                </td>
+                <td>
+                    @ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.MaKeHoacDieuTri
+                </td>
+
+               
+
+                <td>
+                    @ChiTietBaoCaoKHDT.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.MaBenhNhan
+                </td>
+                <td>
+                    @ChiTietBaoCaoKHDT.IdndkhNavigation.IdkhdtNavigation.IdbnNavigation.TenBn
+                </td>
+
+                <td>
+                    @ChiTietBCKHDT.IdndkhNavigation.IdcvdtNavigation.TenCongViec
+                </td>
+
+                <td style="text-align:center">
+                    @ChiTietBCKHDT.IdndkhNavigation.SoLan
+                </td>
+
+                <td style="text-align:right">
+                    @ChiTietBCKHDT.FormattedSoTienThanhToan
+                </td>
+                @if (ChiTietBCKHDT.ThanhToan == "1" && (ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.DieuTri == "1" || ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.DieuTri == "3"))
+                {
+                   
+                    <td>
+                        <a>Đã điều trị</a>
+                    </td>
+
+                }
+                else if (ChiTietBCKHDT.ThanhToan == "0" && ChiTietBCKHDT.IdndkhNavigation.IdkhdtNavigation.DieuTri == "3")
+                {
+                    <td>
+                        <a style="color:red">Bị huỷ</a>
+                    </td>
+                }
+                else if (ChiTietBCKHDT.ThanhToan == "0" && ChiTietBCKHDT .IdndkhNavigation.IdkhdtNavigation.DieuTri == "1")
+                {
+                    <td>
+                        <a>Đang điều trị</a>
+                    </td>
+                }
+            </tr>
+            stt++;
+          
+        }
+      
+
+    </table>
+
+}
