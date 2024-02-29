@@ -1,5 +1,7 @@
 ﻿@using QLRHM.Models;
-@model QLRHM.Models.BenhNhan
+@using QLRHM7.Models;
+@* @model QLRHM.Models.BenhNhan *@
+@model QLRHM7.DTOs.BenhNhanDto
 
 
 @{
@@ -28,24 +30,24 @@
             <div id="home" class="tab-pane fade in active">
                 <div class="row"></div>
                 <button id="toggleFormButton" class="btn btn-primary">Bật/tắt phiếu thêm bệnh nhân</button>
-                <div class="col-md-3">
-                    <form action="#" id="abc">
+                <div class="col-md-12 d-flex">
+                        <div class="col-md-4">
+                            <form action="#" id="abc">
 
-                        <div class="input-group">
-                            @if (ViewBag.searchString != null)
-                            {
-                                <input type="text" name="searchString" class="form-control border-primary w-50" value="@ViewBag.searchString" placeholder="Tìm kiếm: Mã bệnh nhân ,tên, sdt, email,...">
-                            }
-                            else
-                            {
-                                <input type="text" name="searchString" class="form-control border-primary w-50" placeholder="Tìm kiếm: Mã bệnh nhân ,tên, sdt, email,...">
-                            }
-                           
-
-                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
+                                <div class="input-group">
+                                    @if (ViewBag.searchString != null)
+                                    {
+                                        <input type="text" name="searchString" class="form-control border-primary w-50" value="@ViewBag.searchString" placeholder="Tìm kiếm: Mã bệnh nhân ,tên, sdt, email,...">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" name="searchString" class="form-control border-primary w-50" placeholder="Tìm kiếm: Mã bệnh nhân ,tên, sdt, email,...">
+                                    }
+                                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
+                                </div>
+                            </form>                 
                         </div>
-
-                    </form>
+                    <div class="col-md-2 " style="margin-left: 50%">Tổng bệnh nhân: @ViewBag.TongBenhNhan.ToString("N0")</div>
                 </div>
                 @using (Html.BeginForm("Create", "BenhNhans", FormMethod.Post, new { id = "myForm", enctype = "multipart/form-data" }))
                 {
@@ -273,7 +275,7 @@
                         @{
 
                             int stt = (ViewBag.Page - 1) * ViewBag.NoOfRecordsPerPage + 1; // Tính toán số thứ tự bắt đầu
-                            foreach (BenhNhan bn in ViewBag.bn)
+                            foreach (var bn in ViewBag.bn)
                             {
                                 <tr class="Search">
                                     <td style="width:2%">
@@ -284,25 +286,24 @@
                                             <img src="~/image/BN/@bn.AnhBn" alt="Ảnh" />
                                         </div>
                                     </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => bn.MaBenhNhan)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => bn.TenBn)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => bn.NgaySinh)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => bn.GioiTinh)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => bn.Sdt)
-                                    </td>
-                                   
-                                    <td>
-                                        @Html.DisplayFor(modelItem => bn.DiaChi)
-                                    </td>
+                                        <td>
+                                            @bn.MaBenhNhan
+                                        </td>
+                                        <td>
+                                            @bn.TenBn
+                                        </td>
+                                        <td>
+                                            @bn.NgaySinh
+                                        </td>
+                                        <td>
+                                            @bn.GioiTinh
+                                        </td>
+                                        <td>
+                                            @bn.Sdt
+                                        </td>
+                                        <td>
+                                            @bn.DiaChi
+                                        </td>
                                         @if (bn.Active != 1)
                                         {
                                              <td>
@@ -319,8 +320,9 @@
                                             <td>
                                                 <form id="abc" asp-action="ChonPhong" asp-controller="BenhNhans" asp-route-id="@bn.Idbn" style="display: flex;">
                                                     <input type="hidden" name="Idbn" value="@bn.Idbn" />
-                                                    <select class="demo-consoles selectize" style="width:90%" asp-for="@bn.Phong" name="Phong" asp-items="ViewBag.Phong" onchange="showButton(this)">
+                                                    <select class="demo-consoles selectize" style="width:90%" asp-for="Phong" asp-items="ViewBag.Phong" onchange="showButton(this)">
                                                         <option value="1">-Chọn-</option>
+                                                       
                                                     </select>
                                                     <input name="NgaySua" type="hidden" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")">
                                                     <button type="submit" class="btn btn-primary form-control" data-name="@bn.TenBn" onclick="return PhongKham(this);"
@@ -429,7 +431,7 @@
                 <div class="col-md-3 "> 
                     <div class="input-group">
                         <input type="text" id="Search1" class="form-control border-primary w-50" placeholder="Tìm kiếm">
-                       @*  <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button> *@
+                   
                     </div>
                 </div>
                
@@ -479,7 +481,7 @@
 
                             int stt2 = 1; // Khởi tạo số thứ tự ban đầu
 
-                            foreach (BenhNhan bnhide in ViewBag.bnhide)
+                            foreach (var bnhide in ViewBag.bnhide)
                             {
                                 <tr class="Search1">
                                     <td style="width:2%">
@@ -492,30 +494,28 @@
                                         </div>
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => bnhide.MaBenhNhan)
+                                        @bnhide.MaBenhNhan
                                     </td>
 
                                     <td>
-                                        @Html.DisplayFor(modelItem => bnhide.TenBn)
+                                       @bnhide.TenBn
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => bnhide.NgaySinh)
+                                        @bnhide.NgaySinh
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => bnhide.GioiTinh)
+                                     @bnhide.GioiTinh
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => bnhide.Sdt)
+                                       @bnhide.Sdt
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => bnhide.Email)
+                                        bnhide.Email
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => bnhide.DiaChi)
+                                       bnhide.DiaChi
                                     </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => bnhide.GhiChu)
-                                    </td>
+
                                     <td>
 
                                         <a asp-action="Active" onclick="return KhoiPhuc(this)" data-name="@bnhide.TenBn" asp-route-id="@bnhide.Idbn">

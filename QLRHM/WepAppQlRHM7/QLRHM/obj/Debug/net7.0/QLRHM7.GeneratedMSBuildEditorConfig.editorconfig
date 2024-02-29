@@ -9,597 +9,597 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = QLRHM7
 build_property.RootNamespace = QLRHM7
-build_property.ProjectDir = D:\Self Learning\WebDentalClinicManager\QLRHM\WebApp-Dental-Clinic-Manager\QLRHM\WepAppQlRHM7\QLRHM\
+build_property.ProjectDir = D:\Self Learning\WebDentalClinicManager\DentalClinicManager\QLRHM\WepAppQlRHM7\QLRHM\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Self Learning\WebDentalClinicManager\QLRHM\WebApp-Dental-Clinic-Manager\QLRHM\WepAppQlRHM7\QLRHM
+build_property.MSBuildProjectDirectory = D:\Self Learning\WebDentalClinicManager\DentalClinicManager\QLRHM\WepAppQlRHM7\QLRHM
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BacSis/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BacSis/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFjU2lzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BacSis/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BacSis/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFjU2lzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BacSis/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BacSis/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFjU2lzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BacSis/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BacSis/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFjU2lzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BacSis/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BacSis/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFjU2lzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BaoHanhs/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BaoHanhs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFvSGFuaHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BaoHanhs/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BaoHanhs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFvSGFuaHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BaoHanhs/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BaoHanhs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFvSGFuaHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BaoHanhs/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BaoHanhs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFvSGFuaHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BaoHanhs/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BaoHanhs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFvSGFuaHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/ChiTietKhdt.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/ChiTietKhdt.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXENoaVRpZXRLaGR0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/ChiTietPhieuThanhToan.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/ChiTietPhieuThanhToan.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXENoaVRpZXRQaGlldVRoYW5oVG9hbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/DeleteMaster.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/DeleteMaster.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXERlbGV0ZU1hc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/Edit2.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/Edit2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXEVkaXQyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/HuyKHDT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/HuyKHDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXEh1eUtIRFQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/KHDT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/KHDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXEtIRFQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/PdfKeHoachDieuTri.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/PdfKeHoachDieuTri.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXFBkZktlSG9hY2hEaWV1VHJpLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/PdfPhieuThanhToan.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/PdfPhieuThanhToan.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXFBkZlBoaWV1VGhhbmhUb2FuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/PdfXacNhanTT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/PdfXacNhanTT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXFBkZlhhY05oYW5UVC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/SuaKhdt.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/SuaKhdt.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXFN1YUtoZHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/SuaPhieuThanhToan.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/SuaPhieuThanhToan.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXFN1YVBoaWV1VGhhbmhUb2FuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/TaoKhdt.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/TaoKhdt.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXFRhb0toZHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/TaoPhieuThanhToan.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/BenhNhans/TaoPhieuThanhToan.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVuaE5oYW5zXFRhb1BoaWV1VGhhbmhUb2FuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/CongViecs/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/CongViecs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ1ZpZWNzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/CongViecs/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/CongViecs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ1ZpZWNzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/CongViecs/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/CongViecs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ1ZpZWNzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/CongViecs/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/CongViecs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ1ZpZWNzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/CongViecs/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/CongViecs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ1ZpZWNzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/HinhThucThanhToans/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/HinhThucThanhToans/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaFRodWNUaGFuaFRvYW5zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/HinhThucThanhToans/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/HinhThucThanhToans/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaFRodWNUaGFuaFRvYW5zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/HinhThucThanhToans/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/HinhThucThanhToans/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaFRodWNUaGFuaFRvYW5zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/HinhThucThanhToans/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/HinhThucThanhToans/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaFRodWNUaGFuaFRvYW5zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/HinhThucThanhToans/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/HinhThucThanhToans/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaFRodWNUaGFuaFRvYW5zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Home/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Home/Privacy.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeHoachDieuTris/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeHoachDieuTris/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VIb2FjaERpZXVUcmlzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeHoachDieuTris/CreateMaster.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeHoachDieuTris/CreateMaster.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VIb2FjaERpZXVUcmlzXENyZWF0ZU1hc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeHoachDieuTris/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeHoachDieuTris/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VIb2FjaERpZXVUcmlzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeHoachDieuTris/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeHoachDieuTris/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VIb2FjaERpZXVUcmlzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeHoachDieuTris/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeHoachDieuTris/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VIb2FjaERpZXVUcmlzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeHoachDieuTris/EditMaster.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeHoachDieuTris/EditMaster.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VIb2FjaERpZXVUcmlzXEVkaXRNYXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeHoachDieuTris/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeHoachDieuTris/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VIb2FjaERpZXVUcmlzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/ChiTietToaThuoc.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/ChiTietToaThuoc.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VUb2FzXENoaVRpZXRUb2FUaHVvYy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VUb2FzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VUb2FzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VUb2FzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VUb2FzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VUb2FzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/SuaToaThuoc.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/SuaToaThuoc.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VUb2FzXFN1YVRvYVRodW9jLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/TaoToaThuoc.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/KeToas/TaoToaThuoc.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VUb2FzXFRhb1RvYVRodW9jLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/LichHens/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/LichHens/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaEhlbnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/LichHens/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/LichHens/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaEhlbnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/LichHens/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/LichHens/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaEhlbnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/LichHens/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/LichHens/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaEhlbnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/LichHens/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/LichHens/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaEhlbnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/LichHens/KHDT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/LichHens/KHDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaEhlbnNcS0hEVC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/LichHens/ThongKeLichHen.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/LichHens/ThongKeLichHen.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaEhlbnNcVGhvbmdLZUxpY2hIZW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Login/Login.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NganHangs/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NganHangs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbkhhbmdzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NganHangs/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NganHangs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbkhhbmdzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NganHangs/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NganHangs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbkhhbmdzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NganHangs/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NganHangs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbkhhbmdzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NganHangs/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NganHangs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbkhhbmdzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomBacSis/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomBacSis/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUJhY1Npc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomBacSis/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomBacSis/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUJhY1Npc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomBacSis/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomBacSis/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUJhY1Npc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomBacSis/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomBacSis/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUJhY1Npc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomBacSis/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomBacSis/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUJhY1Npc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/CreateMaster.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/CreateMaster.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xDcmVhdGVNYXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/DeleteMaster.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/DeleteMaster.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xEZWxldGVNYXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/DetailsMaster.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/DetailsMaster.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xEZXRhaWxzTWFzdGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/EditMaster.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/EditMaster.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xFZGl0TWFzdGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NhomCongViecs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhvbUNvbmdWaWVjc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NoiDungKeHoaches/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NoiDungKeHoaches/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9pRHVuZ0tlSG9hY2hlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NoiDungKeHoaches/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NoiDungKeHoaches/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9pRHVuZ0tlSG9hY2hlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NoiDungKeHoaches/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NoiDungKeHoaches/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9pRHVuZ0tlSG9hY2hlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NoiDungKeHoaches/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NoiDungKeHoaches/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9pRHVuZ0tlSG9hY2hlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NoiDungKeHoaches/Index - Copy.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NoiDungKeHoaches/Index - Copy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9pRHVuZ0tlSG9hY2hlc1xJbmRleCAtIENvcHkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/NoiDungKeHoaches/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/NoiDungKeHoaches/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9pRHVuZ0tlSG9hY2hlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/PhongKhams/DanhSachPhong.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/PhongKhams/DanhSachPhong.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvbmdLaGFtc1xEYW5oU2FjaFBob25nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/PhongKhams/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/PhongKhams/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvbmdLaGFtc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/PhongKhams/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/PhongKhams/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvbmdLaGFtc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/PhongKhams/KHDT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/PhongKhams/KHDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvbmdLaGFtc1xLSERULmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/PhongKhams/ViewTest.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/PhongKhams/ViewTest.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvbmdLaGFtc1xWaWV3VGVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Shared/Error.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Shared/Home.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Shared/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEhvbWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Shared/Home2.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Shared/Home2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEhvbWUyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Shared/Home_Modal.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Shared/Home_Modal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEhvbWVfTW9kYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Shared/Qlkh.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Shared/Qlkh.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFFsa2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/CaNhan.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/CaNhan.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5zXENhTmhhbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/DoiMatKhau.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/DoiMatKhau.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5zXERvaU1hdEtoYXUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/EditCaNhan.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/EditCaNhan.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5zXEVkaXRDYU5oYW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/TaiKhoans/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThanhToans/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThanhToans/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhhbmhUb2Fuc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThanhToans/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThanhToans/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhhbmhUb2Fuc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThanhToans/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThanhToans/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhhbmhUb2Fuc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThanhToans/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThanhToans/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhhbmhUb2Fuc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThanhToans/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThanhToans/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhhbmhUb2Fuc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThanhToans/PhieuThanhToan.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThanhToans/PhieuThanhToan.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhhbmhUb2Fuc1xQaGlldVRoYW5oVG9hbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThanhToans/SuaPhieuThanhToan.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThanhToans/SuaPhieuThanhToan.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhhbmhUb2Fuc1xTdWFQaGlldVRoYW5oVG9hbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ChiTietBaoCaoCV.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ChiTietBaoCaoCV.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxDaGlUaWV0QmFvQ2FvQ1YuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ChiTietKHDT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ChiTietKHDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxDaGlUaWV0S0hEVC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ChiTietND_KHDT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ChiTietND_KHDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxDaGlUaWV0TkRfS0hEVC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfBoKHDT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfBoKHDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxQZGZCb0tIRFQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfChiTietBaoCaoCV.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfChiTietBaoCaoCV.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxQZGZDaGlUaWV0QmFvQ2FvQ1YuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfChiTietBaoCaoCV2.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfChiTietBaoCaoCV2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxQZGZDaGlUaWV0QmFvQ2FvQ1YyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfChiTietKHDT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfChiTietKHDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxQZGZDaGlUaWV0S0hEVC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfChiTietND_KHDT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfChiTietND_KHDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxQZGZDaGlUaWV0TkRfS0hEVC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfHuyKHDT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfHuyKHDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxQZGZIdXlLSERULmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfThongKeBn.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfThongKeBn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxQZGZUaG9uZ0tlQm4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfThongKeChiTietKHDT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfThongKeChiTietKHDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxQZGZUaG9uZ0tlQ2hpVGlldEtIRFQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfThongKeCV.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfThongKeCV.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxQZGZUaG9uZ0tlQ1YuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfThongKeHoaDon.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfThongKeHoaDon.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxQZGZUaG9uZ0tlSG9hRG9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfThongKeKHDT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfThongKeKHDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxQZGZUaG9uZ0tlS0hEVC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfThongKeND_KHDT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/PdfThongKeND_KHDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxQZGZUaG9uZ0tlTkRfS0hEVC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ThongKeBn.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ThongKeBn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxUaG9uZ0tlQm4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ThongKeChung - Copy.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ThongKeChung - Copy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxUaG9uZ0tlQ2h1bmcgLSBDb3B5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ThongKeCV.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ThongKeCV.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxUaG9uZ0tlQ1YuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ThongKeHoaDon.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ThongKeHoaDon.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxUaG9uZ0tlSG9hRG9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ThongKeKHDT.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/ThongKe/ThongKeKHDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxUaG9uZ0tlS0hEVC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Thuocs/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Thuocs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGh1b2NzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Thuocs/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Thuocs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGh1b2NzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Thuocs/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Thuocs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGh1b2NzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Thuocs/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Thuocs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGh1b2NzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Thuocs/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Thuocs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGh1b2NzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/TienSuBenhNhans/Create.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/TienSuBenhNhans/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGllblN1QmVuaE5oYW5zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/TienSuBenhNhans/Delete.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/TienSuBenhNhans/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGllblN1QmVuaE5oYW5zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/TienSuBenhNhans/Details.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/TienSuBenhNhans/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGllblN1QmVuaE5oYW5zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/TienSuBenhNhans/Edit.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/TienSuBenhNhans/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGllblN1QmVuaE5oYW5zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/TienSuBenhNhans/Index.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/TienSuBenhNhans/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGllblN1QmVuaE5oYW5zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/_404/AccessDenied.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/_404/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcXzQwNFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/_404/Bug.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/_404/Bug.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcXzQwNFxCdWcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/_ViewImports.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/_ViewStart.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Self Learning/WebDentalClinicManager/QLRHM/WebApp-Dental-Clinic-Manager/QLRHM/WepAppQlRHM7/QLRHM/Views/Shared/_Layout.cshtml]
+[D:/Self Learning/WebDentalClinicManager/DentalClinicManager/QLRHM/WepAppQlRHM7/QLRHM/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-cjf2yvd3i2

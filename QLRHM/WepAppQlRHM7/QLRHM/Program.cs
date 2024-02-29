@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using QLRHM.Models;
+using QLRHM7.DTOs;
+using QLRHM7.Interfaces;
 using QLRHM7.Middlewares;
 using Rotativa.AspNetCore;
 using System.Globalization;
@@ -13,10 +15,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DatnqlrhmContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("MyConnectionString")));
 builder.Services.AddDbContext<MasterNcvCvDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("MyConnectionString")));
-//cau hinh de null van chay
 builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
-//cau hinh de null van chay
-
+builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                   .AddCookie(options =>
                   {

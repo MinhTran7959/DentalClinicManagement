@@ -13314,11 +13314,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Self Learning\\WebDentalClinicManager\\QLRHM\\WebApp-Dental-Clinic-Manager\\QLRHM\\WepAppQlRHM7\\QLRHM\\QLRHM7.csproj",
+      "projectUniqueName": "D:\\Self Learning\\WebDentalClinicManager\\DentalClinicManager\\QLRHM\\WepAppQlRHM7\\QLRHM\\QLRHM7.csproj",
       "projectName": "QLRHM7",
-      "projectPath": "D:\\Self Learning\\WebDentalClinicManager\\QLRHM\\WebApp-Dental-Clinic-Manager\\QLRHM\\WepAppQlRHM7\\QLRHM\\QLRHM7.csproj",
+      "projectPath": "D:\\Self Learning\\WebDentalClinicManager\\DentalClinicManager\\QLRHM\\WepAppQlRHM7\\QLRHM\\QLRHM7.csproj",
       "packagesPath": "C:\\Users\\Minh7959\\.nuget\\packages\\",
-      "outputPath": "D:\\Self Learning\\WebDentalClinicManager\\QLRHM\\WebApp-Dental-Clinic-Manager\\QLRHM\\WepAppQlRHM7\\QLRHM\\obj\\",
+      "outputPath": "D:\\Self Learning\\WebDentalClinicManager\\DentalClinicManager\\QLRHM\\WepAppQlRHM7\\QLRHM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Minh7959\\AppData\\Roaming\\NuGet\\NuGet.Config",

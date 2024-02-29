@@ -12,6 +12,9 @@ using Rotativa.AspNetCore.Options;
 using Rotativa.AspNetCore;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using Microsoft.AspNetCore.Authorization;
+using AutoMapper;
+using QLRHM7.Interfaces;
+using QLRHM7.DTOs;
 
 namespace QLRHM7.Controllers
 {
@@ -22,8 +25,12 @@ namespace QLRHM7.Controllers
 
         private readonly DatnqlrhmContext _context;
         private readonly IWebHostEnvironment webHostEnvironment;
-        public BenhNhansController(DatnqlrhmContext context, IWebHostEnvironment webHost)
+        private readonly IUnitOfWork uow;
+        private readonly IMapper mapper;
+        public BenhNhansController(DatnqlrhmContext context, IWebHostEnvironment webHost , IUnitOfWork uow, IMapper mapper)
         {
+            this.uow = uow;
+            this.mapper = mapper;
             _context = context;
             webHostEnvironment = webHost;
         }
@@ -33,17 +40,22 @@ namespace QLRHM7.Controllers
         {
            
             var p = await _context.PhongKhams.Where(x=>x.Id!=1).ToListAsync();
-            var bn = await _context.BenhNhans.Where(x => x.Active == 1).Take(300).OrderByDescending(x => x.Idbn).ToListAsync();
-            var bnhide = await _context.BenhNhans.Where(x => x.Active == 0).Take(300).OrderByDescending(x => x.Idbn).ToListAsync();
+            //var bn = await _context.BenhNhans.Where(x => x.Active == 1).Take(100).OrderByDescending(x => x.Idbn).ToListAsync();
+            var _bn = await uow.benhNhanRepository.GetListBenhNhan();
+            var _bnhide = await uow.benhNhanRepository.GetListBenhNhanAn();
+
+            var bn = mapper.Map<IEnumerable<BenhNhanDto>>(_bn);
+            var bnhide = mapper.Map<IEnumerable<BenhNhanDto>>(_bnhide);
+            var TongBN = await _context.BenhNhans.CountAsync();
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                bn = await _context.BenhNhans.Where(x => x.Active == 1 && (x.MaBenhNhan.Contains(searchString))
-                       || (x.TenBn.Contains(searchString)) || x.Sdt.Contains(searchString)| x.Cccd.Contains(searchString) || (x.Email.Contains(searchString)) ).ToListAsync();
-                // update sử dụng Elasticsearch 
+                var searchResult = await uow.benhNhanRepository.Search(searchString);
+                bn = mapper.Map<IEnumerable<BenhNhanDto>>(searchResult);
+
             }
             int NoOfRecordPerPage = 10;
-            int NoOfPages = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(bn.Count) / Convert.ToDouble(NoOfRecordPerPage)));
+            int NoOfPages = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(bn.Count()) / Convert.ToDouble(NoOfRecordPerPage)));
             int NoOfRecordToSkip = (page - 1) * NoOfRecordPerPage;
             ViewBag.Page = page;
             ViewBag.NoOfPages = NoOfPages;
@@ -59,6 +71,7 @@ namespace QLRHM7.Controllers
              });
             ViewBag.searchString = searchString;
             ViewBag.MaBenhNhan = MaBenhNhan();
+            ViewBag.TongBenhNhan = TongBN;
             return View();
         }
 

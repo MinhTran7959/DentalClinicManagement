@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5Aq/XHokbV4dbGdFE0j0Q4+72ERbWnL265JLnDfKNxRoXHSImvJ+DzLowV6UUajLN6vKIs8FasNBR9l7rJrb/w==",
+  "dgSpecHash": "35wF2wW8XCAh3NUNpY2MiRgr5u0NbLWDOZ07VumWpheeyK5ep95wU8WC74f6x4zuAwx0UuaYdbHBkszPlls++g==",
   "success": true,
-  "projectFilePath": "D:\\Self Learning\\WebDentalClinicManager\\QLRHM\\WebApp-Dental-Clinic-Manager\\QLRHM\\WepAppQlRHM7\\QLRHM\\QLRHM7.csproj",
+  "projectFilePath": "D:\\Self Learning\\WebDentalClinicManager\\DentalClinicManager\\QLRHM\\WepAppQlRHM7\\QLRHM\\QLRHM7.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Minh7959\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Minh7959\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
