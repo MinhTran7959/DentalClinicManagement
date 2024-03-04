@@ -5,7 +5,7 @@ utilized unit of work pattern, DTO (Data Transfer Object).
 
 Database: MS SQL Server 2019   
 
-Public in MS Azure: https://qlrhm7.azurewebsites.net/
+Demo MS Azure: https://qlrhm7.azurewebsites.net/
 
 Tiếp nhận bệnh nhân đăng ký phòng khám
 
