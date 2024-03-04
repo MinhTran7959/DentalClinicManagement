@@ -1,8 +1,12 @@
 # DentalClinicManager
- C#, ASP.NET Core 7, MVC, LINQ, jQuery, AJAX, JavaScript, HTML5, CSS, Bootstrap 5, 
- utilized unit of work pattern, DTO (Data Transfer Object). 
+Technology stack:  C#, ASP.NET Core 7, MVC, LINQ, jQuery, AJAX, JavaScript, HTML5, CSS, Bootstrap 5, 
+
+utilized unit of work pattern, DTO (Data Transfer Object). 
 
 Database: MS SQL Server 2019   
+
+Public in MS Azure: https://qlrhm7.azurewebsites.net/
+
 Tiếp nhận bệnh nhân đăng ký phòng khám
 
 ![image](https://github.com/MinhTran7959/DentalClinicManager/assets/128154976/926437f6-d325-4360-94e7-0fea39110e0b)
