@@ -1,4 +1,5 @@
 # DentalClinicManager
+# https://qlrhm7.azurewebsites.net/
 Technology stack:  C#, ASP.NET Core 7, MVC, LINQ, jQuery, AJAX, JavaScript, HTML5, CSS, Bootstrap 5, 
 
 The Dental Clinic Manager project aims to facilitate the efficient operation of a dental clinic by providing 
