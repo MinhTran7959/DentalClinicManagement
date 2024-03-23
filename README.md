@@ -1,4 +1,4 @@
-# DentalClinicManager
+# DentalClinicManagement
 # https://qlrhm7.azurewebsites.net/
 Technology stack: C#, ASP.NET Core 7, MVC, LINQ, jQuery, AJAX, JavaScript, HTML5, CSS, Bootstrap 5, implemented repository pattern, utilized unit of work pattern, DTO (Data Transfer Object).
 
